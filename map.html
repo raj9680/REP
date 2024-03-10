@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Google Map</title>
+    <style>
+		#map {
+			height: 400px;
+			width: 100%;
+		}
+	</style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+  </body>
+  
+<script>
+  function initMap() {
+  const zoom = 9;
+  
+  const POINTS = [
+    { lat: 31.6340, lng: 74.8723 },
+    { lat: 31.5604, lng: 75.0290 },
+	{ lat: 31.3260, lng: 75.5762 },
+	{ lat: 31.5131, lng: 75.2869 },
+	{ lat: 31.5978, lng: 74.6020 },
+	{ lat: 31.4539, lng: 74.9268 }
+  ];
+
+  const URLS = ["#url1", "#url2"];
+  
+  const MAP = new google.maps.Map(document.getElementById("map"), {
+    zoom: zoom,
+    center: POINTS[0],
+  });
+
+  for (let i = 0; i < POINTS.length; i++) {
+    // creation of the marker
+    const MARKER = new google.maps.Marker({
+      map: MAP,
+      position: POINTS[i],
+      url: URLS[i]
+    });
+
+    google.maps.event.addListener(MARKER, "click", function() {
+      window.location.href = this.url;
+    });
+  }
+}
+</script> 
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnJEAQfHhQPYxgAVdMjLbLL5r1hQ7PpoQ&loading=async&callback=initMap"></script>
+</html>
