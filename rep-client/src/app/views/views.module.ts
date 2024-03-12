@@ -11,6 +11,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PropertyDetailComponent } from './property-detail/property-detail.component';
 import { OurProfessionalDetailComponent } from './our-professional-detail/our-professional-detail.component';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { OurProfessionalDetailComponent } from './our-professional-detail/our-pr
   ],
   imports: [
     CommonModule,
-    ViewsRoutingModule
+    ViewsRoutingModule, 
+    NgImageSliderModule
   ],
   exports: [
     WhyRepComponent, JoinRepComponent, OurProfessionalsComponent, PropertySearchComponent, HomeEvaluationComponent, ContactUsComponent, HomePageComponent
