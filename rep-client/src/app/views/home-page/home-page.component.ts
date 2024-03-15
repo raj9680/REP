@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { HomePageService } from '../services/home-page.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,8 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
+  featuredProperties: any[] | undefined;
+  diamondProperties: any[] | undefined;
   
-  constructor() { }
+  constructor(private homePage: HomePageService) { }
   imageObject: Array<object> = [{
     image: 'https://mukeshswami.com/frontend/images/home/citycenter.webp',
     thumbImage: 'https://mukeshswami.com/frontend/images/home/citycenter.webp',
@@ -59,6 +62,18 @@ export class HomePageComponent implements OnInit {
 }
 ];
   ngOnInit(): void {
+    this.homePage.getFeaturedProperties().subscribe(properties => {
+      this.featuredProperties = properties;
+    });
+    //getDiamondProperties
+    this.homePage.getDiamondProperties().subscribe(properties => {
+      this.diamondProperties = properties;
+    });
+    console.log("Hi");
+  }
+
+  getDiamond(): void {
+  
   }
 
   alert() {
