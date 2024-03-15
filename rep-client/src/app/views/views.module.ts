@@ -13,6 +13,7 @@ import { PropertyDetailComponent } from './property-detail/property-detail.compo
 import { OurProfessionalDetailComponent } from './our-professional-detail/our-professional-detail.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { LightgalleryModule } from 'lightgallery/angular/13';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { LightgalleryModule } from 'lightgallery/angular/13';
     CommonModule,
     ViewsRoutingModule, 
     NgImageSliderModule,
-    LightgalleryModule
+    LightgalleryModule,
+    NgxPaginationModule
   ],
   exports: [
     WhyRepComponent, JoinRepComponent, OurProfessionalsComponent, PropertySearchComponent, HomeEvaluationComponent, ContactUsComponent, HomePageComponent

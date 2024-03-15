@@ -11,14 +11,18 @@
                   <div class="col-12 col-sm-12 px-1 mb-3 m-res">
                      <div class="name-input email-input position-relative row res-h">
                         <div class="px-0 col-12 col-sm-9">
-                           <input type="" placeholder="Realtors®️ Name - Search by first, last or full name" id="searchInput" name="search" class="search">
+                           <input type="" placeholder="Realtors®️ Name - Search by first, last or full name"
+                              id="searchInput" name="search" class="search">
                            <ul id="suggestionsList"></ul>
                         </div>
                         <div class="col-3 col-sm-1 reset-btn">
                            <i class="ri-refresh-line"></i>
                         </div>
                         <div class="search-btn col-9 col-sm-2 px-0 text-end">
-                           <button class=" ud-btn  blue-btn" onclick="searchAgents()" id="searchInputss">Search Realtors <img width="10" height="10"  src="https://img.icons8.com/metro/26/000000/registered-trademark.png" alt="registered-trademark"/></button>
+                           <button class=" ud-btn  blue-btn" onclick="searchAgents()" id="searchInputss">Search Realtors
+                              <img width="10" height="10"
+                                 src="https://img.icons8.com/metro/26/000000/registered-trademark.png"
+                                 alt="registered-trademark" /></button>
                         </div>
                      </div>
                   </div>
@@ -36,7 +40,7 @@
                   </div>
                   <div class="col-6 col-sm mt-2 mt-sm-0 px-1 language-filt ">
                      <div class="name-input elemm">
-                        <div class="checkbox-dropdown" >
+                        <div class="checkbox-dropdown">
                            Choose Language
                            <i class="ri-arrow-down-s-line"></i>
                            <ul class="checkbox-dropdown-list">
@@ -46,7 +50,7 @@
                   </div>
                   <div class="col-12 col-sm mt-2 mt-sm-0 px-1  ">
                      <div class="name-input elemm">
-                        <select name="cars"  id="officeSelect" class="select-boxes-filter">
+                        <select name="cars" id="officeSelect" class="select-boxes-filter">
                            <option value="">All Office</option>
                            <option value="1297353">North</option>
                            <option value="1298083">South</option>
@@ -61,8 +65,8 @@
    </div>
 </div>
 <div class="container-fluid agents">
-   <div class="container p-0 professionals" >
-      
+   <div class="container p-0 professionals">
+
       <div class="sortby">
          <select id="sortSelect">
             <option value="">Sort By</option>
@@ -71,42 +75,53 @@
          </select>
       </div>
       <div class="row" id="agentList">
-        
-         <div *ngFor="let agent of agents" class="col-12 col-sm-6 col-lg-3">
+
+         <div *ngFor="
+               let item of agents
+               | paginate
+               : {
+                 itemsPerPage: itemsPerPage,
+                 currentPage: page,
+                 totalItems: totalItems
+                 }" class="col-12 col-sm-6 col-lg-3">
             <div class="agent-in mt-4">
                <div class="container profile-sec position-relative p-0">
                   <div class="row">
                      <div class="col-12 col-sm-12 profile-img position-relative">
                         <div class="agent-pics">
-                           <a href="#">
-                           <img src="{{agent.image}}" alt="">
+                           <a [routerLink]="['/our-professional','{{item.agent_id}}']">
+                              <img src="{{item.image}}" alt="">
                            </a>
                         </div>
                      </div>
                      <div class="col-12 col-sm-12 profile-delt mt-3 mt-sm-0">
                         <div class="profile-delt px-3">
                            <div class="d-flex align-items-start justify-content-between">
-                              <a href="#">
-                                 <h5>{{agent.agent_name}}</h5>
+                              <a href="/views/our-professional/{{item.agent_id}}">
+                                 <h5>{{item.agent_name}}</h5>
                               </a>
                               <div class="d-flex gap-2">
-                                 <a href="mailto:{{agent.agent_email}}"><i class="fa-light fa-envelope"></i></a>
-                                 <a href="tel:{{agent.agent_contact}}"><i class="fa-light fa-phone"></i></a>
+                                 <a href="mailto:{{item.agent_email}}"><i class="fa-light fa-envelope"></i></a>
+                                 <a href="tel:{{item.agent_contact}}"><i class="fa-light fa-phone"></i></a>
                               </div>
                            </div>
-                           <p>{{agent.agent_title}}</p>
+                           <p>{{item.agent_title}}</p>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-      
-      </div>
-      <br>
-
+      </div><br>
 
       <nav aria-label="Agent Pagination">
+         <div class="mbp_pagination text-center">
+            <pagination-controls class="pagi" (pageChange)="gty((page = $event))"></pagination-controls>
+         </div>
+      </nav>
+
+
+      <!-- <nav aria-label="Agent Pagination">
          <div class="mbp_pagination text-center">
             <ul id="pagination" class="page_navigation">
                 <li class="page-item disabled"><span class="page-link"><i class="fa fa-angle-double-left"></i></span></li>
@@ -122,6 +137,6 @@
             </p>
             
          </div>
-      </nav>
+      </nav> -->
    </div>
 </div>

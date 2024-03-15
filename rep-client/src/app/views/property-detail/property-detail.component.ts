@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-property-detail',
@@ -11,6 +11,11 @@ export class PropertyDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
 
-}
+  }
+  
+  @HostListener('scroll', ['$event'])
+  onScroll(event: any) {
+    if (event.target.scroll > 100) {
+      alert("hello");
+    }}}

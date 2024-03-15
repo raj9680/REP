@@ -16,7 +16,7 @@ export class AuthInterceptorService  implements HttpInterceptor {
         Authorization: "Pass auth token here"
       }}
     );
-
+    
     return next.handle(req);
   }
 

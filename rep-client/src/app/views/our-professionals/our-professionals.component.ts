@@ -9,6 +9,9 @@ import { OurProfessionalsService } from '../services/our-professionals.service';
 export class OurProfessionalsComponent implements OnInit {
 
   agents: any[] = [];
+  page: number = 1;
+  itemsPerPage = 8;
+  totalItems : any; 
 
   constructor(private _agentService: OurProfessionalsService) { }
 
@@ -17,6 +20,18 @@ export class OurProfessionalsComponent implements OnInit {
   }
 
   getAgents() {
-    this._agentService.getAgentLists().subscribe(data => this.agents = data);
+    this._agentService.getAgentLists().subscribe(data => {
+      this.agents = data;
+      this.page = 0;
+      this.totalItems = data.length;
+      console.log(data);
+    });
+  }
+
+  gty(page: any){
+    this._agentService.getAgentLists().subscribe((data: any) => {
+      this.agents = data;
+      this.totalItems = data.lenght;
+    })
   }
 }
