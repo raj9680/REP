@@ -4,7 +4,8 @@ import { HomePageService } from '../services/home-page.service';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  styleUrls: ['./home-page.component.css'],
+  providers: [HomePageService]
 })
 export class HomePageComponent implements OnInit {
 
@@ -63,13 +64,14 @@ export class HomePageComponent implements OnInit {
 ];
   ngOnInit(): void {
     this.homePage.getFeaturedProperties().subscribe(properties => {
+      debugger
       this.featuredProperties = properties;
     });
     //getDiamondProperties
     this.homePage.getDiamondProperties().subscribe(properties => {
+      debugger
       this.diamondProperties = properties;
     });
-    console.log("Hi");
   }
 
   getDiamond(): void {

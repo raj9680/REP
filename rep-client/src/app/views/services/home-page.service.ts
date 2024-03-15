@@ -13,9 +13,8 @@ export class HomePageService {
     throw new Error('Method not implemented.');
   }
 
-  //private url = 'https://example.com/api/data.json'; // Replace with your JSON API URL
 
-  private url = 'assets/homeSampleData.json'; // Path to your JSON file
+  private url = 'https://localhost:7047/api/Home/GetHomeProperties'; // Path to your JSON file
 
 
 
