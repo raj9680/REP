@@ -113,12 +113,11 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm-6 col-lg-4 col-xl-3">
+    <div class="row" *ngIf="diamondProperties">
+      <div class="col-sm-6 col-lg-4 col-xl-3" *ngFor="let property of diamondProperties">
         <div class="listing-style5">
           <div class="list-thumb">
-            <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668"
-              onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
+            <img src="{{property.image_url}}" alt="{{property.listingKeyNumeric}}">
 
             <div class="list-tag fz12">
               <i class="fa-thin fa-gem me-2"></i>Diamond
@@ -128,296 +127,28 @@
                 class="set-as-fav">
                 <span class="flaticon-like"></span>
               </a>
-              <a href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip"
+              <a href="https://mukeshswami.com/property-detail/{{property.listingId}}" data-bs-toggle="tooltip"
                 data-bs-placement="top" title="Preview" target="_blank">
                 <span class="flaticon-fullscreen"></span>
               </a>
             </div>
           </div>
           <div class="list-content">
-            <div class="list-price mb-2">$1,200,000</div>
+            <div class="list-price mb-2">${{property.listPrice}}</div>
             <h6 class="list-title">
-              <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a>
+              <a href="https://mukeshswami.com/property-detail/{{property.listingId}}">{{property.city}}, {{property.stateOrProvince}}</a>
             </h6>
 
-            <p class="list-text">Commercial</p>
+            <p class="list-text">{{property.propertyType}}</p>
             <div class="list-meta d-flex align-items-center gap-3">
 
 
-              <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
+              <a href="#"><span class="flaticon-expand"></span>{{property.livingAreaSF}} sqft</a>
             </div>
-            <span class="mlsNumber">MLS® # A2073668</span>
+            <span class="mlsNumber">MLS® # {{property.listingId}}</span>
           </div>
         </div>
       </div>
-
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <div class="listing-style5">
-          <div class="list-thumb">
-            <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668"
-              onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
-
-            <div class="list-tag fz12">
-              <i class="fa-thin fa-gem me-2"></i>Diamond
-            </div>
-            <div class="list-meta2">
-              <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
-                class="set-as-fav">
-                <span class="flaticon-like"></span>
-              </a>
-              <a href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="Preview" target="_blank">
-                <span class="flaticon-fullscreen"></span>
-              </a>
-            </div>
-          </div>
-          <div class="list-content">
-            <div class="list-price mb-2">$1,200,000</div>
-            <h6 class="list-title">
-              <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a>
-            </h6>
-
-            <p class="list-text">Commercial</p>
-            <div class="list-meta d-flex align-items-center gap-3">
-
-
-              <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
-            </div>
-            <span class="mlsNumber">MLS® # A2073668</span>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <div class="listing-style5">
-          <div class="list-thumb">
-            <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668"
-              onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
-
-            <div class="list-tag fz12">
-              <i class="fa-thin fa-gem me-2"></i>Diamond
-            </div>
-            <div class="list-meta2">
-              <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
-                class="set-as-fav">
-                <span class="flaticon-like"></span>
-              </a>
-              <a href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="Preview" target="_blank">
-                <span class="flaticon-fullscreen"></span>
-              </a>
-            </div>
-          </div>
-          <div class="list-content">
-            <div class="list-price mb-2">$1,200,000</div>
-            <h6 class="list-title">
-              <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a>
-            </h6>
-
-            <p class="list-text">Commercial</p>
-            <div class="list-meta d-flex align-items-center gap-3">
-
-
-              <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
-            </div>
-            <span class="mlsNumber">MLS® # A2073668</span>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <div class="listing-style5">
-          <div class="list-thumb">
-            <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668"
-              onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
-
-            <div class="list-tag fz12">
-              <i class="fa-thin fa-gem me-2"></i>Diamond
-            </div>
-            <div class="list-meta2">
-              <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
-                class="set-as-fav">
-                <span class="flaticon-like"></span>
-              </a>
-              <a href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="Preview" target="_blank">
-                <span class="flaticon-fullscreen"></span>
-              </a>
-            </div>
-          </div>
-          <div class="list-content">
-            <div class="list-price mb-2">$1,200,000</div>
-            <h6 class="list-title">
-              <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a>
-            </h6>
-
-            <p class="list-text">Commercial</p>
-            <div class="list-meta d-flex align-items-center gap-3">
-
-
-              <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
-            </div>
-            <span class="mlsNumber">MLS® # A2073668</span>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <div class="listing-style5">
-          <div class="list-thumb">
-            <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668"
-              onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
-
-            <div class="list-tag fz12">
-              <i class="fa-thin fa-gem me-2"></i>Diamond
-            </div>
-            <div class="list-meta2">
-              <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
-                class="set-as-fav">
-                <span class="flaticon-like"></span>
-              </a>
-              <a href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="Preview" target="_blank">
-                <span class="flaticon-fullscreen"></span>
-              </a>
-            </div>
-          </div>
-          <div class="list-content">
-            <div class="list-price mb-2">$1,200,000</div>
-            <h6 class="list-title">
-              <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a>
-            </h6>
-
-            <p class="list-text">Commercial</p>
-            <div class="list-meta d-flex align-items-center gap-3">
-
-
-              <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
-            </div>
-            <span class="mlsNumber">MLS® # A2073668</span>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <div class="listing-style5">
-          <div class="list-thumb">
-            <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668"
-              onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
-
-            <div class="list-tag fz12">
-              <i class="fa-thin fa-gem me-2"></i>Diamond
-            </div>
-            <div class="list-meta2">
-              <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
-                class="set-as-fav">
-                <span class="flaticon-like"></span>
-              </a>
-              <a href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="Preview" target="_blank">
-                <span class="flaticon-fullscreen"></span>
-              </a>
-            </div>
-          </div>
-          <div class="list-content">
-            <div class="list-price mb-2">$1,200,000</div>
-            <h6 class="list-title">
-              <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a>
-            </h6>
-
-            <p class="list-text">Commercial</p>
-            <div class="list-meta d-flex align-items-center gap-3">
-
-
-              <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
-            </div>
-            <span class="mlsNumber">MLS® # A2073668</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <div class="listing-style5">
-          <div class="list-thumb">
-            <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668"
-              onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
-
-            <div class="list-tag fz12">
-              <i class="fa-thin fa-gem me-2"></i>Diamond
-            </div>
-            <div class="list-meta2">
-              <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
-                class="set-as-fav">
-                <span class="flaticon-like"></span>
-              </a>
-              <a href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="Preview" target="_blank">
-                <span class="flaticon-fullscreen"></span>
-              </a>
-            </div>
-          </div>
-          <div class="list-content">
-            <div class="list-price mb-2">$1,200,000</div>
-            <h6 class="list-title">
-              <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a>
-            </h6>
-
-            <p class="list-text">Commercial</p>
-            <div class="list-meta d-flex align-items-center gap-3">
-
-
-              <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
-            </div>
-            <span class="mlsNumber">MLS® # A2073668</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <div class="listing-style5">
-          <div class="list-thumb">
-            <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668"
-              onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
-
-            <div class="list-tag fz12">
-              <i class="fa-thin fa-gem me-2"></i>Diamond
-            </div>
-            <div class="list-meta2">
-              <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
-                class="set-as-fav">
-                <span class="flaticon-like"></span>
-              </a>
-              <a href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="Preview" target="_blank">
-                <span class="flaticon-fullscreen"></span>
-              </a>
-            </div>
-          </div>
-          <div class="list-content">
-            <div class="list-price mb-2">$1,200,000</div>
-            <h6 class="list-title">
-              <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a>
-            </h6>
-
-            <p class="list-text">Commercial</p>
-            <div class="list-meta d-flex align-items-center gap-3">
-
-
-              <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
-            </div>
-            <span class="mlsNumber">MLS® # A2073668</span>
-          </div>
-        </div>
-      </div>
-
-
-
-
-
     </div>
   </div>
 </section>
@@ -537,13 +268,50 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="featuredProperties">
       <div class="col-lg-12 wow fadeInUp" data-wow-delay="300ms">
         <div class="tab-content" id="pills-tabContent">
           <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="row">
               
-              <div class="col-sm-6 col-lg-4 col-xl-3">
+              <div class="col-sm-6 col-lg-4 col-xl-3" *ngFor="let property of featuredProperties">
+                <div class="listing-style5">
+                    <div class="list-thumb">
+                        <img *ngIf="property.image_url!== ''" src="{{ property.image_url}}" alt="A2073668" onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
+    
+                        <div class="list-tag fz12">
+                            <i class="fa-thin fa-gem me-2"></i>Featured
+                        </div>
+                        <div class="list-meta2">
+                            <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite" class="set-as-fav">
+                                <span class="flaticon-like"></span>
+                            </a>
+                            <a href="https://mukeshswami.com/property-detail/{{property.listingId}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview" target="_blank">
+                                <span class="flaticon-fullscreen"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="list-content">
+                        <div class="list-price mb-2" *ngIf="property.listPrice!== ''">${{property.listPrice}}</div>
+                        <h6 class="list-title">
+            
+                            <a href="https://mukeshswami.com/property-detail/{{property.listingId}}">{{property.unparsedAddress}}{{property.city}}, {{property.stateOrProvince}}</a></h6>
+                            
+                        <p *ngIf="property.propertyType!== ''" class="list-text">{{property.propertyType}}</p>
+                        <div class="list-meta d-flex align-items-center gap-3"> 
+                            <a href="#" *ngIf="property.buildingAreaTotalSF!== ''"><span class="flaticon-expand"></span>{{property.buildingAreaTotalSF}} sqft</a>
+                        </div>
+                        <div class="list-meta d-flex align-items-center gap-3">
+                          <a href="#" *ngIf="property.bedroomsTotal!== ''"><span class="flaticon-bed"></span>{{property.bedroomsTotal}} bed</a>
+                          <a href="#" *ngIf="property.bathroomsFull!== ''"><span class="flaticon-shower"></span>{{property.bathroomsFull}} bath</a>
+                          <a href="#" *ngIf="property.livingAreaSF!== ''"><span class="flaticon-expand"></span>{{property.livingAreaSF}} sqft</a>
+                      </div>
+                        <span *ngIf="property.listingId!== ''" class="mlsNumber">MLS® # {{property.listingId}}</span>
+                    </div>
+                </div>
+              </div>
+
+              <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                 <div class="listing-style5">
                     <div class="list-thumb">
                         <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668" onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
@@ -640,9 +408,9 @@
                         <span class="mlsNumber">MLS® # A2073668</span>
                     </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="col-sm-6 col-lg-4 col-xl-3">
+              <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                 <div class="listing-style5">
                     <div class="list-thumb">
                         <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668" onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
@@ -673,9 +441,9 @@
                         <span class="mlsNumber">MLS® # A2073668</span>
                     </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="col-sm-6 col-lg-4 col-xl-3">
+              <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                 <div class="listing-style5">
                     <div class="list-thumb">
                         <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668" onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
@@ -706,9 +474,9 @@
                         <span class="mlsNumber">MLS® # A2073668</span>
                     </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="col-sm-6 col-lg-4 col-xl-3">
+              <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                 <div class="listing-style5">
                     <div class="list-thumb">
                         <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668" onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
@@ -739,9 +507,9 @@
                         <span class="mlsNumber">MLS® # A2073668</span>
                     </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="col-sm-6 col-lg-4 col-xl-3">
+              <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                 <div class="listing-style5">
                     <div class="list-thumb">
                         <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668" onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
@@ -772,40 +540,7 @@
                         <span class="mlsNumber">MLS® # A2073668</span>
                     </div>
                 </div>
-              </div>
-
-              <div class="col-sm-6 col-lg-4 col-xl-3">
-                <div class="listing-style5">
-                    <div class="list-thumb">
-                        <img src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668" onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
-    
-                        <div class="list-tag fz12">
-                            <i class="fa-thin fa-gem me-2"></i>Diamond
-                        </div>
-                        <div class="list-meta2">
-                            <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite" class="set-as-fav">
-                                <span class="flaticon-like"></span>
-                            </a>
-                            <a href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview" target="_blank">
-                                <span class="flaticon-fullscreen"></span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="list-content">
-                        <div class="list-price mb-2">$1,200,000</div>
-                        <h6 class="list-title">
-                            <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a></h6>
-                            
-                        <p class="list-text">Commercial</p>
-                        <div class="list-meta d-flex align-items-center gap-3">
-                            
-                            
-                            <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
-                        </div>
-                        <span class="mlsNumber">MLS® # A2073668</span>
-                    </div>
-                </div>
-              </div>
+              </div> -->
 
               
               
@@ -1048,7 +783,7 @@
 
 
 <!-- Explore Apartment -->
-<section>
+<!-- <section>
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -1056,6 +791,12 @@
           <h2 class="title">
             Calgary and Surrounding Area Housing Statistics
           </h2>
+          <div *ngIf="featuredProperties">
+            <h1>Hi</h1>
+            <ul>
+              <li *ngFor="let property of featuredProperties">{{ property.id }}</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -1131,7 +872,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- Explore Apartment -->
 
