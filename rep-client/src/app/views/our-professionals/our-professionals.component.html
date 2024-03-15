@@ -62,7 +62,7 @@
 </div>
 <div class="container-fluid agents">
    <div class="container p-0 professionals" >
-      <!-- <h6>Our Professionals</h6>xam -->
+      
       <div class="sortby">
          <select id="sortSelect">
             <option value="">Sort By</option>
@@ -71,15 +71,15 @@
          </select>
       </div>
       <div class="row" id="agentList">
-        <!-- Agent one -->
-         <div class="col-12 col-sm-6 col-lg-3">
+        
+         <div *ngFor="let agent of agents" class="col-12 col-sm-6 col-lg-3">
             <div class="agent-in mt-4">
                <div class="container profile-sec position-relative p-0">
                   <div class="row">
                      <div class="col-12 col-sm-12 profile-img position-relative">
                         <div class="agent-pics">
                            <a href="#">
-                           <img src="https://homez-appdir.vercel.app/agent-single/1" alt="">
+                           <img src="{{agent.image}}" alt="">
                            </a>
                         </div>
                      </div>
@@ -87,156 +87,25 @@
                         <div class="profile-delt px-3">
                            <div class="d-flex align-items-start justify-content-between">
                               <a href="#">
-                                 <h5>Aftab Khan
-                                 </h5>
+                                 <h5>{{agent.agent_name}}</h5>
                               </a>
                               <div class="d-flex gap-2">
-                                 <a href="mailto:mail"><i class="fa-light fa-envelope"></i></a>
-                                 <a href="tel:1234"><i class="fa-light fa-phone"></i></a>
+                                 <a href="mailto:{{agent.agent_email}}"><i class="fa-light fa-envelope"></i></a>
+                                 <a href="tel:{{agent.agent_contact}}"><i class="fa-light fa-phone"></i></a>
                               </div>
                            </div>
-                           <p>Associate</p>
+                           <p>{{agent.agent_title}}</p>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-         <!-- End -->
-
-         <!-- Agent one -->
-         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="agent-in mt-4">
-               <div class="container profile-sec position-relative p-0">
-                  <div class="row">
-                     <div class="col-12 col-sm-12 profile-img position-relative">
-                        <div class="agent-pics">
-                           <a href="#">
-                           <img src="https://homez-appdir.vercel.app/agent-single/1" alt="">
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-12 col-sm-12 profile-delt mt-3 mt-sm-0">
-                        <div class="profile-delt px-3">
-                           <div class="d-flex align-items-start justify-content-between">
-                              <a href="#">
-                                 <h5>Aftab Khan
-                                 </h5>
-                              </a>
-                              <div class="d-flex gap-2">
-                                 <a href="mailto:mail"><i class="fa-light fa-envelope"></i></a>
-                                 <a href="tel:1234"><i class="fa-light fa-phone"></i></a>
-                              </div>
-                           </div>
-                           <p>Associate</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- End -->
-
-         <!-- Agent one -->
-         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="agent-in mt-4">
-               <div class="container profile-sec position-relative p-0">
-                  <div class="row">
-                     <div class="col-12 col-sm-12 profile-img position-relative">
-                        <div class="agent-pics">
-                           <a href="#">
-                           <img src="https://homez-appdir.vercel.app/agent-single/1" alt="">
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-12 col-sm-12 profile-delt mt-3 mt-sm-0">
-                        <div class="profile-delt px-3">
-                           <div class="d-flex align-items-start justify-content-between">
-                              <a href="#">
-                                 <h5>Aftab Khan
-                                 </h5>
-                              </a>
-                              <div class="d-flex gap-2">
-                                 <a href="mailto:mail"><i class="fa-light fa-envelope"></i></a>
-                                 <a href="tel:1234"><i class="fa-light fa-phone"></i></a>
-                              </div>
-                           </div>
-                           <p>Associate</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- End -->
-
-         <!-- Agent one -->
-         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="agent-in mt-4">
-               <div class="container profile-sec position-relative p-0">
-                  <div class="row">
-                     <div class="col-12 col-sm-12 profile-img position-relative">
-                        <div class="agent-pics">
-                           <a href="#">
-                           <img src="https://homez-appdir.vercel.app/agent-single/1" alt="">
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-12 col-sm-12 profile-delt mt-3 mt-sm-0">
-                        <div class="profile-delt px-3">
-                           <div class="d-flex align-items-start justify-content-between">
-                              <a href="#">
-                                 <h5>Aftab Khan
-                                 </h5>
-                              </a>
-                              <div class="d-flex gap-2">
-                                 <a href="mailto:mail"><i class="fa-light fa-envelope"></i></a>
-                                 <a href="tel:1234"><i class="fa-light fa-phone"></i></a>
-                              </div>
-                           </div>
-                           <p>Associate</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- End -->
-
-         <!-- Agent one -->
-         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="agent-in mt-4">
-               <div class="container profile-sec position-relative p-0">
-                  <div class="row">
-                     <div class="col-12 col-sm-12 profile-img position-relative">
-                        <div class="agent-pics">
-                           <a href="#">
-                           <img src="https://homez-appdir.vercel.app/agent-single/1" alt="">
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-12 col-sm-12 profile-delt mt-3 mt-sm-0">
-                        <div class="profile-delt px-3">
-                           <div class="d-flex align-items-start justify-content-between">
-                              <a href="#">
-                                 <h5>Aftab Khan
-                                 </h5>
-                              </a>
-                              <div class="d-flex gap-2">
-                                 <a href="mailto:mail"><i class="fa-light fa-envelope"></i></a>
-                                 <a href="tel:1234"><i class="fa-light fa-phone"></i></a>
-                              </div>
-                           </div>
-                           <p>Associate</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- End -->
+      
       </div>
       <br>
+
+
       <nav aria-label="Agent Pagination">
          <div class="mbp_pagination text-center">
             <ul id="pagination" class="page_navigation">

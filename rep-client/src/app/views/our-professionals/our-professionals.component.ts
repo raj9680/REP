@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OurProfessionalsService } from '../services/our-professionals.service';
 
 @Component({
   selector: 'app-our-professionals',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OurProfessionalsComponent implements OnInit {
 
-  constructor() { }
+  agents: any[] = [];
+
+  constructor(private _agentService: OurProfessionalsService) { }
 
   ngOnInit(): void {
+    this.getAgents();
   }
 
+  getAgents() {
+    this._agentService.getAgentLists().subscribe(data => this.agents = data);
+  }
 }

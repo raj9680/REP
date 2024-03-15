@@ -12,6 +12,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { PropertyDetailComponent } from './property-detail/property-detail.component';
 import { OurProfessionalDetailComponent } from './our-professional-detail/our-professional-detail.component';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { LightgalleryModule } from 'lightgallery/angular/13';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { NgImageSliderModule } from 'ng-image-slider';
   imports: [
     CommonModule,
     ViewsRoutingModule, 
-    NgImageSliderModule
+    NgImageSliderModule,
+    LightgalleryModule
   ],
   exports: [
     WhyRepComponent, JoinRepComponent, OurProfessionalsComponent, PropertySearchComponent, HomeEvaluationComponent, ContactUsComponent, HomePageComponent

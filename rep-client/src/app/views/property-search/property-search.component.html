@@ -1,351 +1,268 @@
-<section class="advance-search-menu bg-white position-relative default-box-shadow2 py30">
-<div class="container-fluid container-xxl">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <h1>Find Your Dream Home</h1>
-    </div>
-    <div class="col-md-8 mx-auto my-4">
-      <div class="advance-content-style3">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="advance-search-field position-relative text-start">
-              <form action="#" method="get" class="form-search position-relative" accept-charset="utf-8">
-                <div class="box-search">
-                  <span class="icon flaticon-home-1"></span>
-                  <input class="form-control bgc-f7 bdrs12" type="text" name="search"
-                    placeholder="Search by address, neighborhood, city or postal code." />
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="d-flex gap-3 align-items-center justify-content-start mt-3 mt-md-0">
-              <button class="advance-search-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <span class="flaticon-settings"></span>
-                Advanced
-              </button>
-              <button class="ud-btn btn-primary" type="button">
-                Search
-                <!-- <span class="flaticon-search"></span> -->
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="advance-search-list no-box-shadow d-flex justify-content-center">
-        <div class="dropdown-lists">
-          <ul class="p-0 mb-0 d-flex flex-wrap row-gap-3">
-            <li class="list-inline-item position-relative">
-              <input type="text" class="form-control" placeholder="Enter an address, neighborhood, city, or ZIP code" />
-            </li>
-            <li class="list-inline-item position-relative">
-              <button type="button" class="form-control dropdown-toggle" data-bs-toggle="dropdown">
-                All Cities <i class="fa fa-angle-down ms-2"></i>
-              </button>
-              <div class="dropdown-menu">
-                <div class="widget-wrapper bdrb1 pb25 mb0 pl20">
-                  <h6 class="list-title">Property Type</h6>
-                  <div class="checkbox-style1">
-                    <label class="custom_checkbox">Houses
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="custom_checkbox">Apartments
-                      <input type="checkbox" checked="checked" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="custom_checkbox">Office
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="custom_checkbox">Villa
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="custom_checkbox">Townhome
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-                  </div>
-                </div>
-                <div class="text-end mt10 pr10">
-                  <button type="button" class="done-btn ud-btn btn-thm drop_btn2">
-                    Done
-                  </button>
-                </div>
-              </div>
-            </li>
-            <li class="list-inline-item position-relative">
-              <button type="button" class="form-control" data-bs-toggle="dropdown">
-                Status <i class="fa fa-angle-down ms-2"></i>
-              </button>
-              <div class="dropdown-menu">
-                <div class="widget-wrapper bdrb1 pb25 mb0 pl20">
-                  <h6 class="list-title">Status</h6>
-                  <div class="checkbox-style1">
-                    <label class="custom_checkbox">Houses
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="custom_checkbox">Apartments
-                      <input type="checkbox" checked="checked" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="custom_checkbox">Office
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="custom_checkbox">Villa
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="custom_checkbox">Townhome
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-                  </div>
-                </div>
-                <div class="text-end mt10 pr10">
-                  <button type="button" class="done-btn ud-btn btn-thm drop_btn2">
-                    Done
-                  </button>
-                </div>
-              </div>
-            </li>
-            <li class="list-inline-item position-relative">
-              <button type="button" class="form-control dropdown-toggle" data-bs-toggle="dropdown">
-                Type <i class="fa fa-angle-down ms-2"></i>
-              </button>
-              <div class="dropdown-menu">
-                <div class="widget-wrapper bdrb1 pb25 mb0 pl20">
-                  <h6 class="list-title">Status</h6>
-                  <div class="checkbox-style1">
-                    <label class="custom_checkbox">Houses
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="custom_checkbox">Apartments
-                      <input type="checkbox" checked="checked" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="custom_checkbox">Office
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="custom_checkbox">Villa
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="custom_checkbox">Townhome
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-                  </div>
-                </div>
-                <div class="text-end mt10 pr10">
-                  <button type="button" class="done-btn ud-btn btn-thm drop_btn2">
-                    Done
-                  </button>
-                </div>
-              </div>
-            </li>
-            <li class="list-inline-item position-relative">
-              <button type="button" class="form-control dropdown-toggle" data-bs-toggle="dropdown">
-                Beds / Baths <i class="fa fa-angle-down ms-2"></i>
-              </button>
-              <div class="dropdown-menu dd4 pb20">
-                <div class="widget-wrapper pl20 pr20">
-                  <h6 class="list-title">Bedrooms</h6>
-                  <div class="d-flex">
-                    <div class="selection">
-                      <input id="any2" name="beds" type="radio" checked />
-                      <label for="any2">any</label>
-                    </div>
-                    <div class="selection">
-                      <input id="oneplus2" name="beds" type="radio" />
-                      <label for="oneplus2">1+</label>
-                    </div>
-                    <div class="selection">
-                      <input id="twoplus2" name="beds" type="radio" />
-                      <label for="twoplus2">2+</label>
-                    </div>
-                    <div class="selection">
-                      <input id="threeplus2" name="beds" type="radio" />
-                      <label for="threeplus2">3+</label>
-                    </div>
-                    <div class="selection">
-                      <input id="fourplus2" name="beds" type="radio" />
-                      <label for="fourplus2">4+</label>
-                    </div>
-                    <div class="selection">
-                      <input id="fiveplus2" name="beds" type="radio" />
-                      <label for="fiveplus2">5+</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="widget-wrapper bdrb1 pb25 mb0 pl20 pr20">
-                  <h6 class="list-title">Bathrooms</h6>
-                  <div class="d-flex">
-                    <div class="selection">
-                      <input id="bathany2" name="bath" type="radio" checked />
-                      <label for="bathany2">any</label>
-                    </div>
-                    <div class="selection">
-                      <input id="bathoneplus2" name="bath" type="radio" />
-                      <label for="bathoneplus2">1+</label>
-                    </div>
-                    <div class="selection">
-                      <input id="bathtwoplus2" name="bath" type="radio" />
-                      <label for="bathtwoplus2">2+</label>
-                    </div>
-                    <div class="selection">
-                      <input id="baththreeplus2" name="bath" type="radio" />
-                      <label for="baththreeplus2">3+</label>
-                    </div>
-                    <div class="selection">
-                      <input id="bathfourplus2" name="bath" type="radio" />
-                      <label for="bathfourplus2">4+</label>
-                    </div>
-                    <div class="selection">
-                      <input id="bathfiveplus2" name="bath" type="radio" />
-                      <label for="bathfiveplus2">5+</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-end mt10 pr10">
-                  <button type="button" class="done-btn ud-btn btn-thm drop_btn4">
-                    Done
-                  </button>
-                </div>
-              </div>
-            </li>
-            <li class="list-inline-item position-relative">
-              <button type="button" class="form-control dropdown-toggle" data-bs-toggle="dropdown">
-                Min Max Area <i class="fa fa-angle-down ms-2"></i>
-              </button>
-              <div class="dropdown-menu dd3">
-                <div class="widget-wrapper bdrb1 pb25 mb0 pl20 pr20">
-                  <h6 class="list-title">Min Max Area</h6>
-                  <!-- Range Slider Desktop Version -->
-                  <div class="range-slider-style1">
-                    <div class="range-wrapper">
-                      <div
-                        class="slider-range mt30 mb20 ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-                        <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0.02%; width: 70.967%">
-                        </div>
-                        <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
-                          style="left: 0.02%"></span><span tabindex="0"
-                          class="ui-slider-handle ui-corner-all ui-state-default" style="left: 70.987%"></span>
-                      </div>
-                      <div class="text-center">
-                        <input type="text" class="amount" placeholder="$20" /><span
-                          class="fa-sharp fa-solid fa-minus mx-1 dark-color"></span>
-                        <input type="text" class="amount2" placeholder="$70987" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-end mt10 pr10">
-                  <button type="button" class="done-btn ud-btn btn-thm drop_btn3">
-                    Done
-                  </button>
-                </div>
-              </div>
-            </li>
-            <li class="list-inline-item position-relative">
-              <button type="button" class="form-control dropdown-toggle" data-bs-toggle="dropdown">
-                Price <i class="fa fa-angle-down ms-2"></i>
-              </button>
-              <div class="dropdown-menu dd3">
-                <div class="widget-wrapper bdrb1 pb25 mb0 pl20 pr20">
-                  <h6 class="list-title">Price</h6>
-                  <!-- Range Slider Desktop Version -->
-                  <div class="range-slider-style1">
-                    <div class="range-wrapper">
-                      <div
-                        class="slider-range mt30 mb20 ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-                        <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0.02%; width: 70.967%">
-                        </div>
-                        <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
-                          style="left: 0.02%"></span><span tabindex="0"
-                          class="ui-slider-handle ui-corner-all ui-state-default" style="left: 70.987%"></span>
-                      </div>
-                      <div class="text-center">
-                        <input type="text" class="amount" placeholder="$20" /><span
-                          class="fa-sharp fa-solid fa-minus mx-1 dark-color"></span>
-                        <input type="text" class="amount2" placeholder="$70987" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-end mt10 pr10">
-                  <button type="button" class="done-btn ud-btn btn-thm drop_btn3">
-                    Done
-                  </button>
-                </div>
-              </div>
-            </li>
-            <li class="list-inline-item position-relative">
-              <button type="button" class="form-control dropdown-toggle" data-bs-toggle="dropdown">
-                For Sale <i class="fa fa-angle-down ms-2"></i>
-              </button>
-              <div class="dropdown-menu">
-                <div class="widget-wrapper bdrb1 pb25 mb0 pl20">
-                  <h6 class="list-title">Listing Status</h6>
-                  <div class="radio-element">
-                    <div class="form-check d-flex align-items-center mb10">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                      <label class="form-check-label" for="flexRadioDefault1">Buy</label>
-                    </div>
-                    <div class="form-check d-flex align-items-center mb10">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                        checked="checked" />
-                      <label class="form-check-label" for="flexRadioDefault2">Rent</label>
-                    </div>
-                    <div class="form-check d-flex align-items-center">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
-                      <label class="form-check-label" for="flexRadioDefault3">Sold</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-end mt10 pr10">
-                  <button type="button" class="done-btn ud-btn btn-thm drop_btn">
-                    Done
-                  </button>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
+
 <!-- Property Half Map V4 -->
-<section class="p-0">
+<section class="p-0 bgc-f7">
   <div class="container-fluid">
     <div class="row wow fadeInUp" data-wow-delay="300ms">
-      <div class="col-xl-6 overflow-hidden position-relative">
+      <div class="col-xl-7 overflow-hidden position-relative">
         <div class="half_map_area">
-          <div class="map-canvas half_style" style="height: 100vh" id="map" data-map-zoom="7" data-map-scroll="true">
-          </div>
+          <div class="map-canvas half_style" id="map" data-map-zoom="7" data-map-scroll="true"></div>
         </div>
       </div>
-      <div class="col-xl-6">
-        <div class="half_map_area_content mt30">
-          <div class="text-center text-xl-start">
-            <div class="d-flex align-items-center justify-content-between">
-              <h4 class="mb-1">Calgary Homes For Sale</h4>
-              <label class="custom_checkbox">Radius 50 KM
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-              </label>
+      <div class="col-xl-5">
+        <div class="half_map_area_content mt30 bg-white">
+
+
+          <!-- New -->
+          <div class="filterSection position-relative">
+            <div class="top-sec d-flex align-items-center justify-content-between">
+              <p id="results">15743 Properties</p>
+
+              <button class="ud-btn btn-outline-rep bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">Save
+                Search</button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header border-0">
+                      <h1 class="modal-title text-center fs-5" id="exampleModalLabel">Saved Search</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body py-0 savesearch">
+                      <input type="text" placeholder="Give a name to your search" class="save-input">
+                      <h5>Setup New Listing Alert</h5>
+                      <p>Receive Alerts Frequency</p>
+                      <div class="d-flex align-items-center gap-3 mt-2">
+                        <input type="radio">
+                        <p>Daily</p>
+                        <input type="radio">
+                        <p>Weekly</p>
+                        <input type="radio">
+                        <p>Monthly</p>
+                        <input type="radio">
+                        <p>Never</p>
+                      </div>
+                    </div>
+                    <div class="modal-footer pt-2 border-0">
+                      <button type="button" class="w-100 ud-btn btn-primary collapsed">Save Filter</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <div class="mid-sec row px-3">
+              <div id="loader" class="spinner-border text-primary" role="status" style="display: none;">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <div class="col-12 px-1">
+                <input class="search autocompletes" id="autocomplete" type="Search"
+                  placeholder="City, Neighborhood, Address, Mls #">
+                <div id="suggestion-list"></div>
+              </div>
+              <div class="dropdown col-3 px-1 drp-dwn">
+                <select id="min-price" class="form-select"
+                  onchange="updateMaxPriceOptions(); applyFilter('min_list_price', this.value);">
+                  <option selected="" disabled="">Min Price</option>
+                  <option value="25000">$25k</option>
+                  <option value="35000">$35k</option>
+                  <option value="45000">$45k</option>
+                  <option value="75000">$75k</option>
+                  <option value="100000">$100k</option>
+                  <option value="150000">$150k</option>
+                  <option value="200000">$200k</option>
+                  <option value="250000">$250k</option>
+                  <option value="300000">$300k</option>
+                  <option value="350000">$350k</option>
+                  <option value="400000">$400k</option>
+                  <option value="450000">$450k</option>
+                  <option value="500000">$500k</option>
+                  <option value="550000">$550k</option>
+                  <option value="600000">$600k</option>
+                  <option value="650000">$650k</option>
+                  <option value="700000">$700k</option>
+                  <option value="750000">$750k</option>
+                  <option value="800000">$800k</option>
+                  <option value="850000">$850k</option>
+                  <option value="900000">$900k</option>
+                  <option value="950000">$950k</option>
+                  <option value="1000000">$1M</option>
+                  <option value="1500000">$2M</option>
+                  <option value="2000000">$2M</option>
+                  <option value="2500000">$3M</option>
+                  <option value="3000000">$3M</option>
+                  <option value="3500000">$4M</option>
+                  <option value="4000000">$4M</option>
+                  <option value="4500000">$5M</option>
+                  <option value="5000000">$5M</option>
+                  <option value="5500000">$6M</option>
+                  <option value="6000000">$6M</option>
+                  <option value="6600000">$7M</option>
+                  <option value="7000000">$7M</option>
+                  <option value="7500000">$8M</option>
+                  <option value="8000000">$8M</option>
+                  <option value="8500000">$9M</option>
+                  <option value="9000000">$9M</option>
+                  <option value="9500000">$10M</option>
+                  <option value="10000000">$10M</option>
+                  <option value="12000000">$12M</option>
+                  <option value="13000000">$13M</option>
+                  <option value="15000000">$15M</option>
+                </select>
+              </div>
+
+              <div class="dropdown col-3 px-1 drp-dwn">
+
+                <select id="max-price" class="form-select"
+                  onchange="updateMinPriceOptions(); applyFilter('max_list_price', this.value);">
+                  <option selected="" disabled="">Max Price</option>
+                  <option value="25000">$25k</option>
+                  <option value="35000">$35k</option>
+                  <option value="45000">$45k</option>
+                  <option value="75000">$75k</option>
+                  <option value="100000">$100k</option>
+                  <option value="150000">$150k</option>
+                  <option value="200000">$200k</option>
+                  <option value="250000">$250k</option>
+                  <option value="300000">$300k</option>
+                  <option value="350000">$350k</option>
+                  <option value="400000">$400k</option>
+                  <option value="450000">$450k</option>
+                  <option value="500000">$500k</option>
+                  <option value="550000">$550k</option>
+                  <option value="600000">$600k</option>
+                  <option value="650000">$650k</option>
+                  <option value="700000">$700k</option>
+                  <option value="750000">$750k</option>
+                  <option value="800000">$800k</option>
+                  <option value="850000">$850k</option>
+                  <option value="900000">$900k</option>
+                  <option value="950000">$950k</option>
+                  <option value="1000000">$1M</option>
+                  <option value="1500000">$2M</option>
+                  <option value="2000000">$2M</option>
+                  <option value="2500000">$3M</option>
+                  <option value="3000000">$3M</option>
+                  <option value="3500000">$4M</option>
+                  <option value="4000000">$4M</option>
+                  <option value="4500000">$5M</option>
+                  <option value="5000000">$5M</option>
+                  <option value="5500000">$6M</option>
+                  <option value="6000000">$6M</option>
+                  <option value="6600000">$7M</option>
+                  <option value="7000000">$7M</option>
+                  <option value="7500000">$8M</option>
+                  <option value="8000000">$8M</option>
+                  <option value="8500000">$9M</option>
+                  <option value="9000000">$9M</option>
+                  <option value="9500000">$10M</option>
+                  <option value="10000000">$10M</option>
+                  <option value="12000000">$12M</option>
+                  <option value="13000000">$13M</option>
+                  <option value="15000000">$15M</option>
+                </select>
+              </div>
+
+              <div class="dropdown col-3 px-1 drp-dwn">
+                <select class="form-select" onchange="applyFilter('min_bedrooms', this.value);">
+                  <option selected="" disabled="">Beds</option>
+                  <option value="">Beds</option>
+                  <option value="1">1 +</option>
+                  <option value="2">2 +</option>
+                  <option value="3">3 +</option>
+                  <option value="4">4 +</option>
+                  <option value="5">5 +</option>
+                </select>
+              </div>
+
+              <div class="dropdown col-3 px-1 drp-dwn">
+                <select class="form-select" onchange="applyFilter('min_bathrooms', this.value);">
+                  <option selected="" disabled="">Baths</option>
+                  <option value="">Baths</option>
+                  <option value="1">1 +</option>
+                  <option value="2">2 +</option>
+                  <option value="3">3 +</option>
+                  <option value="4">4 +</option>
+                  <option value="5">5 +</option>
+                </select>
+              </div>
+
+              <div class="dropdown col-3 px-1 mt-2 drp-dwn">
+                <select class="form-select" onchange="applyFilter('mls_status', this.value);" disabled="">
+                  <option selected="" disabled="">Sale</option>
+                  <option value="Sale">For Sale</option>
+                  <option value="Lease">For Lease</option>
+                </select>
+              </div>
+
+              <div class="dropdown col-3 px-1 mt-2 drp-dwn">
+                <select class="form-select" onchange="applyFilter('property_type', this.value);">
+                  <option selected="" disabled="">Property Type</option>
+                  <option value="Residential">Residential</option>
+                  <option value="Land">Land</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Multi-Family">Multi-Family</option>
+                  <option value="Agri-Business">Agri-Business</option>
+                  <option value="Rental">Rental</option>
+                  <option value="Mobile">Mobile</option>
+                </select>
+              </div>
+
+
+
+              <div class="col-2 px-0">
+                <div class="d-flex align-items-center h-100 justify-content-center">
+                  <i class="ri-refresh-line" id="clearFilters"></i>
+                </div>
+              </div>
+
+              <div class="accordion px-1 more-btn col-4 mt-2 zi2" id="accordionExample">
+                <div class="accordion-item px-0">
+                  <div class="accordion-header" id="headingOne">
+                    <button class="ud-btn btn-primary collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      More Filters
+                    </button>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row row-2">
+              <div class="col-6">
+                <div class="d-flex align-items-center justify-content-start px-3">
+                  <div class="icons align-items-center d-flex gap-3 col-2">
+                    <i class="ri-map-pin-line" id="gridView"
+                      style="background-color: rgb(16, 87, 159); color: rgb(255, 255, 255);"></i>
+                    <i class="ri-layout-grid-2-fill" id="mapView"></i>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-6">
+                    <div class="sortby d-flex align-items-center justify-content-end px-2">
+                        <select name="Sort By" onchange="applyFilter('sort_by', this.value);">
+                            <option value="">Sort By</option>
+                            <option value="asc_list">Price Low to High</option>
+                            <option value="desc_list">Price High to Low</option>
+                            <option value="asc_dom">Oldest Listings</option>
+                            <option value="desc_dom">Latest Listings</option>
+                        </select>
+                    </div>
+                </div> -->
+            </div>
+
+
+
+
+          </div>
+          <!-- New -->
+
+
+          <div class="text-center text-xl-start">
+            <h4 class="mb-1">New York Homes for Sale</h4>
           </div>
           <div class="row align-items-center mb10">
             <div class="col-xl-6">
@@ -355,9 +272,10 @@
                 </p>
               </div>
             </div>
-            <div class="col-xl-6">
+            <!-- <div class="col-xl-6">
               <div
-                class="page_control_shorting d-flex align-items-center justify-content-center justify-content-xl-end">
+                class="page_control_shorting d-flex align-items-center justify-content-center justify-content-xl-end"
+              >
                 <div class="pcs_dropdown pr10">
                   <span>Sort by</span>
                   <select class="selectpicker show-tick">
@@ -369,180 +287,127 @@
                   </select>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="row">
-            <div class="col-md-6">
+
+            <div class="col-sm-6 col-12">
               <div class="listing-style5">
                 <div class="list-thumb">
-                  <div class="slider-1-grid owl-carousel owl-theme wow fadeInUp" data-wow-delay="300ms">
-                    <div class="item">
-                      <img class="w-100"
-                        src="https://feed-images.rewhosting.com/pwmls/_cloud_media/property/residential/a2087985-1-144f205a42ad3437914ba3f2b35c677d-o.jpg"
-                        alt="" style="height: 233px" />
-                    </div>
-                    <div class="item">
-                      <img class="w-100"
-                        src="https://feed-images.rewhosting.com/pwmls/_cloud_media/property/residential/a2087985-1-144f205a42ad3437914ba3f2b35c677d-o.jpg"
-                        alt="" style="height: 233px" />
-                    </div>
-                  </div>
-                  <div class="list-tag fz12">
-                    <i class="fa-thin fa-gem me-2"></i>Diamond
-                  </div>
-                  <div class="list-meta2">
-                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"><span
-                        class="flaticon-like"></span></a>
+                  <img class="w-100" src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668"
+                    onerror="this.src='https://mukeshswami.com/images/no_image.jpg';" />
 
-                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview"><span
+                  <div class="list-meta2">
+                    <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
+                      class="set-as-fav me-2"><span class="flaticon-like"></span></a><a
+                      href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip"
+                      data-bs-placement="top" title="Preview" target="_blank"><span
                         class="flaticon-fullscreen"></span></a>
                   </div>
                 </div>
                 <div class="list-content">
-                  <div class="list-price mb-2">$790,000</div>
-                  <h6 class="list-title">
-                    <a href="#">
-                      196 Evansborough Way Northwest, Calgary , Alberta
-                    </a>
-                  </h6>
-                  <p class="list-text">Residential, Detached</p>
-                  <div class="list-meta d-flex align-items-center gap-3">
-                    <a href="#"><span class="flaticon-bed"></span>5 bed</a>
-                    <a href="#"><span class="flaticon-shower"></span>3½ bath</a>
-                    <a href="#"><span class="flaticon-expand"></span>2197 sqft</a>
+                  <div class="list-price mb-2">
+                    $1,200,000
                   </div>
-
-                  <span class="mlsNumber">MLS® # A2081935</span>
+                  <h6 class="list-title">
+                    <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a>
+                  </h6>
+                  <p class="list-text">Commercial</p>
+                  <div class="list-meta d-flex align-items-center gap-3">
+                    <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
+                  </div>
+                  <span class="mlsNumber">MLS® # A2073668</span>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-sm-6 col-12">
               <div class="listing-style5">
                 <div class="list-thumb">
-                  <div class="slider-1-grid owl-carousel owl-theme wow fadeInUp" data-wow-delay="300ms">
-                    <div class="item">
-                      <img class="w-100"
-                        src="https://feed-images.rewhosting.com/pwmls/_cloud_media/property/residential/a2083363-1-35090bed2d806f06d4a7ca40f8fcbd9b-o.jpg"
-                        alt="" />
-                    </div>
-                    <div class="item">
-                      <img class="w-100"
-                        src="https://feed-images.rewhosting.com/pwmls/_cloud_media/property/residential/a2083363-1-35090bed2d806f06d4a7ca40f8fcbd9b-o.jpg"
-                        alt="" />
-                    </div>
-                  </div>
-                  <div class="list-tag fz12">
-                    <i class="fa-thin fa-gem me-2"></i>Diamond
-                  </div>
-                  <div class="list-meta2">
-                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"><span
-                        class="flaticon-like"></span></a>
+                  <img class="w-100" src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668"
+                    onerror="this.src='https://mukeshswami.com/images/no_image.jpg';" />
 
-                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview"><span
+                  <div class="list-meta2">
+                    <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
+                      class="set-as-fav me-2"><span class="flaticon-like"></span></a><a
+                      href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip"
+                      data-bs-placement="top" title="Preview" target="_blank"><span
                         class="flaticon-fullscreen"></span></a>
                   </div>
                 </div>
                 <div class="list-content">
-                  <div class="list-price mb-2">$550,000</div>
-                  <h6 class="list-title">
-                    <a href="#">195 Coville Close Northeast, Calgary, Alberta</a>
-                  </h6>
-                  <p class="list-text">Residential, Detached</p>
-                  <div class="list-meta d-flex align-items-center gap-3">
-                    <a href="#"><span class="flaticon-bed"></span>3 bed</a>
-                    <a href="#"><span class="flaticon-shower"></span>2 bath</a>
-                    <a href="#"><span class="flaticon-expand"></span>1550 sqft</a>
+                  <div class="list-price mb-2">
+                    $1,200,000
                   </div>
-                  <span class="mlsNumber">MLS® #A2083363</span>
+                  <h6 class="list-title">
+                    <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a>
+                  </h6>
+                  <p class="list-text">Commercial</p>
+                  <div class="list-meta d-flex align-items-center gap-3">
+                    <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
+                  </div>
+                  <span class="mlsNumber">MLS® # A2073668</span>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-sm-6 col-12">
               <div class="listing-style5">
                 <div class="list-thumb">
-                  <div class="slider-1-grid owl-carousel owl-theme wow fadeInUp" data-wow-delay="300ms">
-                    <div class="item">
-                      <img class="w-100"
-                        src="https://feed-images.rewhosting.com/pwmls/_cloud_media/property/residential/a2083406-1-c505a5528b0c1292a9b8bf0d8864bba7-o.jpg"
-                        alt="" />
-                    </div>
-                    <div class="item">
-                      <img class="w-100"
-                        src="https://feed-images.rewhosting.com/pwmls/_cloud_media/property/residential/a2083406-1-c505a5528b0c1292a9b8bf0d8864bba7-o.jpg"
-                        alt="" />
-                    </div>
-                  </div>
-                  <div class="list-tag fz12">
-                    <i class="fa-thin fa-gem me-2"></i>Diamond
-                  </div>
-                  <div class="list-meta2">
-                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"><span
-                        class="flaticon-like"></span></a>
+                  <img class="w-100" src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668"
+                    onerror="this.src='https://mukeshswami.com/images/no_image.jpg';" />
 
-                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview"><span
+                  <div class="list-meta2">
+                    <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
+                      class="set-as-fav me-2"><span class="flaticon-like"></span></a><a
+                      href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip"
+                      data-bs-placement="top" title="Preview" target="_blank"><span
                         class="flaticon-fullscreen"></span></a>
                   </div>
                 </div>
                 <div class="list-content">
-                  <div class="list-price mb-2">$685,000</div>
-                  <h6 class="list-title">
-                    <a href="#">530 Sage Hill Road Northwest, Calgary, Alberta</a>
-                  </h6>
-                  <p class="list-text">Residential, Row/Townhouse</p>
-                  <div class="list-meta d-flex align-items-center gap-3">
-                    <a href="#"><span class="flaticon-bed"></span>5 bed</a>
-                    <a href="#"><span class="flaticon-shower"></span>3½ bath</a>
-                    <a href="#"><span class="flaticon-expand"></span>1,357
-                      sqft</a>
+                  <div class="list-price mb-2">
+                    $1,200,000
                   </div>
-                  <span class="mlsNumber">MLS® #A2083406</span>
+                  <h6 class="list-title">
+                    <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a>
+                  </h6>
+                  <p class="list-text">Commercial</p>
+                  <div class="list-meta d-flex align-items-center gap-3">
+                    <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
+                  </div>
+                  <span class="mlsNumber">MLS® # A2073668</span>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-sm-6 col-12">
               <div class="listing-style5">
                 <div class="list-thumb">
-                  <div class="slider-1-grid owl-carousel owl-theme wow fadeInUp" data-wow-delay="300ms">
-                    <div class="item">
-                      <img class="w-100"
-                        src="https://feed-images.rewhosting.com/pwmls/_cloud_media/property/residential/a2087784-1-f28d561ab197184684717f30ade8fae4-o.jpg"
-                        alt="" />
-                    </div>
-                    <div class="item">
-                      <img class="w-100"
-                        src="https://feed-images.rewhosting.com/pwmls/_cloud_media/property/residential/a2082999-1-1d45eed5c9d82c2acc27373dd7e86c5e-o.jpg"
-                        alt="" />
-                    </div>
-                  </div>
+                  <img class="w-100" src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg" alt="A2073668"
+                    onerror="this.src='https://mukeshswami.com/images/no_image.jpg';" />
 
-                  <div class="list-tag fz12">
-                    <i class="fa-thin fa-gem me-2"></i>Diamond
-                  </div>
                   <div class="list-meta2">
-                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"><span
-                        class="flaticon-like"></span></a>
-
-                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview"><span
+                    <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
+                      class="set-as-fav me-2"><span class="flaticon-like"></span></a><a
+                      href="https://mukeshswami.com/property-detail/A2073668" data-bs-toggle="tooltip"
+                      data-bs-placement="top" title="Preview" target="_blank"><span
                         class="flaticon-fullscreen"></span></a>
                   </div>
                 </div>
                 <div class="list-content">
-                  <div class="list-price mb-2">$965,000</div>
-                  <h6 class="list-title">
-                    <a href="#">
-                      116 Sherwood Crescent Northwest, Calgary,
-                      Alberta</a>
-                  </h6>
-                  <p class="list-text">Residential, Detached</p>
-                  <div class="list-meta d-flex align-items-center gap-3">
-                    <a href="#"><span class="flaticon-bed"></span>5 bed</a>
-                    <a href="#"><span class="flaticon-shower"></span>3½ bath</a>
-                    <a href="#"><span class="flaticon-expand"></span>2368 sqft</a>
+                  <div class="list-price mb-2">
+                    $1,200,000
                   </div>
-                  <span class="mlsNumber">MLS® #A2082999</span>
+                  <h6 class="list-title">
+                    <a href="https://mukeshswami.com/property-detail/A2073668">Calgary, Alberta</a>
+                  </h6>
+                  <p class="list-text">Commercial</p>
+                  <div class="list-meta d-flex align-items-center gap-3">
+                    <a href="#"><span class="flaticon-expand"></span>2178 sqft</a>
+                  </div>
+                  <span class="mlsNumber">MLS® # A2073668</span>
                 </div>
               </div>
             </div>
+
           </div>
           <div class="row">
             <div class="mbp_pagination text-center">
@@ -551,27 +416,15 @@
                   <a class="page-link" href="#">
                     <span class="fas fa-angle-left"></span></a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">1</a>
-                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item active" aria-current="page">
                   <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">4</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">5</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">...</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">20</a>
-                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">...</a></li>
+                <li class="page-item"><a class="page-link" href="#">20</a></li>
                 <li class="page-item">
                   <a class="page-link" href="#"><span class="fas fa-angle-right"></span></a>
                 </li>

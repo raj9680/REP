@@ -1,0 +1,87 @@
+.btn-outline-rep {
+    font-size: 14px;
+    height: 47px;
+    color: var(--secondary-500);
+    padding: 9px 22px;
+    border: 1px solid var(--secondary-500);
+}
+              .top-sec {
+                background: #10579f;
+                padding: 13px 10px;
+              }
+
+              .top-sec p {
+                color: #fff;
+                margin-bottom: 0;
+                font-size: 15px;
+              }
+
+              .filertAndResults {
+                height: calc(100vh - 133px);
+                max-height: calc(100vh - 133px);
+                overflow-y: auto;
+                overflow-x: hidden;
+              }
+              .mid-sec {
+    padding: 13px 10px;
+    background: #EFEFEF;
+}
+              .search {
+    outline: none;
+    margin-bottom: 0.5rem;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 42px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+.dropdown select {
+    outline: none;
+    margin-bottom: 0.5rem;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 42px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 13px;
+}
+.more-btn button {
+    height: 50px !important;
+}
+.accordion button {
+    width: 100%;
+}
+.btn-primary {
+    background-color: var(--primary-500);
+    border-color: var(--primary-500);
+}
+.ud-btn {
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    font-family: var(--title-font-family);
+    font-weight: 600;
+    font-size: 15px;
+    font-style: normal;
+    letter-spacing: 0em;
+    padding: 13px 20px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    z-index: 0;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.half_map_area_content {
+    padding: 0 12px 0px;
+}

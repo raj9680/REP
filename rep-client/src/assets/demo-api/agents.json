@@ -1,0 +1,42 @@
+[
+  {
+    "agent_id": "12we2",
+    "agent_name": "Agent Name One",
+    "agent_title": "Associate",
+    "agent_email": "agent_one@email.com",
+    "agent_contact": "9877123456",
+    "image": "https://myproagents.com/storage/images/Photo-CDLUGOAG.jpeg"
+  },
+  {
+    "agent_id": "12we3",
+    "agent_name": "Agent Name Two",
+    "agent_title": "Assistant",
+    "agent_email": "agent_two@email.com",
+    "agent_contact": "9877123457",
+    "image": "https://myproagents.com/storage/images/Photo-CDLUGOAG.jpeg"
+  },
+  {
+    "agent_id": "12we4",
+    "agent_name": "Agent Name Three",
+    "agent_email": "agent_three@email.com",
+    "agent_title": "Broker",
+    "agent_contact": "9877123458",
+    "image": "https://myproagents.com/storage/images/Photo-CDLUGOAG.jpeg"
+  },
+  {
+    "agent_id": "12we5",
+    "agent_name": "Agent Name Four",
+    "agent_email": "agent_four@email.com",
+    "agent_title": "Associate",
+    "agent_contact": "9877123459",
+    "image": "https://myproagents.com/storage/images/Photo-CDLUGOAG.jpeg"
+  },
+  {
+    "agent_id": "12we6",
+    "agent_name": "Agent Name Five",
+    "agent_title": "Broker",
+    "agent_email": "agent_five@email.com",
+    "agent_contact": "9877123460",
+    "image": "https://myproagents.com/storage/images/Photo-CDLUGOAG.jpeg"
+  }
+]
