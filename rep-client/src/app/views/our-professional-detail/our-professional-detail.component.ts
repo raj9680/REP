@@ -31,7 +31,7 @@ export class OurProfessionalDetailComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.routeSub.unsubscribe();
+    // this.routeSub.unsubscribe();
   }
 
 }
