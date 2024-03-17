@@ -1,0 +1,218 @@
+.is-sticky {
+    display: block !important;
+    top: 5rem;
+    transition: all .7s;
+  }
+
+  .overview{
+    padding: 1rem !important;
+  }
+  .listing-style5 img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    max-height: 220px;
+}
+h1.sp-lg-title{
+    font-family: var(--heading-font);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: -0.72px;
+    color: #000;
+}
+.mortgage-circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mortgage-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+.val h6 {
+    font-size: 15px;
+    font-style: normal;
+    margin-bottom: 0;
+    font-weight: 600;
+    letter-spacing: -0.36px;
+color: #000;
+}
+.hrcustom hr{
+    margin: 0.2rem 0 !important;
+}
+.mortgage-calc .inp {
+    outline: none;
+    margin-top: 1rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 42px;
+    width: 100%;
+    border-radius: 0.25rem;
+    border: 1px solid #dce0e0;
+}
+.mortgage-calc .inp .icons {
+    display: flex;
+    opacity: 0.7;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 41px;
+    border-right: 1px solid #dce0e0;
+}
+.mortgage-calc .inp input {
+    width: 82%;
+    border: none;
+    outline: none;
+}
+.row.mt-5.mt-sm-3.inputs {
+    margin-top: 4rem !important;
+}
+.mortgage-calc .inputs h6 {
+    font-size: 15px;
+    font-style: normal;
+    margin-bottom: 0;
+    font-weight: 600;
+    letter-spacing: -0.36px;
+    color: #000;
+}
+
+.fixed-tabs {
+  position: fixed;
+  top: 132px;
+  left: 0;
+  width: 100%;
+  /* display: none;  */
+  z-index: 999999999999999999;
+}
+.buttons button {
+    padding: 3px 10px;
+    font-size: 13px;
+    border-radius: 2px;
+    color: #fff;
+    border: none;
+    background: #4e4e4e;
+    cursor: pointer;
+  }
+.top-tabs {
+  background: #fff;
+  box-shadow: 0 2px 0px 0px #68686814;
+  padding: 0 30px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  z-index: 99999999999;
+  border-bottom: 1px solid #ccc;
+}
+.top-tabs h4 {
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+  margin-bottom: 0;
+  color: #8E9092;
+  color: var(--headings-color);
+}
+
+.overview {
+    padding: 2rem;
+    background: #fff;
+}
+.overview h4 {
+    font-size: 18px;
+}
+.overview p {
+    color: #5c6872;
+    font-weight: 400;
+    font-size: 13px;
+}
+.overview i {
+    font-size: 18px;
+}
+.overview h6 {
+    color: #000;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 0;
+    letter-spacing: -0.36px;
+}
+
+.about {
+    background: #fff;
+    padding: 2rem;
+}
+.about h4 {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: -0.36px;
+}
+
+.btn-primary {
+                background-color: var(--primary-500);
+                border-color: var(--primary-500);
+              }
+
+              .ud-btn {
+                text-decoration: none;
+                border-radius: 8px;
+                display: inline-block;
+                font-family: var(--title-font-family);
+                font-weight: 600;
+                font-size: 15px;
+                font-style: normal;
+                letter-spacing: 0em;
+                padding: 13px 20px;
+                position: relative;
+                overflow: hidden;
+                text-align: center;
+                z-index: 0;
+                -webkit-transition: all 0.4s ease;
+                -moz-transition: all 0.4s ease;
+                -ms-transition: all 0.4s ease;
+                -o-transition: all 0.4s ease;
+                transition: all 0.4s ease;
+              }
+              .address h4 {
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: -0.36px;
+}
+
+@media screen and (max-width: 1400px) {
+  .fixed-tabs {
+    top: 120px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .top-tabs {
+    overflow-x: scroll;
+    white-space: nowrap;
+    gap: 2rem;
+  }
+  .fixed-tabs {
+    top: 120px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .fixed-tabs {
+    top: 64px;
+  }
+}

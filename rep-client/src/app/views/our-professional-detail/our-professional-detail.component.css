@@ -9,6 +9,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+.prof {
+    width: 75%;
+}
 
 .parent {
     background-color: #fff;
@@ -28,14 +31,52 @@
     height: 350px;
     overflow: hidden;
 }
-
+.listing-style5 .list-thumb img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    max-height: 220px; 
+}
+.agent-profile-buttons {
+    margin-top: 1rem;
+}
+.profile-delt hr {
+    margin: 15px 0;
+}
+.profile-delt h5 {
+    padding-top: 15px;
+}
+.listing-style5 {
+   border: 1px solid #DDDDDD;
+}
+div#listings_data {
+    row-gap: 2rem;
+}
+.tab-1 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    border-color: #07579f;
+    background-color: #07579f;
+    width: 100%;
+    padding: 15px 0;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 4px;
+}
 @media (max-width: 1400px) {
     .profile-img {
         height: auto;
     }
 
 }
-
+@media only screen and (max-width:1024px){
+    .prof{
+        width:100%;
+    }
+}
+@media only screen and (max-width:992px){
+    .profile-sec{
+        padding: 90px 0;
+    }
+}
 .profile-img img {
     height: 100%;
     width: 100%;
@@ -712,6 +753,14 @@ strong {
         width: 100% !important;
     }
 }
+@media only screen and (max-width:480px){
+    .profile-sec{
+        background-color: #f7f8f9;
+        padding: 30px 10px;
+        border-radius: 4px;
+    }
+}
+
 
 .leave-rev button {
     background-color: #07579f;
@@ -820,9 +869,6 @@ input::placeholder:after {
 }
 
 
-.prof {
-    width: 75%;
-}
 
 .about-sec h6 {
     cursor: pointer;

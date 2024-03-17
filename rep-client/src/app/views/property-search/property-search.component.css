@@ -83,5 +83,12 @@
     transition: all 0.4s ease;
 }
 .half_map_area_content {
-    padding: 0 12px 0px;
+    padding: 0;
+    
+}
+.filertAndResults {
+    height: calc(100vh - 133px);
+    max-height: calc(100vh - 133px);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
