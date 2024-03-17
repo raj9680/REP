@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
+import { SharedService } from './shared/services/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent {
   public showOverlay = true;
   title = 'RevampFrontendApp';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public _sharedService: SharedService) {
     router.events.subscribe((event: RouterEvent | any) => {
       this.navigationInterceptor(event)
     })

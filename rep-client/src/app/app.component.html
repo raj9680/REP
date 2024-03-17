@@ -5,13 +5,20 @@
 </div> -->
 
 
-<div class="my-overlay" *ngIf="false">
-    <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+<!-- <div class="my-overlay" *ngIf="false">
+  <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+</div> -->
+
+<!-- <app-loader></app-loader> -->
+
+<!-- <ngx-spinner type="ball-scale-multiple"></ngx-spinner> -->
+
+
+<div class="wrapper ovh">
+  <div class="loader-container" *ngIf="_sharedService.isLoading | async">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   </div>
-
-
-    <div class="wrapper ovh">
-    <app-header></app-header>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
 </div>
