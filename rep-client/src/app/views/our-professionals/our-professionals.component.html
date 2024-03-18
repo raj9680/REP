@@ -90,22 +90,22 @@
                      <div class="col-12 col-sm-12 profile-img position-relative">
                         <div class="agent-pics">
                            <a href="#!">
-                              <img src="{{item.image}}" alt="">
+                              <img src="{{item.profile_picture}}" alt="">
                            </a>
                         </div>
                      </div>
                      <div class="col-12 col-sm-12 profile-delt mt-3 mt-sm-0">
                         <div class="profile-delt px-3">
                            <div class="d-flex align-items-start justify-content-between">
-                              <a href="/views/our-professional/{{item.agent_id}}">
-                                 <h5>{{item.agent_name}}</h5>
+                              <a href="/views/our-professional/{{item.memberKeyNumeric}}">
+                                 <h5>{{item.memberFullName}}</h5>
                               </a>
                               <div class="d-flex gap-2">
-                                 <a href="mailto:{{item.agent_email}}"><i class="fa-light fa-envelope"></i></a>
-                                 <a href="tel:{{item.agent_contact}}"><i class="fa-light fa-phone"></i></a>
+                                 <a href="mailto:{{item.memberEmail}}"><i class="fa-light fa-envelope"></i></a>
+                                 <a href="tel:{{item.memberPhone}}"><i class="fa-light fa-phone"></i></a>
                               </div>
                            </div>
-                           <p>{{item.agent_title}}</p>
+                           <p>{{item.memberType}}</p>
                         </div>
                      </div>
                   </div>
@@ -119,24 +119,5 @@
             <pagination-controls class="pagi" (pageChange)="gty((page = $event))"></pagination-controls>
          </div>
       </nav>
-
-
-      <!-- <nav aria-label="Agent Pagination">
-         <div class="mbp_pagination text-center">
-            <ul id="pagination" class="page_navigation">
-                <li class="page-item disabled"><span class="page-link"><i class="fa fa-angle-double-left"></i></span></li>
-                <li class="page-item disabled"><span class="page-link"><i class="fa fa-angle-left"></i></span></li>
-                <li class="page-item active"><span class="page-link">1</span></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                <li class="page-item"><a class="page-link">3</a></li>
-                <li class="page-item"><a class="page-link"><i class="fa fa-angle-right"></i></a></li>
-                <li class="page-item"><a class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
-            </ul>
-            <p class="mt10 pagination_page_count text-center">
-                1 - 12 of 400 agents available
-            </p>
-            
-         </div>
-      </nav> -->
    </div>
 </div>

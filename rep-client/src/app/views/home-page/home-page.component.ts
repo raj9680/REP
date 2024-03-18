@@ -64,12 +64,10 @@ export class HomePageComponent implements OnInit {
 ];
   ngOnInit(): void {
     this.homePage.getFeaturedProperties().subscribe(properties => {
-      debugger
       this.featuredProperties = properties;
     });
     //getDiamondProperties
     this.homePage.getDiamondProperties().subscribe(properties => {
-      debugger
       this.diamondProperties = properties;
     });
   }
