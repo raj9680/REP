@@ -118,6 +118,36 @@ background-color: #fff;
   color: #fff !important;
 }
 
+.carousel-container {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  width: 100%; 
+  cursor: pointer;
+}
+
+.carouselcustom img {
+  width: 100% !important;
+  cursor: pointer;
+}
+
+.carousel-container img{
+  display: none;
+  width: 100%;
+
+}
+
+
+.carousel-container img.image-active{
+  display: block;
+  width: 100%;
+}
+
+.image-active {
+
+}
+
+
 .slider-button {
   width: 30px;
   display: flex;
@@ -142,6 +172,12 @@ background-color: #fff;
 }
 #additionalDetails{
   margin-top: 3rem !important;
+}
+.carouselcustom .col-6.col-sm-4.col-md {
+  padding: 0 2px;
+}
+.bannercarousel{
+border-radius: 5px;
 }
 .property-dtls p {
   color: #000;

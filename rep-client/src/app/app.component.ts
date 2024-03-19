@@ -12,6 +12,9 @@ export class AppComponent {
   public showOverlay = true;
   title = 'RevampFrontendApp';
 
+  
+
+
   constructor(private router: Router, public _sharedService: SharedService) {
     router.events.subscribe((event: RouterEvent | any) => {
       this.navigationInterceptor(event)

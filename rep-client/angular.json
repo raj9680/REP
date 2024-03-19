@@ -31,6 +31,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/slick-carousel/slick/slick.css",
+              "./node_modules/slick-carousel/slick/slick-theme.css",
               "src/styles.css",
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/ace-responsive-menu.css",
@@ -54,6 +56,8 @@
               "src/assets/js/jquery.mmenu.all.js",
               "src/assets/js/ace-responsive-menu.js",
               "src/assets/js/jquery-scrolltofixed-min.js",
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/slick-carousel/slick/slick.min.js",
               "src/assets/js/owl.js",
               "src/assets/js/wow.min.js",
               "src/assets/js/script.js"
