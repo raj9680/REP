@@ -1,19 +1,8 @@
-
-<style>
-/* .rightsection{
-  position:fixed !important;
-  top:367px;
-  width: 30%;
-} */
-
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section class="pt60 pb90 bgc-f7" (scroll)="onScroll($event)">
     <div class="container">
-      <div class="row mb30 wow fadeInUp" data-wow-delay="100ms">
+      <div class="row mb30 wow fadeInUp" data-wow-delay="100ms" style="margin-bottom: 0 !important;">
         <div class="col-lg-8">
-
-
-
           <div class="single-property-content mb30-md">
             <h1 class="sp-lg-title">328 Silver Crest Drive, Calgary, Alberta, T3B2Y2</h1>
             <div class="buttons">
@@ -39,7 +28,7 @@
                 <a class="icon mr10" href="#"><span class="flaticon-share-1"></span></a>
                 <a class="icon" href="#"><span class="flaticon-printer"></span></a>
               </div>
-              <h3 class="price mb-0">$958,000</h3>
+              <h4 class="price mb-0">$958,000</h4>
               <p class="text space fz15">$2,300/sq ft</p>
             </div>
           </div>
@@ -58,7 +47,7 @@
         </style>
       
       <div class="row wow fadeInUp" data-wow-delay="500ms">
-        <div class="col-lg-8">
+        <div class="col-lg-8 order-sm-first">
 
           <!-- Banner -->
           <div class="overview mt-3 mb30 rounded-3">
@@ -204,7 +193,7 @@
               attached laned garage. Please call with any questions. </p>
           </div>
 
-          <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30  overflow-hidden position-relative">
+          <div class="address ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30  overflow-hidden position-relative">
             
             <div class="d-flex align-items-center justify-content-between my-3">
               <h4>Address</h4>
@@ -318,7 +307,7 @@
                   </div>
 
               </div>
-              <div class="address mt-5 p-0" id="additionalDetails">
+              <div class="address p-0" id="additionalDetails">
                   <div class="d-flex align-items-center justify-content-between my-3">
                       <h4>Additional Details</h4>
 
@@ -689,7 +678,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
+        <!-- <div class="col-lg-4">
           <div class="default-box-shadow2 bdrs12 bdr1 p30 mb30 bgc-white position-relative rightsection">
             <h4 class="form-title mb5">Schedule a tour</h4>
             <p class="text">Choose your preferred day</p>
@@ -780,8 +769,200 @@
             </div>
           </div>
 
-        </div>
-        
+        </div> -->
+        <div class="col-12 col-md-4 px-1 sticky-wrapper">
+          <div class=" profile-sec sticky-tour mt-3 contact">
+
+              <div class="sticky-div fixedElement" style="/*position: fixed; top: 0px; width: 23.5%;*/">
+
+                  <div class="contact-tour">
+                      <ul class="nav row nav-pills mb-3 mt-3 d-flex justify-content-between" id="pills-tab" role="tablist">
+                          <li class="nav-item col-6 " style="padding-right: 2px;" role="presentation">
+                              <button class="nav-link active ud-btn btn-primary" id="pills-tour-tab" data-bs-toggle="pill" data-bs-target="#pills-tour" type="button" role="tab" aria-controls="pills-tour" aria-selected="true">Schedule
+                                  Tour</button>
+                          </li>
+                          <li class="nav-item tabs col-6" style="padding-left: 2px;" role="presentation">
+                              <button class="nav-link ud-btn btn-primary" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" tabindex="-1">Contact
+                              </button>
+                          </li>
+                      </ul>
+
+                      <div class="tab-content" id="pills-tabContent">
+                          <div class="tab-pane fade show active" id="pills-tour" role="tabpanel" aria-labelledby="pills-tour-tab" tabindex="0">
+
+                              <h4>Schedule A Tour</h4>
+
+                              <div id="dateSlotsContainer"><div class="date_block" onclick="date_active(this)">
+      <span class="days">Monday</span>
+      <div class="digit ">
+          <p>25</p>
+      </div>
+      <span class="months">March</span>
+  </div><div class="date_block" onclick="date_active(this)">
+      <span class="days">Tuesday</span>
+      <div class="digit ">
+          <p>26</p>
+      </div>
+      <span class="months">March</span>
+  </div><div class="date_block" onclick="date_active(this)">
+      <span class="days">Wednesday</span>
+      <div class="digit ">
+          <p>27</p>
+      </div>
+      <span class="months">March</span>
+  </div></div>
+                              <div class="slider-container">
+                                  <button class="slider-button left-arr" onclick="prevDates()"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                  <button class="slider-button right-arr" onclick="nextDates()"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                              </div>
+                              <!-- <h6 class="fw-bold mt-4">Tour Type</h6> -->
+                              <ul class="nav row nav-pills mb-3 mt-3 d-flex justify-content-between" id="pills-tab" role="tablist">
+                                  <li class="nav-item col-6 " style="padding-right: 2px;" role="presentation">
+                                      <button class="nav-link active ud-btn btn-primary" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">In
+                                          Person</button>
+                                  </li>
+                                  <li class="nav-item tabs col-6" style="padding-left: 2px;" role="presentation">
+                                      <button class="nav-link ud-btn btn-primary" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Video
+                                          Chat</button>
+                                  </li>
+                              </ul>
+                              <div class="tab-content" id="pills-tabContent">
+                                  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                                      <div>
+                                          <form id="tourForm">
+                                              <input type="hidden" name="_token" value="GRcLmny1MSwJ5IgOKZnX8CVsbSkZhekTo50NTr3V" autocomplete="off">                                                                <div class="input">
+                                                  <input type="text" id="timeInput" placeholder="Time" name="time" class="flatpickr-input" readonly="readonly">
+                                                  <i class="ri-expand-up-down-line opacity-50"></i>
+                                              </div>
+
+                                              <div class="input mt-3">
+                                                  <input type="text" id="tourname" placeholder="Name" name="name">
+                                              </div>
+
+                                              <div class="input mt-3">
+                                                  <input type="text" id="tourphone" maxlength="10" placeholder="Phone" name="phone">
+                                              </div>
+
+                                              <div class="input mt-3">
+                                                  <input type="email" placeholder="Email" name="email">
+                                              </div>
+
+                                              <textarea class="mt-3 txt-area " cols="42" rows="3" placeholder="Enter your Message" name="message"></textarea>
+                                              <input type="hidden" id="selectedDateInput" name="selectedDate" value="">
+                                              <div class="chkbox">
+                                                  <div class="mt-1 d-flex align-items-cente gap-2">
+                                                      <input class="checkbox opacity-50" type="checkbox" name="" id="">
+                                                      <p class="mb-0 fw-bold">I agree to <a href="/terms-and-conditions" class="text-decoration-none"><span class="px-1 fs-6">Terms
+                                                                  of
+                                                                  Use</span></a></p>
+
+                                                  </div>
+
+                                                  <div class="d-grid mt-2">
+                                                      <button id="submitBtn" class="ud-btn btn-primary border-0" type="submit">Submit a
+                                                          Tour
+                                                          Request</button>
+                                                  </div>
+                                              </div>
+                                          </form>
+
+                                      </div>
+                                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">...s</div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="1">
+                              <div class="contact-info" id="section10">
+                                  <div class="d-flex align-items-center justify-content-between ">
+                                      <h4 class="w-25">Contact Information</h4>
+                                      <a id="viewListingsLink" href="https://mukeshswami.com/our-professionals/details/gloria-johnston-1"> <button class="ud-btn btn-primary border-0">View
+                                              Listings</button></a>
+                                  </div>
+                                  <hr class="mt-4 mb-3">
+                                  <div class=" sm-align-items-start gap-3 d-flex flex-column flex-sm-row">
+                                      <div class="profile">
+                                          <img src="https://mukeshswami.com/images/no_image.jpg" alt="Description of the image" class="agent-img">
+                                      </div>
+                                      <div class="pro-info">
+                                          <div class="d-flex align-items-center gap-2"><i class="ri-user-line"></i>
+                                              <p class="agentname">Gloria Johnston</p>
+                                          </div>
+                                          <div class="d-flex flex-column mt-2 ">
+                                              <div><i class="ri-phone-line"></i>
+                                                  <span><a class="phoneno" href="tel:403-816-9849">403-816-9849</a></span>
+                                              </div>
+                                              <div><i class="ri-smartphone-line"></i>
+                                                  <span><a class="contactno" href="tel:403-547-4102">403-547-4102</a></span>
+                                              </div>
+                                              <div><i class="ri-whatsapp-line whatsapp-icon"></i>
+                                                  <span>WhatsApp</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <h4 class="mt-5">Enquire About This Property</h4>
+                                  <hr class="mt-4 mb-3">
+                                  <div class="leave-rev">
+                                      <form id="contactForm">
+                                          <div class="row my-3">
+                                              <div class="col-12">
+                                                  <h5>Name<span style="color: red;">*</span></h5>
+                                                  <input type="text" id="contactname" placeholder="Enter your name" name="name">
+                                              </div>
+                                              <div class="col-12 mt-3">
+                                                  <h5>Phone<span style="color: red;">*</span></h5>
+                                                  <input type="text" id="contactphone" maxlength="10" placeholder="Enter your Phone" name="phone">
+                                              </div>
+                                              <div class="col-12 mt-3">
+                                                  <h5>Email<span style="color: red;">*</span></h5>
+                                                  <input type="text" placeholder="Enter your Email" name="email">
+                                              </div>
+
+                                              <div class="col-12 mt-3">
+                                                  <h5>I'm a <span style="color: red;">*</span></h5>
+                                                  <div class="input-2 ">
+                                                      <select name="role" class="select-boxes-filter cursor-pointer">
+                                                          <option value="">Select</option>
+                                                          <option value="Buyer">Buyer</option>
+                                                          <option value="Agent">Agent</option>
+                                                      </select>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div>
+                                              <h5>Message<span style="color: red;">*</span></h5>
+                                              <textarea placeholder="Write a review" name="message" cols="30" rows="10" maxlength="200"></textarea>
+                                          </div>
+                                          <div class="chkbox">
+                                              <div class="mt-1 d-flex align-items-cente gap-2"> <input class="checkbox opacity-50" type="checkbox" name="" id="">
+                                                  <p class="mb-0 fw-bold">I agree to <a href="/terms-and-conditions" class="text-decoration-none"><span class="px-1 fs-6">Terms of
+                                                              Use</span></a></p>
+                                              </div>
+
+                                          </div>
+                                          <button type="submit" id="contactsubmit" class="ud-btn btn-primary mt-3 border-0">Request
+                                              Information</button>
+                                      </form>
+                                  </div>
+                              </div>
+
+
+                          </div>
+
+                      </div>
+
+                  </div>
+
+
+
+              </div>
+          </div>
+
+      </div>        
       </div>
       <div class="row mt30 wow fadeInUp" data-wow-delay="700ms">
         <div class="col-lg-8">
@@ -965,3 +1146,30 @@
     <h4 onclick="scrollToSection('section12')">Similar Listings</h4>
   </div>
 </div> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+<script>
+
+  //Right sidebar form scroll
+  const contact = document.querySelector(".contact");
+    const contactToggle = "contact-sticky";
+         const currentScroll = window.pageYOffset;
+if(currentScroll > 700){
+		contact.classList.add(contactToggle);
+	} 	
+	$(document).ready(function(){
+		var divheight =$(".order-sm-first").height();
+		console.log(divheight);
+			  $(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+     //>=, not <=
+    if (scroll >=700 && scroll <=divheight-200) {
+		contact.classList.add(contactToggle);
+	}else{
+		contact.classList.remove(contactToggle);
+	}
+		  });
+		
+	});
+	
+</script>

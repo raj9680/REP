@@ -4,3 +4,40 @@ img.image{
     width:228px !important;
     height: 330px !important;
 }
+.home-banner-style3{
+    background-size: cover !important;
+}
+.h2, h2 {
+    font-size: 30px !important;
+}
+.h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5 {
+    font-family: var(--heading-font);
+    color: var(--headings-secondary-color);
+    font-weight: 600;
+    line-height: 1.5;
+}
+.h6, h6 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.top-right-300 {
+    right: 0;
+}
+@media only screen and (min-width: 756px){
+.top-left-300, .top-right-300 {
+    top: -300px;
+}
+}
+
+
+@media (max-width: 600px){
+    .office-north {
+        position: absolute;
+        top: 36px !important;
+    }
+    .s-off {
+    position: relative;
+    top: 43px !important;
+}
+}
