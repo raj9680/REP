@@ -24,7 +24,6 @@ export class OurProfessionalsComponent implements OnInit {
       this.agents = data;
       this.page = 0;
       this.totalItems = data.length;
-      console.log(data);
     });
   }
 

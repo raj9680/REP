@@ -8,10 +8,10 @@
         <div class="container profile-sec position-relative" id="agent-details">
             <div class="row prof mx-auto">
                 <div class="col-12 col-sm-6 profile-img position-relative">
-                    <img src="{{agent.image}}" alt="Albaraa Atmeh">
+                    <img src="{{agent.profile_picture}}" alt="Albaraa Atmeh">
                 </div>
                 <div class="col-12 col-sm-6 profile-delt mt-3 mt-sm-0">
-                    <h5>{{agent.agent_name}}</h5>
+                    <h5>{{agent.memberFullName}}</h5>
                     <div class="d-flex align-items-center gap-2">
                         <p>0</p>
                         <a href="javascript:void(0)">See all reviews</a>
@@ -22,17 +22,17 @@
                         <ul class="list-unstyled">
                             <li><strong class="relator-parent">Relator <img class="r-rel" width="10" height="10"
                                         src="https://img.icons8.com/metro/26/000000/registered-trademark.png"
-                                        alt="registered-trademark"> Mls:</strong> 86309169</li>
-                            <li><strong>Phone Number:</strong> {{agent.agent_contact}}</li>
+                                        alt="registered-trademark"> Mls:</strong> {{agent.memberMlsId}}</li>
+                            <li><strong>Phone Number:</strong> {{agent.memberPhone}}</li>
 
-                            <li><strong>Specialties:</strong> Associate</li>
+                            <li><strong>Specialties:</strong>{{agent.MemberType}}</li>
 
                         </ul>
                     </div>
                     <div class="agent-profile-buttons">
-                        <a class="btn btn-secondary ud-btn  blue-btn" href="mailto:{{agent.agent_email}}">Send Email</a>
+                        <a class="btn btn-secondary ud-btn  blue-btn" href="mailto:{{agent.memberEmail}}">Send Email</a>
 
-                        <a href="tel:{{agent.agent_contact}}" class="btn btn-call ud-btn btn-outline-rep">
+                        <a href="tel:{{agent.memberPhone}}" class="btn btn-call ud-btn btn-outline-rep">
                             Call
                         </a>
                     </div>
