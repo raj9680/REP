@@ -137,6 +137,19 @@ background-color: #fff;
 
 }
 
+.set-img {
+  height: 450px;
+}
+.set-img-2 {
+  height: 90px;
+}
+.set-img img, .set-img-2 img {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
 .btn-carousel{
   position: absolute;
   top: 0;
@@ -159,7 +172,7 @@ background-color: #fff;
 .fade-in-image { animation: fadeIn 1s; }
 
 .image-active {
-
+  background-color: #000;
 }
 
 
