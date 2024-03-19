@@ -38,34 +38,47 @@
         </div>
       </div>
     </div>
+    <style>
+      .set-img {
+        height: 450px;
+      }
+      .set-img-2 {
+        height: 90px;
+      }
+      .set-img img, .set-img-2 img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        object-fit: cover;
+      }
+      
+    </style>
     <div class="row wow fadeInUp" data-wow-delay="500ms">
       <div class="col-lg-8 order-sm-first">
         <!-- Banner -->
         <div class="overview mt-3 mb30 rounded-3">
-
           <!-- Single Banner -->
           <div *ngIf="images && images.length > 0" class="carousel-container">
-            <img *ngFor="let image of images let i = index" [src]="image.image" [alt]="i"
-              [ngClass]="{ 'image-active': selectedIndex === i }" class="fade-in-image">
-            <img src="https://myproagents.com/storage/81647581/photo-81647581-1.jpeg" class="bannercarousel"
-              style="width: 100%;">
+            <!-- <img *ngFor="let image of images let i = index" [src]="image.image" [alt]="i"
+              [ngClass]="{ 'image-active': selectedIndex === i }" class="fade-in-image"> -->
+            <!-- <img src="https://myproagents.com/storage/81647581/photo-81647581-1.jpeg" class="bannercarousel"
+              style="width: 100%;"> -->
+            <div class="set-img">
+              <img *ngFor="let image of images let i = index" [src]="image.image" [alt]="i"
+                [ngClass]="{ 'image-active': selectedIndex === i }" class="fade-in-image">
+            </div>
           </div>
           <!-- Single banner End -->
-
           <hr>
-
           <!-- multi banner -->
           <div *ngIf="indicators" class="row carouselcustom px-3">
             <div *ngFor="let image of images let i = index" class="col-6 col-sm-4 col-md">
-              <div>
-                <img src="{{image.image}}" [ngClass]="{'active': selectedIndex === i}"
-                  (click)="selectImage(i)">
+              <div class="set-img-2">
+                <img src="{{image.image}}" [ngClass]="{'active': selectedIndex === i}" (click)="selectImage(i)">
               </div>
             </div>
           </div>
-          <!-- nulti banner end -->
-
-
+          <!-- multi banner end -->
         </div>
 
         <div class="overview mt-3 mb30 rounded-3">
