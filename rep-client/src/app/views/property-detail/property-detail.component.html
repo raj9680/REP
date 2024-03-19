@@ -4,10 +4,10 @@
     <div class="row mb30 wow fadeInUp" data-wow-delay="100ms" style="margin-bottom: 0 !important;">
       <div class="col-lg-8">
         <div class="single-property-content mb30-md">
-          <h1 class="sp-lg-title">328 Silver Crest Drive, Calgary, Alberta, T3B2Y2</h1>
+          <h1 class="sp-lg-title">{{PropertyDetail.fullAddress}}</h1>
           <div class="buttons">
-            <button class="features me-2" style="background-color: rgb(16, 87, 159);">Diamond</button>
-            <button class="propertytype">Land</button>
+            <button class="features me-2" style="background-color: rgb(16, 87, 159);">{{PropertyDetail.isDiamondType ? 'Diamond' : 'Feature'}}</button>
+            <button class="propertytype">{{PropertyDetail.propertyType}}</button>
             <div class="d-flex gap-2 mt-3 addres">
               <svg class="mt-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 viewBox="0 0 16 16">
@@ -17,7 +17,7 @@
                 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"></path>
               </svg>
               <p class="addresses">
-                Land For Sale in Calgary, Alberta
+                {{PropertyDetail.propertyType}} For Sale in {{PropertyDetail.city}}, {{PropertyDetail.stateOrProvince}}
               </p>
             </div>
           </div>
@@ -32,8 +32,8 @@
               <a class="icon mr10" href="#"><span class="flaticon-share-1"></span></a>
               <a class="icon" href="#"><span class="flaticon-printer"></span></a>
             </div>
-            <h4 class="price mb-0">$958,000</h4>
-            <p class="text space fz15">$2,300/sq ft</p>
+            <h4 class="price mb-0">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow'  }}</h4>
+            <p class="text space fz15">{{ PropertyDetail.listPriceSquareFoot | number | currency: 'CAD' : 'symbol-narrow'  }}/sq ft</p>
           </div>
         </div>
       </div>
@@ -47,7 +47,7 @@
           <!-- Single Banner -->
           <div *ngIf="images && images.length > 0" class="carousel-container">
             <div class="set-img">
-              <img *ngFor="let image of images let i = index" [src]="image.image" [alt]="i"
+              <img *ngFor="let image of images let i = index" [src]="image" [alt]="i"
                 [ngClass]="{ 'image-active': selectedIndex === i }" class="fade-in-image">
             </div>
           </div>
@@ -59,7 +59,7 @@
           <div *ngIf="indicators" class="row carouselcustom px-3">
             <div *ngFor="let image of images let i = index" class="col-6 col-sm-4 col-md">
               <div class="set-img-2">
-                <img src="{{image.image}}" [ngClass]="{'active': selectedIndex === i}" (click)="selectImage(i)">
+                <img src="{{image}}" [ngClass]="{'active': selectedIndex === i}" (click)="selectImage(i)">
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@
         <div class="overview mt-3 mb30 rounded-3">
           <div class="d-flex alifn-items-center mb-4  justify-content-between">
             <h4>Overview</h4>
-            <div> <strong>MLS ID : </strong> <span class="listingid">A2042507</span>
+            <div> <strong>MLS ID : </strong> <span class="listingid">{{PropertyDetail.listingId}}</span>
             </div>
           </div>
           <hr>
@@ -79,7 +79,7 @@
               <div>
                 <div class="d-flex align-items-center gap-2">
                   <i class="fa-light fa-house-blank"></i>
-                  <h6 class="propertytype">Land</h6>
+                  <h6 class="propertytype">{{PropertyDetail.propertyType}}</h6>
                 </div>
                 <p>Property Type</p>
               </div>
@@ -88,7 +88,7 @@
               <div>
                 <div class="d-flex  align-items-center gap-2">
                   <i class="fa-light fa-bed-front"></i>
-                  <h6 class="bedroom">0</h6>
+                  <h6 class="bedroom">{{PropertyDetail.bedrooms}}</h6>
                 </div>
                 <p>Bedrooms</p>
               </div>
@@ -97,16 +97,16 @@
               <div>
                 <div class="d-flex  align-items-center gap-2">
                   <i class="fa-light fa-shower"></i>
-                  <h6 class="bathroom">0</h6>
+                  <h6 class="bathroom">{{PropertyDetail.bathrooms}}</h6>
                 </div>
                 <p>Bathroom</p>
               </div>
             </div>
-            <div class="col-6 col-sm-4 col-md">
+            <div class="col-6 col-sm-4 col-md" *ngIf="PropertyDetail.isGarage == 1">
               <div>
                 <div class="d-flex  align-items-center gap-2">
                   <i class="fa-light fa-car"></i>
-                  <h6 class="garage">0</h6>
+                  <h6 class="garage">{{PropertyDetail.garage}}</h6>
                 </div>
                 <p>Garage</p>
               </div>
@@ -117,7 +117,7 @@
                   <span class="material-symbols-outlined opacity-75">
                     square_foot
                   </span>
-                  <h6 class="area">7663</h6>
+                  <h6 class="area">{{PropertyDetail.livingAreaSF}}</h6>
                 </div>
                 <p>Sq Ft</p>
               </div>
@@ -126,7 +126,7 @@
               <div>
                 <div class="d-flex  align-items-center gap-2">
                   <i class="fa-light fa-calendar-days"></i>
-                  <h6 class="years">N/A</h6>
+                  <h6 class="years">{{PropertyDetail.yearBuilt}}</h6>
                 </div>
                 <p>Year Built</p>
               </div>
@@ -136,27 +136,14 @@
         <div class="about mt-5 mb30" id="section1">
           <h4 class="my-3">Description</h4>
           <hr class="mb-3">
-          <p>Spectacular! Unobstructed views greet you from this rare 72ft wide lot situated on Silver Crest Drive
-            NW overlooking the Bow River . This property offers a fabulous 180 degree panoramic view of the river
-            valley, Canada Olympic Park and the Rocky Mountains. The south facing gently sloped lot is shovel
-            ready with an approved City Development Permit in place. Bring your Builder and create your Dream
-            Home. Directly across the street is the City’s multi use paved pathway and numerous hiking and
-            mountain biking trails leading through Bowmont Natural Environment, Baker, Bowness, Greenway and
-            Shouldice Parks before connecting onto Calgary’s extensive pathway system. Silver Springs is a highly
-            desired north west community with activities and social opportunities for all ages. Amenities include
-            schools, playgrounds, community gardens, Botanical garden, outdoor swimming pool, skating rinks,
-            sports fields, tennis and pickle-ball courts to name a few. Close to shopping, restaurants, coffee
-            shops, golf, disc golf and so much more. This great location allows for easy and quick access to
-            downtown, C-train, Stoney Trail ring road and to the Rocky Mountains. Drop by today and view this rare
-            opportunity to build your future home, it is a must to see. The Jackson McCormick Design Group has
-            created a 2 story front walkout for this lot which maximizes the tranquil vistas with a triple
-            attached laned garage. Please call with any questions.
+          <p>
+            {{PropertyDetail.publicRemarks}}
           </p>
         </div>
         <div class="address ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30  overflow-hidden position-relative">
           <div class="d-flex align-items-center justify-content-between my-3">
             <h4>Address</h4>
-            <button class="ud-btn btn-primary border-0" id="map-btn">Open on Google Maps</button>
+            <button class="ud-btn btn-primary border-0" (click)="openGoogleMap(PropertyDetail.latitude,PropertyDetail.longitude)" >Open on Google Maps</button>
           </div>
           <hr>
           <div class="row">
@@ -168,9 +155,9 @@
                   <p class="fw600 mb-0 ff-heading dark-color">State/county</p>
                 </div>
                 <div class="pd-list">
-                  <p class="text mb10">10425 Tabor St</p>
-                  <p class="text mb10">Los Angeles</p>
-                  <p class="text mb-0">California</p>
+                  <p class="text mb10">{{PropertyDetail.streetNumber + ' ' +PropertyDetail.streetName + ' ' +PropertyDetail.streetSuffix + ' ' + PropertyDetail.streetDirSuffix}}</p>
+                  <p class="text mb10">{{PropertyDetail.city}}</p>
+                  <p class="text mb-0">{{PropertyDetail.stateOrProvince}}</p>
                 </div>
               </div>
             </div>
@@ -182,9 +169,9 @@
                   <p class="fw600 mb-0 ff-heading dark-color">Country</p>
                 </div>
                 <div class="pd-list">
-                  <p class="text mb10">90034</p>
-                  <p class="text mb10">Brookside</p>
-                  <p class="text mb-0">United States</p>
+                  <p class="text mb10">{{PropertyDetail.postalCode}}</p>
+                  <p class="text mb10">N/A</p>
+                  <p class="text mb-0">Canada</p>
                 </div>
               </div>
             </div>
@@ -196,7 +183,7 @@
               <h4>Details</h4>
               <div class="d-flex align-items-center gap-2">
                 <i class="fa-light fa-calendar-days"></i>
-                <p class="updatedate mb-0">Updated on 1/8/2024, 12:25:42 AM</p>
+                <p class="updatedate mb-0">Updated on {{PropertyDetail.modified_Date | date : 'MM/d/y H:mm:ss'}}</p>
               </div>
             </div>
             <hr>
@@ -205,54 +192,54 @@
                 <div class="col-12 col-sm">
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>MLS ID :</strong></span>
-                    <p class="mb-2 listingid">A2042507</p>
+                    <p class="mb-2 listingid">{{PropertyDetail.listingId}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Price :</strong></span>
-                    <p class="mb-2 listprice">$1,175,000</p>
+                    <p class="mb-2 listprice">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow'  }}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Property Size :</strong></span>
-                    <p class="mb-2 propertysize">7663 Sq ft</p>
+                    <p class="mb-2 propertysize">{{ PropertyDetail.listPriceSquareFoot | number | currency: 'CAD' : 'symbol-narrow'  }} Sq ft</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Bedrooms :</strong></span>
-                    <p class="mb-2 bedroom">0</p>
+                    <p class="mb-2 bedroom">{{PropertyDetail.bedrooms}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Bathroom :</strong></span>
-                    <p class="mb-2 bathroom">0</p>
+                    <p class="mb-2 bathroom">{{PropertyDetail.bathrooms}}</p>
                   </div>
                   <hr>
                 </div>
                 <div class="col-12 col-sm">
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Garage :</strong></span>
-                    <p class="mb-2 garage">0</p>
+                    <p class="mb-2 garage">{{PropertyDetail.isGarage == 1 ? PropertyDetail.garage : 0}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Garage Size :</strong></span>
-                    <p class="mb-2 garazesize"></p>
+                    <p class="mb-2 garazesize">N/A</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Year Built :</strong></span>
-                    <p class="mb-2 years">N/A</p>
+                    <p class="mb-2 years">{{PropertyDetail.yearBuilt}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Property Type :</strong></span>
-                    <p class="mb-2 propertytype">Land</p>
+                    <p class="mb-2 propertytype">{{PropertyDetail.propertyType}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Property Status :</strong></span>
-                    <p class="mb-2 buildingtype">For Sale</p>
+                    <p class="mb-2 buildingtype">{{PropertyDetail.transactionType}}</p>
                   </div>
                   <hr>
                 </div>
@@ -267,34 +254,34 @@
                 <div class="col-12 col-sm">
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="depo"><strong>Fencing :</strong></span>
-                    <p class="mb-2 deposit">None</p>
+                    <p class="mb-2 deposit">{{PropertyDetail.fencing ? PropertyDetail.fencing : 'N/A'}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="pool"><strong>Sewer :</strong></span>
-                    <p class="mb-2 poolsize">N/A</p>
+                    <p class="mb-2 poolsize">{{PropertyDetail.sewer ? PropertyDetail.sewer: 'N/A'}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="remodel"><strong>Water Front :</strong></span>
-                    <p class="mb-2 parking">N/A</p>
+                    <p class="mb-2 parking">{{PropertyDetail.waterfrontFeatures ? PropertyDetail.waterfrontFeatures: 'N/A'}}</p>
                   </div>
                   <hr>
                 </div>
                 <div class="col-12 col-sm">
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="amenitites"><strong>Lot Features :</strong></span>
-                    <p class="mb-2 clubhouse">Cleared</p>
+                    <p class="mb-2 clubhouse">{{PropertyDetail.lotFeatures ? PropertyDetail.lotFeatures: 'N/A'}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="additional"><strong>Zoning :</strong></span>
-                    <p class="mb-2 additionalroom">R-C1</p>
+                    <p class="mb-2 additionalroom">{{PropertyDetail.zoning ? PropertyDetail.zoning: 'N/A'}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="equip"><strong>Frontage :</strong></span>
-                    <p class="mb-2 equipment">21.94M 72`0&amp;quot;</p>
+                    <p class="mb-2 equipment">{{PropertyDetail.frontageLength ? PropertyDetail.frontageLength: 'N/A'}}</p>
                   </div>
                   <hr>
                 </div>

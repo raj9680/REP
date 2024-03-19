@@ -1,4 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PropertySearchService } from '../services/property-search.service';
 
 
 interface carouselImage {
@@ -13,41 +15,29 @@ interface carouselImage {
 })
 export class PropertyDetailComponent implements OnInit {
 
-  images = [
-    {
-      image: "https://myproagents.com/storage/81647581/photo-81647581-1.jpeg",
-      thumbImage: "https://myproagents.com/storage/81647581/photo-81647581-1.jpeg"
-    },
-    {
-      image: "https://myproagents.com/storage/81647581/photo-81647581-3.jpeg",
-      thumbImage: "https://myproagents.com/storage/81647581/photo-81647581-3.jpeg"
-    },
-    {
-      image: "https://myproagents.com/storage/81647581/photo-81647581-6.jpeg",
-      thumbImage: "https://myproagents.com/storage/81647581/photo-81647581-6.jpeg"
-    },
-    {
-      image: "https://myproagents.com/storage/81647581/photo-81647581-12.jpeg",
-      thumbImage: "https://myproagents.com/storage/81647581/photo-81647581-12.jpeg"
-    },
-    {
-      image: "https://myproagents.com/storage/81647581/photo-81647581-15.jpeg",
-      thumbImage: "https://myproagents.com/storage/81647581/photo-81647581-1.jpeg"
-    }
-  ]
+  images: any[] = []
 
   
   indicators: boolean = true;
   selectedIndex: number = 0;
   slideInterval: number = 3000;
   autoSlide: boolean = false;
-
-  constructor() { }
+  listingKeyNumeric: string = '';
+  PropertyDetail:any = null;
+  constructor(private route: ActivatedRoute, private readonly propertySearchService: PropertySearchService) { }
 
   ngOnInit(): void {
     if(this.autoSlide) {
       this.autoSlideImages()
     }
+    this.route.params.subscribe(params => {
+      this.listingKeyNumeric = params['id'];
+    });
+    this.propertySearchService.getPropertyDetailByKey(this.listingKeyNumeric).subscribe(data => {
+      console.log(data);
+      this.PropertyDetail = data;
+      this.images = this.PropertyDetail.imagesUrl;
+    });
   }
 
   selectImage(index: number): void {
@@ -75,4 +65,11 @@ export class PropertyDetailComponent implements OnInit {
       this.onNextClick();
     }, this.slideInterval);
   }
+  // openGoogleMap(lat:string, log:string){
+  //   // window.open('https://www.google.com/maps?q=51.06263052,-114.04455602', '_blank').focus();
+    
+  // }
+  openGoogleMap(lat:string, log:string){
+    window.open('https://www.google.com/maps?q='+lat+','+log, '_blank');
+}
 }
