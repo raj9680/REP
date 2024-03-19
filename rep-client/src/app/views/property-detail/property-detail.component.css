@@ -137,11 +137,26 @@ background-color: #fff;
 
 }
 
-
+.btn-carousel{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  width: 15%;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  background: 0 0;
+  border: 0;
+  cursor: pointer;
+}
 .carousel-container img.image-active{
   display: block;
   width: 100%;
 }
+
+.fade-in-image { animation: fadeIn 1s; }
 
 .image-active {
 

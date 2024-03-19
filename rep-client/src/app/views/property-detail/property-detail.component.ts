@@ -15,37 +15,64 @@ export class PropertyDetailComponent implements OnInit {
 
   images = [
     {
-      imageSrc: "https://myproagents.com/storage/81647581/photo-81647581-1.jpeg",
-      imageAlt: "nature-one"
+      image: "https://myproagents.com/storage/81647581/photo-81647581-1.jpeg",
+      thumbImage: "https://myproagents.com/storage/81647581/photo-81647581-1.jpeg"
     },
     {
-      imageSrc: "https://myproagents.com/storage/81647581/photo-81647581-3.jpeg",
-      imageAlt: "nature-two"
+      image: "https://myproagents.com/storage/81647581/photo-81647581-3.jpeg",
+      thumbImage: "https://myproagents.com/storage/81647581/photo-81647581-3.jpeg"
     },
     {
-      imageSrc: "https://myproagents.com/storage/81647581/photo-81647581-6.jpeg",
-      imageAlt: "nature-three"
+      image: "https://myproagents.com/storage/81647581/photo-81647581-6.jpeg",
+      thumbImage: "https://myproagents.com/storage/81647581/photo-81647581-6.jpeg"
     },
     {
-      imageSrc: "https://myproagents.com/storage/81647581/photo-81647581-12.jpeg",
-      imageAlt: "nature-two"
+      image: "https://myproagents.com/storage/81647581/photo-81647581-12.jpeg",
+      thumbImage: "https://myproagents.com/storage/81647581/photo-81647581-12.jpeg"
     },
     {
-      imageSrc: "https://myproagents.com/storage/81647581/photo-81647581-15.jpeg",
-      imageAlt: "nature-three"
+      image: "https://myproagents.com/storage/81647581/photo-81647581-15.jpeg",
+      thumbImage: "https://myproagents.com/storage/81647581/photo-81647581-1.jpeg"
     }
   ]
 
-  indiacators: boolean = true;
+  
+  indicators: boolean = true;
   selectedIndex: number = 0;
+  slideInterval: number = 3000;
+  autoSlide: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
-
+    if(this.autoSlide) {
+      this.autoSlideImages()
+    }
   }
 
   selectImage(index: number): void {
     this.selectedIndex = index;
+  }
+
+  onPrevClick(): void {
+    if(this.selectedIndex === 0) {
+      this.selectedIndex = this.images.length - 1;
+    } else {
+      this.selectedIndex--;
+    }
+  }
+
+  onNextClick(): void {
+    if(this.selectedIndex === this.images.length - 1) {
+      this.selectedIndex = 0;
+    } else {
+      this.selectedIndex++;
+    }
+  }
+
+  autoSlideImages(): void {
+    setInterval(() => {
+      this.onNextClick();
+    }, this.slideInterval);
   }
 }
