@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-multi-slider',
@@ -7,18 +7,24 @@ import { Component, ElementRef, HostListener } from '@angular/core';
 })
 export class MultiSliderComponent {
 
-constructor(private el: ElementRef) {
+@ViewChild('next') nextElement: ElementRef | any;
+@ViewChild('prev') prevElement: ElementRef | any;
+
+constructor() {
   
 }
 
-@HostListener('click')
+
 nextClick() {
-  var elm = this.el.nativeElement.parentElement;
-  console.log(elm);
+  var elm = this.nextElement.nativeElement.parentElement.parentElement.children[0];
+  var item = elm.getElementsByClassName("item");
+  elm.append(item[0]);
 }
 
 prevClick() {
-  throw new Error('Method not implemented.');
+  var elm = this.nextElement.nativeElement.parentElement.parentElement.children[0];
+  var item = elm.getElementsByClassName("item");
+  elm.prepend(item[item.length - 1]);
 }
 
 }

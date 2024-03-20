@@ -114,16 +114,16 @@
           <!-- multi banner -->
           <div style="position: relative;">
             <div *ngIf="indicators" class="row carouselcustom px-3" style="position: relative;">
-              <div *ngFor="let image of images let i = index" class="col-2">
+              <div *ngFor="let image of images let i = index" class="col-2 slide-parent">
                 <div class="set-img-2">
                   <img [src]="image" [ngClass]="{'active': selectedIndex === i}" (click)="selectImage(i)">
                 </div>
               </div>
             </div>
             <div class="slider-container3">
-              <button class="slider-button3 left-arr2" onclick="prevDates()"><i class="fa fa-angle-left"
+              <button class="slider-button3 left-arr2" (click)="prevClick()" #prev><i class="fa fa-angle-left"
                   aria-hidden="true"></i></button>
-              <button class="slider-button3 right-arr2" onclick="nextDates()"><i class="fa fa-angle-right"
+              <button class="slider-button3 right-arr2" (click)="nextClick()" #next><i class="fa fa-angle-right"
                   aria-hidden="true"></i></button>
             </div>
           </div>

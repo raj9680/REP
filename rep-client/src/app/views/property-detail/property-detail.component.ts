@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PropertySearchService } from '../services/property-search.service';
 
@@ -19,15 +19,20 @@ export class PropertyDetailComponent implements OnInit {
   autoSlide: boolean = false;
   listingKeyNumeric: string = '';
   PropertyDetail:any = null;
+  @ViewChild('next') nextElement: ElementRef | any;
+  @ViewChild('prev') prevElement: ElementRef | any;
+
   constructor(private route: ActivatedRoute, private readonly propertySearchService: PropertySearchService) { }
 
   ngOnInit(): void {
     if(this.autoSlide) {
       this.autoSlideImages()
     }
+
     this.route.params.subscribe(params => {
       this.listingKeyNumeric = params['id'];
     });
+
     this.propertySearchService.getPropertyDetailByKey(this.listingKeyNumeric).subscribe(data => {
       console.log(data);
       this.PropertyDetail = data;
@@ -35,10 +40,8 @@ export class PropertyDetailComponent implements OnInit {
     });
   }
 
-  selectImage(index: number): void {
-    this.selectedIndex = index;
-  }
-
+  
+  // Banner Image
   onPrevClick(): void {
     if(this.selectedIndex === 0) {
       this.selectedIndex = this.images.length - 1;
@@ -54,6 +57,25 @@ export class PropertyDetailComponent implements OnInit {
       this.selectedIndex++;
     }
   }
+  // End
+
+  // Multi Slider
+  selectImage(index: number): void {
+    this.selectedIndex = index;
+  }
+
+  nextClick() {
+    var elm = this.nextElement.nativeElement.parentElement.parentElement.children[0];
+    var item = elm.getElementsByClassName("slide-parent");
+    elm.append(item[0]);
+  }
+  
+  prevClick() {
+    var elm = this.nextElement.nativeElement.parentElement.parentElement.children[0];
+    var item = elm.getElementsByClassName("slide-parent");
+    elm.prepend(item[item.length - 1]);
+  }
+  // End
 
   autoSlideImages(): void {
     setInterval(() => {
