@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { map } from 'rxjs/internal/operators/map';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,7 +12,12 @@ export class PropertySearchService {
   constructor(private http: HttpClient) {
     this.httpURL = environment.apiEndpoint;
    }
+
+  //  getPropertyDetailByKey(listingKeyNumeric: string): Observable<any[]> {
+  //   return this.http.get<any>(this.httpURL + `api/Property/GetPropertyDetailByKey?key=` + listingKeyNumeric);
+  // }
+
   getPropertyDetailByKey(listingKeyNumeric: string): Observable<any[]> {
-    return this.http.get<any>(this.httpURL + `api/Property/GetPropertyDetailByKey?key=` + listingKeyNumeric);
+    return this.http.get<any>("http://localhost:4200/assets/demo-api/SamplePropertyJson.json");
   }
 }

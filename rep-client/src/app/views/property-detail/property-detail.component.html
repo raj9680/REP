@@ -6,7 +6,8 @@
         <div class="single-property-content mb30-md">
           <h1 class="sp-lg-title">{{PropertyDetail.fullAddress}}</h1>
           <div class="buttons">
-            <button class="features me-2" style="background-color: rgb(16, 87, 159);">{{PropertyDetail.isDiamondType ? 'Diamond' : 'Feature'}}</button>
+            <button class="features me-2" style="background-color: rgb(16, 87, 159);">{{PropertyDetail.isDiamondType ?
+              'Diamond' : 'Feature'}}</button>
             <button class="propertytype">{{PropertyDetail.propertyType}}</button>
             <div class="d-flex gap-2 mt-3 addres">
               <svg class="mt-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -32,8 +33,9 @@
               <a class="icon mr10" href="#"><span class="flaticon-share-1"></span></a>
               <a class="icon" href="#"><span class="flaticon-printer"></span></a>
             </div>
-            <h4 class="price mb-0">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow'  }}</h4>
-            <p class="text space fz15">{{ PropertyDetail.listPriceSquareFoot | number | currency: 'CAD' : 'symbol-narrow'  }}/sq ft</p>
+            <h4 class="price mb-0">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow' }}</h4>
+            <p class="text space fz15">{{ PropertyDetail.listPriceSquareFoot | number | currency: 'CAD' :
+              'symbol-narrow' }}/sq ft</p>
           </div>
         </div>
       </div>
@@ -45,73 +47,77 @@
         <div class="overview mt-3 mb30 rounded-3" style="position: relative;">
 
           <!-- Single Banner -->
-          <div *ngIf="images && images.length > 0" class="carousel-container" data-bs-toggle="modal" data-bs-target="#exampleModalbanner">
+          <div *ngIf="images && images.length > 0" class="carousel-container" data-bs-toggle="modal"
+            data-bs-target="#exampleModalbanner">
             <div class="set-img">
               <img *ngFor="let image of images let i = index" [src]="image" [alt]="i"
                 [ngClass]="{ 'image-active': selectedIndex === i }" class="fade-in-image">
             </div>
           </div>
           <!-- Single banner End -->
-<!-- Button trigger modal -->
+          <!-- Button trigger modal -->
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalbanner" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="d-flex align-items-center justify-content-between w-100 px-3">
-          <img class="logo" src="http://127.0.0.1:8000/images/logo.svg" alt="">
-          <div class="d-flex gap-2 justify-content-between" style="align-items: baseline;">
-            
-              <p class="mb-0 fa fa-heart-o cursor-pointer">
-                Favorite
-              </p>
-              <div class="dropdown">
-             
-                  <p class="fa fa-share-alt icons" id="shareimage" onclick="toggleDropdown('shareimageDropdown')">
-                      Share
-                  </p>
-                  <div class="dropdown-menu" id="shareimageDropdown" style="display: none;">
-                      <a onclick="share('facebook')"><i class="ri-facebook-fill"></i> Share on
-                          Facebook</a>
-                      <a onclick="share('whatsapp')"><i class="ri-whatsapp-fill"></i> Share on
-                          WhatsApp</a>
-                      <a onclick="share('email')"><i class="ri-mail-fill"></i> Share via
-                          Email</a>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalbanner" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="d-flex align-items-center justify-content-between w-100 px-3">
+                    <img class="logo" src="http://127.0.0.1:8000/images/logo.svg" alt="">
+                    <div class="d-flex gap-2 justify-content-between" style="align-items: baseline;">
+
+                      <p class="mb-0 fa fa-heart-o cursor-pointer">
+                        Favorite
+                      </p>
+                      <div class="dropdown">
+
+                        <p class="fa fa-share-alt icons" id="shareimage" onclick="toggleDropdown('shareimageDropdown')">
+                          Share
+                        </p>
+                        <div class="dropdown-menu" id="shareimageDropdown" style="display: none;">
+                          <a onclick="share('facebook')"><i class="ri-facebook-fill"></i> Share on
+                            Facebook</a>
+                          <a onclick="share('whatsapp')"><i class="ri-whatsapp-fill"></i> Share on
+                            WhatsApp</a>
+                          <a onclick="share('email')"><i class="ri-mail-fill"></i> Share via
+                            Email</a>
+                        </div>
+                      </div>
+
+                    </div>
                   </div>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body" style="position: relative;">
+                  <div *ngIf="images && images.length > 0" class="carousel-container">
+                    <div class="set-imgg">
+                      <img *ngFor="let image of images let i = index" [src]="image" [alt]="i"
+                        [ngClass]="{ 'image-active': selectedIndex === i }" class="fade-in-image">
+                    </div>
+                  </div>
+                  <div class="slider-container3">
+                    <button class="slider-button3 left-arr4" (click)="onPrevClick()"><i class="fa fa-angle-left"
+                        aria-hidden="true"></i></button>
+                    <button class="slider-button3 right-arr4" (click)="onNextClick()"><i class="fa fa-angle-right"
+                        aria-hidden="true"></i></button>
+                  </div>
+                </div>
+
               </div>
-
+            </div>
           </div>
-      </div>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body" style="position: relative;">
-        <div *ngIf="images && images.length > 0" class="carousel-container">
-          <div class="set-imgg">
-            <img *ngFor="let image of images let i = index" [src]="image.image" [alt]="i"
-              [ngClass]="{ 'image-active': selectedIndex === i }" class="fade-in-image">
-          </div>
-        </div>
-        <div class="slider-container3">
-          <button class="slider-button3 left-arr4" (click)="onPrevClick()"><i class="fa fa-angle-left"
-              aria-hidden="true"></i></button>
-          <button class="slider-button3 right-arr4" (click)="onNextClick()"><i class="fa fa-angle-right"
-              aria-hidden="true"></i></button>
-        </div>
-      </div>
-     
-    </div>
-  </div>
-</div>
           <hr>
 
           <!-- multi banner -->
-          <div *ngIf="indicators" class="row carouselcustom px-3" style="position: relative;">
-            <div *ngFor="let image of images let i = index" class="col-6 col-sm-4 col-md">
-              <div class="set-img-2">
-                <img src="{{image}}" [ngClass]="{'active': selectedIndex === i}" (click)="selectImage(i)">
+          <div style="position: relative;">
+            <div *ngIf="indicators" class="row carouselcustom px-3" style="position: relative;">
+              <div *ngFor="let image of images let i = index" class="col-2">
+                <div class="set-img-2">
+                  <img [src]="image" [ngClass]="{'active': selectedIndex === i}" (click)="selectImage(i)">
+                </div>
               </div>
             </div>
             <div class="slider-container3">
@@ -208,7 +214,8 @@
         <div class="address ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30  overflow-hidden position-relative">
           <div class="d-flex align-items-center justify-content-between my-3">
             <h4>Address</h4>
-            <button class="ud-btn btn-primary border-0" (click)="openGoogleMap(PropertyDetail.latitude,PropertyDetail.longitude)" >Open on Google Maps</button>
+            <button class="ud-btn btn-primary border-0"
+              (click)="openGoogleMap(PropertyDetail.latitude,PropertyDetail.longitude)">Open on Google Maps</button>
           </div>
           <hr>
           <div class="row">
@@ -220,7 +227,8 @@
                   <p class="fw600 mb-0 ff-heading dark-color">State/county</p>
                 </div>
                 <div class="pd-list">
-                  <p class="text mb10">{{PropertyDetail.streetNumber + ' ' +PropertyDetail.streetName + ' ' +PropertyDetail.streetSuffix + ' ' + PropertyDetail.streetDirSuffix}}</p>
+                  <p class="text mb10">{{PropertyDetail.streetNumber + ' ' +PropertyDetail.streetName + ' '
+                    +PropertyDetail.streetSuffix + ' ' + PropertyDetail.streetDirSuffix}}</p>
                   <p class="text mb10">{{PropertyDetail.city}}</p>
                   <p class="text mb-0">{{PropertyDetail.stateOrProvince}}</p>
                 </div>
@@ -262,12 +270,13 @@
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Price :</strong></span>
-                    <p class="mb-2 listprice">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow'  }}</p>
+                    <p class="mb-2 listprice">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow' }}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Property Size :</strong></span>
-                    <p class="mb-2 propertysize">{{ PropertyDetail.listPriceSquareFoot | number | currency: 'CAD' : 'symbol-narrow'  }} Sq ft</p>
+                    <p class="mb-2 propertysize">{{ PropertyDetail.listPriceSquareFoot | number | currency: 'CAD' :
+                      'symbol-narrow' }} Sq ft</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
@@ -329,7 +338,8 @@
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="remodel"><strong>Water Front :</strong></span>
-                    <p class="mb-2 parking">{{PropertyDetail.waterfrontFeatures ? PropertyDetail.waterfrontFeatures: 'N/A'}}</p>
+                    <p class="mb-2 parking">{{PropertyDetail.waterfrontFeatures ? PropertyDetail.waterfrontFeatures:
+                      'N/A'}}</p>
                   </div>
                   <hr>
                 </div>
@@ -346,7 +356,8 @@
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="equip"><strong>Frontage :</strong></span>
-                    <p class="mb-2 equipment">{{PropertyDetail.frontageLength ? PropertyDetail.frontageLength: 'N/A'}}</p>
+                    <p class="mb-2 equipment">{{PropertyDetail.frontageLength ? PropertyDetail.frontageLength: 'N/A'}}
+                    </p>
                   </div>
                   <hr>
                 </div>

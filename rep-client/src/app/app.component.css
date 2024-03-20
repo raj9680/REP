@@ -1,6 +1,6 @@
 /**@import '~lightgallery/css/lightgallery.css';**/
 
-
+.list-thumb img{object-fit: cover; width: 100%; height: 220px; min-height: 220px;}
 .my-overlay {
     left: 0 !important;
     top: 0 !important;

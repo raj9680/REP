@@ -4,7 +4,11 @@
   align-items: center;
   margin-top: 20px;
 }
-
+.row.carouselcustom.px-3 {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
 .slider-button3 {
   width: 30px;
   display: flex;
@@ -21,12 +25,12 @@
 .left-arr2 {
   position: absolute;
   top: 30px;
-  left: 10px;
+  left: -15px;
 }
 .right-arr2 {
   position: absolute;
   top: 30px;
-  right: 9px;
+  right: -15px;
 }
 .left-arr3 {
   position: absolute;
@@ -587,4 +591,8 @@ color: #000;
   .fixed-tabs {
     top: 64px;
   }
+}
+.carouselcustom .col-2{
+  padding-left: 4px;
+  padding-right: 4px;
 }
