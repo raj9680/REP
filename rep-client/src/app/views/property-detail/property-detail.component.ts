@@ -1,11 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 
 
-interface carouselImage {
-  imageSrc: string;
-  imageAlt: string;
-}
-
 @Component({
   selector: 'app-property-detail',
   templateUrl: './property-detail.component.html',

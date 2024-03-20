@@ -42,26 +42,91 @@
     <div class="row wow fadeInUp" data-wow-delay="500ms">
       <div class="col-lg-8 order-sm-first">
         <!-- Banner -->
-        <div class="overview mt-3 mb30 rounded-3">
+        <div class="overview mt-3 mb30 rounded-3" style="position: relative;">
 
           <!-- Single Banner -->
-          <div *ngIf="images && images.length > 0" class="carousel-container">
+          <div *ngIf="images && images.length > 0" class="carousel-container" data-bs-toggle="modal" data-bs-target="#exampleModalbanner">
             <div class="set-img">
               <img *ngFor="let image of images let i = index" [src]="image.image" [alt]="i"
                 [ngClass]="{ 'image-active': selectedIndex === i }" class="fade-in-image">
             </div>
           </div>
           <!-- Single banner End -->
+<!-- Button trigger modal -->
 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalbanner" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="d-flex align-items-center justify-content-between w-100 px-3">
+          <img class="logo" src="http://127.0.0.1:8000/images/logo.svg" alt="">
+          <div class="d-flex gap-2 justify-content-between" style="align-items: baseline;">
+            
+              <p class="mb-0 fa fa-heart-o cursor-pointer">
+                Favorite
+              </p>
+              <div class="dropdown">
+             
+                  <p class="fa fa-share-alt icons" id="shareimage" onclick="toggleDropdown('shareimageDropdown')">
+                      Share
+                  </p>
+                  <div class="dropdown-menu" id="shareimageDropdown" style="display: none;">
+                      <a onclick="share('facebook')"><i class="ri-facebook-fill"></i> Share on
+                          Facebook</a>
+                      <a onclick="share('whatsapp')"><i class="ri-whatsapp-fill"></i> Share on
+                          WhatsApp</a>
+                      <a onclick="share('email')"><i class="ri-mail-fill"></i> Share via
+                          Email</a>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body" style="position: relative;">
+        <div *ngIf="images && images.length > 0" class="carousel-container">
+          <div class="set-imgg">
+            <img *ngFor="let image of images let i = index" [src]="image.image" [alt]="i"
+              [ngClass]="{ 'image-active': selectedIndex === i }" class="fade-in-image">
+          </div>
+        </div>
+        <div class="slider-container3">
+          <button class="slider-button3 left-arr4" (click)="onPrevClick()"><i class="fa fa-angle-left"
+              aria-hidden="true"></i></button>
+          <button class="slider-button3 right-arr4" (click)="onNextClick()"><i class="fa fa-angle-right"
+              aria-hidden="true"></i></button>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
           <hr>
 
           <!-- multi banner -->
-          <div *ngIf="indicators" class="row carouselcustom px-3">
+          <div *ngIf="indicators" class="row carouselcustom px-3" style="position: relative;">
             <div *ngFor="let image of images let i = index" class="col-6 col-sm-4 col-md">
               <div class="set-img-2">
                 <img src="{{image.image}}" [ngClass]="{'active': selectedIndex === i}" (click)="selectImage(i)">
               </div>
             </div>
+            <div class="slider-container3">
+              <button class="slider-button3 left-arr2" onclick="prevDates()"><i class="fa fa-angle-left"
+                  aria-hidden="true"></i></button>
+              <button class="slider-button3 right-arr2" onclick="nextDates()"><i class="fa fa-angle-right"
+                  aria-hidden="true"></i></button>
+            </div>
+          </div>
+
+          <div class="slider-container3">
+            <button class="slider-button3 left-arr3" (click)="onPrevClick()"><i class="fa fa-angle-left"
+                aria-hidden="true"></i></button>
+            <button class="slider-button3 right-arr3" (click)="onNextClick()"><i class="fa fa-angle-right"
+                aria-hidden="true"></i></button>
           </div>
           <!-- multi banner end -->
         </div>
@@ -850,23 +915,23 @@
                       </div>
                       <div class="pro-info">
                         <div class="d-flex align-items-center gap-2">
-                          <i class="ri-user-line"></i>
+                          <i class="fa fa-user-o" aria-hidden="true"></i>
                           <p class="agentname">Gloria Johnston</p>
                         </div>
                         <div class="d-flex flex-column mt-2 ">
-                          <div><i class="ri-phone-line"></i>
+                          <div class="d-flex align-items-center gap-2"><i class="fa fa-phone" aria-hidden="true"></i>
                             <span><a class="phoneno" href="tel:403-816-9849">403-816-9849</a></span>
                           </div>
-                          <div><i class="ri-smartphone-line"></i>
+                          <div class="d-flex align-items-center gap-2"><i class="fa fa-mobile" aria-hidden="true"></i>
                             <span><a class="contactno" href="tel:403-547-4102">403-547-4102</a></span>
                           </div>
-                          <div><i class="ri-whatsapp-line whatsapp-icon"></i>
+                          <div class="d-flex align-items-center gap-2"><i class="fa fa-whatsapp" aria-hidden="true"></i>
                             <span>WhatsApp</span>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <h4 class="mt-5">Enquire About This Property</h4>
+                    <h4 class="mt-4">Enquire About This Property</h4>
                     <hr class="mt-4 mb-3">
                     <div class="leave-rev">
                       <form id="contactForm">

@@ -1,0 +1,89 @@
+@media (min-width: 1200px)
+{
+ 
+.h1, h1 {
+    font-size: 2.5rem;
+}
+    .h2, h2 {
+    font-size: 2rem;
+}
+.listing-style5 .list-meta2 {
+
+    display: flex;
+    gap: 0.2rem;
+}
+.listing-style5 {
+    border: 1px solid #DDDDDD;
+}
+.listing-style5 .list-title a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.list-title {
+    font-family: var(--title-font-family);
+}
+.h6, h6 {
+    font-size: 1rem;
+}
+.listing-style5 .list-content {
+    padding: 20px 16px;
+    min-height: 160px;
+    height: 160px;
+}
+.listing-style5 .list-thumb img {
+    min-height: 193px;
+    height: 193px;
+}
+.h4, h4 {
+    font-size: 1.5rem;
+}
+}
+.list-title {
+    font-family: var(--title-font-family);
+}
+.iconbox-style2 .text {
+    color: var(--headings-color);
+    font-family: var(--title-font-family);
+    font-weight: 400;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #0d6efd;
+}
+.nav-pills .nav-link {
+    background: 0 0;
+    border: 0;
+    border-radius: 5px;
+}
+.h6, h6 {
+    font-size: 1rem;
+}
+h6, .h6 {
+    font-family: var(--body-font-family);
+}
+.h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5 {
+    font-family: var(--heading-font);
+    color: var(--headings-secondary-color);
+    font-weight: 600;
+    line-height: 1.5;
+}
+.main-title .title, .main-title2 .title {
+    font-style: normal;
+    letter-spacing: 0.02em;
+    margin-bottom: 0;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--bs-heading-color, inherit);
+}

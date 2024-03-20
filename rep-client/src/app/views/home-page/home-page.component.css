@@ -4,6 +4,10 @@ img.image{
     width:228px !important;
     height: 330px !important;
 }
+.listing-style5 .list-meta2{
+    display: flex;
+    gap: 0.3rem;
+}
 .home-banner-style3{
     background-size: cover !important;
 }

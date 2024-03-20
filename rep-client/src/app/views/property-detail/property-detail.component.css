@@ -1,5 +1,109 @@
+.slider-container3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.slider-button3 {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  cursor: pointer;
+  background-color: #10579f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 26px;
+}
+.left-arr2 {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+.right-arr2 {
+  position: absolute;
+  top: 30px;
+  right: 9px;
+}
+.left-arr3 {
+  position: absolute;
+  top: 180px;
+  left: 30px;
+}
+.right-arr3 {
+  position: absolute;
+  top: 180px;
+  right: 30px;
+}
+.left-arr4 {
+  position: absolute;
+  top: 300px;
+  left: 30px;
+}
+.right-arr4 {
+  position: absolute;
+  top: 300px;
+  right: 30px;
+}
 .profile-sec {
   padding-left: 3rem;
+}
+.contact-info .profile img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.contact-info .profile {
+  height: 100px;
+  width: 100px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.leave-rev h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bs-heading-color);
+}
+.leave-rev input {
+  outline: none;
+  margin-top: 1rem;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 42px;
+  width: 100%;
+  border-radius: 0.25rem;
+  border: 1px solid #dce0e0;
+}
+.select-boxes-filter {
+  background: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+.input-2 {
+  margin-top: 1rem;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 42px;
+  width: 100%;
+  border-radius: 0.25rem;
+  border: 1px solid #dce0e0;
+}
+.chkbox input {
+  margin: 7px 0;
+  height: 21px !important;
+  width: 20px !important;
+}
+.chkbox span {
+    font-weight: 500;
+  color: #18a0fb;
 }
 .sticky-wrapper {
   height: 100vh;
@@ -140,6 +244,18 @@ background-color: #fff;
 .set-img {
   height: 450px;
 }
+
+.set-imgg {
+  height: 620px;
+}
+
+.set-imgg img{
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
 .set-img-2 {
   height: 90px;
 }
@@ -391,7 +507,7 @@ color: #000;
 .overview p {
     color: #5c6872;
     font-weight: 400;
-    font-size: 13px;
+    font-size: 16px;
 }
 .overview i {
     font-size: 18px;

@@ -5,6 +5,24 @@
     padding: 9px 22px;
     border: 1px solid var(--secondary-500);
 }
+.list-meta2 {
+    display: flex;
+    gap: 0.2rem;
+}
+.h6, h6 {
+    font-size: 15px;
+}
+.list-title {
+    font-family: var(--title-font-family);
+}
+.listing-style5 {
+    border: 1px solid #DDDDDD;
+}
+h6, .h6 {
+    /* font-family: var(--body-font-family); */
+    font-weight: 600;
+    color: var(--headings-secondary-color);
+}
               .top-sec {
                 background: #10579f;
                 padding: 13px 10px;
