@@ -1,5 +1,9 @@
+<div class="loader-container" *ngIf="_sharedService.isLoading | async">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<app-header></app-header>
 <router-outlet></router-outlet>
-
+<app-footer></app-footer>
 
 
 <!-- <div class="wrapper ovh">

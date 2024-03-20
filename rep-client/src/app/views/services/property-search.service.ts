@@ -13,11 +13,8 @@ export class PropertySearchService {
     this.httpURL = environment.apiEndpoint;
    }
 
-  //  getPropertyDetailByKey(listingKeyNumeric: string): Observable<any[]> {
-  //   return this.http.get<any>(this.httpURL + `api/Property/GetPropertyDetailByKey?key=` + listingKeyNumeric);
-  // }
-
-  getPropertyDetailByKey(listingKeyNumeric: string): Observable<any[]> {
-    return this.http.get<any>("http://localhost:4200/assets/demo-api/SamplePropertyJson.json");
+   getPropertyDetailByKey(listingKeyNumeric: string): Observable<any[]> {
+    return this.http.get<any>(this.httpURL + `api/Property/GetPropertyDetailByKey?key=` + listingKeyNumeric);
   }
+
 }

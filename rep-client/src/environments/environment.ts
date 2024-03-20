@@ -3,9 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  apiEndpoint: 'https://localhost:7047/'
+  production: true,
+  apiEndpoint: 'https://musing-lehmann.108-175-0-196.plesk.page/'
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
