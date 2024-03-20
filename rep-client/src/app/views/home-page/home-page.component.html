@@ -122,7 +122,7 @@
                     <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite" class="set-as-fav">
                     <span class="flaticon-like"></span>
                     </a>
-                    <a href="https://mukeshswami.com/property-detail/{{property.listingId}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview" target="_blank">
+                    <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview" target="_blank">
                     <span class="flaticon-fullscreen"></span>
                     </a>
                  </div>
@@ -130,7 +130,7 @@
               <div class="list-content">
                  <div class="list-price mb-2">${{property.listPrice}}</div>
                  <h6 class="list-title">
-                    <a href="https://mukeshswami.com/property-detail/{{property.listingId}}">{{property.city}}, {{property.stateOrProvince}}</a>
+                    <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}" >{{property.city}}, {{property.stateOrProvince}}</a>
                  </h6>
                  <p class="list-text">{{property.propertyType}}</p>
                  <div class="list-meta d-flex align-items-center gap-3">
