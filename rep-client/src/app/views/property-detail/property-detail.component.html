@@ -908,20 +908,20 @@
                     <hr class="mt-4 mb-3">
                     <div class=" sm-align-items-start gap-3 d-flex flex-column flex-sm-row">
                       <div class="profile">
-                        <img src="https://mukeshswami.com/images/no_image.jpg" alt="Description of the image"
+                        <img src="{{PropertyDetail.memberImageName}}" alt="Description of the image"
                           class="agent-img">
                       </div>
                       <div class="pro-info">
                         <div class="d-flex align-items-center gap-2">
                           <i class="fa fa-user-o" aria-hidden="true"></i>
-                          <p class="agentname">Gloria Johnston</p>
+                          <p class="agentname">{{PropertyDetail.memberFullName}}</p>
                         </div>
                         <div class="d-flex flex-column mt-2 ">
                           <div class="d-flex align-items-center gap-2"><i class="fa fa-phone" aria-hidden="true"></i>
-                            <span><a class="phoneno" href="tel:403-816-9849">403-816-9849</a></span>
+                            <span><a class="phoneno" href="tel:{{PropertyDetail.memberDirectPhone}}">{{PropertyDetail.memberDirectPhone}}</a></span>
                           </div>
-                          <div class="d-flex align-items-center gap-2"><i class="fa fa-mobile" aria-hidden="true"></i>
-                            <span><a class="contactno" href="tel:403-547-4102">403-547-4102</a></span>
+                          <div class="d-flex align-items-center gap-2" *ngIf="PropertyDetail.memberFax"><i class="fa fa-mobile" aria-hidden="true"></i>
+                            <span><a class="contactno" href="tel:{{PropertyDetail.memberFax}}">{{PropertyDetail.memberFax}}</a></span>
                           </div>
                           <div class="d-flex align-items-center gap-2"><i class="fa fa-whatsapp" aria-hidden="true"></i>
                             <span>WhatsApp</span>
