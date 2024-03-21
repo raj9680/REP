@@ -13,7 +13,7 @@
                 <div class="col-12 col-sm-6 profile-delt mt-3 mt-sm-0">
                     <h5>{{agent.memberFullName}}</h5>
                     <div class="d-flex align-items-center gap-2">
-                        <p>0</p>
+                        <p>{{agent.avg_rating}}</p>
                         <a href="javascript:void(0)">See all reviews</a>
                     </div>
                     <p><span>{{agent.agent_title}}</span> at Real Estate Professional Inc. </p>
@@ -25,7 +25,7 @@
                                         alt="registered-trademark"> Mls:</strong> {{agent.memberMlsId}}</li>
                             <li><strong>Phone Number:</strong> {{agent.memberPhone}}</li>
 
-                            <li><strong>Specialties:</strong>{{agent.MemberType}}</li>
+                            <li><strong>Specialties:</strong>{{agent.MemberType ? agent.MemberType : ' Realtor®'}}</li>
 
                         </ul>
                     </div>
@@ -46,12 +46,15 @@
     <div class="row">
         <div class="col-12 col-sm-9 left-sec  mt-5 ">
             <div class="about-sec" id="about-sec">
-                <h5>About Albaraa Atmeh</h5>
+                <h5>About {{agent.memberFullName}}</h5>
 
+                <p id="description">{{isDescriptionMore ?(agent.description) : (agent.description | slice : 0:250)}}</p>
 
+                    <div id="showMoreContainer"><h6 id="showMore" *ngIf="isDescriptionMore" (click)="isDescriptionMore = false;">Show more</h6>
+                    <h6 id="showLess" *ngIf="!isDescriptionMore" (click)="isDescriptionMore = true;">Show less</h6></div>
                 <i class="ri-chat-3-line"></i>
                 <strong>Language:</strong>
-
+                {{agent.memberLanguages}}
             </div>
 
             <div class="container px-0 tab-1">
@@ -73,21 +76,24 @@
                         <div class="tab-2 mx-3 mt-5">
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
-
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-all" role="tabpanel"
                                     aria-labelledby="pills-all-tab" tabindex="0">
                                     <div class="container text-center p-0 ">
                                         <div class="row" id="listings_data">
-                                            <div class="col-sm-4 mt-3 col-12">
+                                            <div class="col-sm-4 mt-3 col-12" *ngFor="let property of memberProperties.properties| paginate
+                                            : {
+                                              itemsPerPage: itemsPerPage,
+                                              currentPage: page,
+                                              totalItems: totalItems
+                                              }">
                                                 <div class="listing-style5">
                                                     <div class="list-thumb">
-                                                        <img src="https://myproagents.com/storage/68007997/photo-68007997-1.jpeg"
-                                                            alt="Commercial">
+                                                        <img src="{{property.image_url}}" alt="{{property.listingKeyNumeric}}">
 
                                                         <div class="list-tag fz12">
-                                                            <i class="fa-thin fa-gem me-2"></i>Diamond
+                                                            <i class="fa-thin fa-gem me-2"></i>{{property.isDiamondProperty ? 'Diamond' : 'Feature'}}
                                                         </div>
                                                         <div class="list-meta2">
                                                             <a href="javascript:void(0)" data-bs-toggle="tooltip"
@@ -95,7 +101,7 @@
                                                                 class="set-as-fav">
                                                                 <span class="flaticon-like"></span>
                                                             </a>
-                                                            <a href="https://mukeshswami.com/property-detail/539-260300-writing-creek-crescent"
+                                                            <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}"
                                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                                 title="Preview" target="_blank">
                                                                 <span class="flaticon-fullscreen"></span>
@@ -103,273 +109,29 @@
                                                         </div>
                                                     </div>
                                                     <div class="list-content text-start">
-                                                        <div class="list-price mb-2">$33</div>
+                                                        <div class="list-price mb-2">${{property.listPrice}}</div>
                                                         <h6 class="list-title">
-                                                            78,Saddlepeace,Manor,</h6>
+                                                            {{property.unparsedAddress}}</h6>
 
-                                                        <p class="list-text">Commercial</p>
+                                                        <p class="list-text">{{property.propertyType}}</p>
                                                         <div class="list-meta d-flex align-items-center gap-3 mt-1">
-                                                            <a href="#"><span class="flaticon-bed"></span></a>
-                                                            <a href="#"><span class="flaticon-shower"></span></a>
+                                                            <a href="#"><span class="flaticon-bed"></span>{{property.bedroomsTotal}}</a>
+                                                            <a href="#"><span class="flaticon-shower"></span>{{property.bathroomsFull}}</a>
                                                             <a href="#"><span
-                                                                    class="flaticon-expand"></span>10800.00</a>
+                                                                    class="flaticon-expand"></span>{{property.livingAreaSF}}</a>
                                                         </div>
-                                                        <span class="mlsNumber">MLS® # A1195861</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4 mt-3 col-12">
-                                                <div class="listing-style5">
-                                                    <div class="list-thumb">
-                                                        <img src="https://myproagents.com/storage/81547947/photo-81547947-1.jpeg"
-                                                            alt="Commercial">
-
-                                                        <div class="list-tag fz12">
-                                                            <i class="fa-thin fa-gem me-2"></i>Diamond
-                                                        </div>
-                                                        <div class="list-meta2">
-                                                            <a href="javascript:void(0)" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Favourite"
-                                                                class="set-as-fav">
-                                                                <span class="flaticon-like"></span>
-                                                            </a>
-                                                            <a href="https://mukeshswami.com/property-detail/539-260300-writing-creek-crescent"
-                                                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                title="Preview" target="_blank">
-                                                                <span class="flaticon-fullscreen"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-content text-start">
-                                                        <div class="list-price mb-2">$12</div>
-                                                        <h6 class="list-title">
-                                                            1404,44,Avenue,3-5</h6>
-
-                                                        <p class="list-text">Commercial</p>
-                                                        <div class="list-meta d-flex align-items-center gap-3 mt-1">
-                                                            <a href="#"><span class="flaticon-bed"></span></a>
-                                                            <a href="#"><span class="flaticon-shower"></span></a>
-                                                            <a href="#"><span class="flaticon-expand"></span>6330.00</a>
-                                                        </div>
-                                                        <span class="mlsNumber">MLS® # A2041633</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4 mt-3 col-12">
-                                                <div class="listing-style5">
-                                                    <div class="list-thumb">
-                                                        <img src="https://myproagents.com/storage/81647581/photo-81647581-1.jpeg"
-                                                            alt="Land">
-
-                                                        <div class="list-tag fz12">
-                                                            <i class="fa-thin fa-gem me-2"></i>Diamond
-                                                        </div>
-                                                        <div class="list-meta2">
-                                                            <a href="javascript:void(0)" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Favourite"
-                                                                class="set-as-fav">
-                                                                <span class="flaticon-like"></span>
-                                                            </a>
-                                                            <a href="https://mukeshswami.com/property-detail/539-260300-writing-creek-crescent"
-                                                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                title="Preview" target="_blank">
-                                                                <span class="flaticon-fullscreen"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-content text-start">
-                                                        <div class="list-price mb-2">$1,175,000</div>
-                                                        <h6 class="list-title">
-                                                            328,Silver Crest,Drive,</h6>
-
-                                                        <p class="list-text">Land</p>
-                                                        <div class="list-meta d-flex align-items-center gap-3 mt-1">
-                                                            <a href="#"><span class="flaticon-bed"></span></a>
-                                                            <a href="#"><span class="flaticon-shower"></span></a>
-                                                            <a href="#"><span class="flaticon-expand"></span></a>
-                                                        </div>
-                                                        <span class="mlsNumber">MLS® # A2042507</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4 mt-3 col-12">
-                                                <div class="listing-style5">
-                                                    <div class="list-thumb">
-                                                        <img src="https://myproagents.com/storage/83730391/photo-83730391-1.jpeg"
-                                                            alt="Land">
-
-                                                        <div class="list-tag fz12">
-                                                            <i class="fa-thin fa-gem me-2"></i>Diamond
-                                                        </div>
-                                                        <div class="list-meta2">
-                                                            <a href="javascript:void(0)" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Favourite"
-                                                                class="set-as-fav">
-                                                                <span class="flaticon-like"></span>
-                                                            </a>
-                                                            <a href="https://mukeshswami.com/property-detail/539-260300-writing-creek-crescent"
-                                                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                title="Preview" target="_blank">
-                                                                <span class="flaticon-fullscreen"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-content text-start">
-                                                        <div class="list-price mb-2">$1,950,000</div>
-                                                        <h6 class="list-title">
-                                                            5-5-32-33-SE,none,</h6>
-
-                                                        <p class="list-text">Land</p>
-                                                        <div class="list-meta d-flex align-items-center gap-3 mt-1">
-                                                            <a href="#"><span class="flaticon-bed"></span></a>
-                                                            <a href="#"><span class="flaticon-shower"></span></a>
-                                                            <a href="#"><span class="flaticon-expand"></span></a>
-                                                        </div>
-                                                        <span class="mlsNumber">MLS® # A2056674</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4 mt-3 col-12">
-                                                <div class="listing-style5">
-                                                    <div class="list-thumb">
-                                                        <img src="https://myproagents.com/storage/84483327/photo-84483327-1.jpeg"
-                                                            alt="Commercial">
-
-                                                        <div class="list-tag fz12">
-                                                            <i class="fa-thin fa-gem me-2"></i>Diamond
-                                                        </div>
-                                                        <div class="list-meta2">
-                                                            <a href="javascript:void(0)" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Favourite"
-                                                                class="set-as-fav">
-                                                                <span class="flaticon-like"></span>
-                                                            </a>
-                                                            <a href="https://mukeshswami.com/property-detail/539-260300-writing-creek-crescent"
-                                                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                title="Preview" target="_blank">
-                                                                <span class="flaticon-fullscreen"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-content text-start">
-                                                        <div class="list-price mb-2">$129,000</div>
-                                                        <h6 class="list-title">
-                                                        </h6>
-
-                                                        <p class="list-text">Commercial</p>
-                                                        <div class="list-meta d-flex align-items-center gap-3 mt-1">
-                                                            <a href="#"><span class="flaticon-bed"></span></a>
-                                                            <a href="#"><span class="flaticon-shower"></span></a>
-                                                            <a href="#"><span class="flaticon-expand"></span>1458.00</a>
-                                                        </div>
-                                                        <span class="mlsNumber">MLS® # A2063793</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4 mt-3 col-12">
-                                                <div class="listing-style5">
-                                                    <div class="list-thumb">
-                                                        <img src="https://myproagents.com/storage/85104869/photo-85104869-1.jpeg"
-                                                            alt="Commercial">
-
-                                                        <div class="list-tag fz12">
-                                                            <i class="fa-thin fa-gem me-2"></i>Diamond
-                                                        </div>
-                                                        <div class="list-meta2">
-                                                            <a href="javascript:void(0)" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Favourite"
-                                                                class="set-as-fav">
-                                                                <span class="flaticon-like"></span>
-                                                            </a>
-                                                            <a href="https://mukeshswami.com/property-detail/539-260300-writing-creek-crescent"
-                                                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                title="Preview" target="_blank">
-                                                                <span class="flaticon-fullscreen"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-content text-start">
-                                                        <div class="list-price mb-2">$189,000</div>
-                                                        <h6 class="list-title">
-                                                            260300,Writing Creek,Crescent,72</h6>
-
-                                                        <p class="list-text">Commercial</p>
-                                                        <div class="list-meta d-flex align-items-center gap-3 mt-1">
-                                                            <a href="#"><span class="flaticon-bed"></span></a>
-                                                            <a href="#"><span class="flaticon-shower"></span></a>
-                                                            <a href="#"><span class="flaticon-expand"></span>151.00</a>
-                                                        </div>
-                                                        <span class="mlsNumber">MLS® # A2069735</span>
+                                                        <span class="mlsNumber">MLS® # {{property.listingId}}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-center mt-5">
-                                            <nav aria-label="Page navigation example">
+                                        <div class="d-flex align-items-center justify-content-center mt-5" *ngIf="memberProperties.properties.length > 0">
+                                            <nav aria-label="Agent Pagination">
                                                 <div class="mbp_pagination text-center">
-
-                                                    <ul id="pagination" class="page_navigation">
-                                                        <li class="page-item disabled"><span class="page-link"><i
-                                                                    class="fa fa-angle-double-left"></i></span></li>
-                                                        <li class="page-item disabled"><span class="page-link"><i
-                                                                    class="fa fa-angle-left"></i></span></li>
-                                                        <li class="page-item active"><span class="page-link">1</span>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link"
-                                                                href="javascript:void(0)"
-                                                                onclick="fetchListingDetails('https://myproagents.com/api/agents/listing-agent-properties/albaraa-atmeh-1?page=2')">2</a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link"
-                                                                href="javascript:void(0)"
-                                                                onclick="fetchListingDetails('https://myproagents.com/api/agents/listing-agent-properties/albaraa-atmeh-1?page=3')">3</a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link"
-                                                                href="javascript:void(0)"
-                                                                onclick="fetchListingDetails('https://myproagents.com/api/agents/listing-agent-properties/albaraa-atmeh-1?page=4')">4</a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link"
-                                                                href="javascript:void(0)"
-                                                                onclick="fetchListingDetails('https://myproagents.com/api/agents/listing-agent-properties/albaraa-atmeh-1?page=5')">5</a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link"
-                                                                href="javascript:void(0)"
-                                                                onclick="fetchListingDetails('https://myproagents.com/api/agents/listing-agent-properties/albaraa-atmeh-1?page=6')">6</a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link"
-                                                                href="javascript:void(0)"
-                                                                onclick="fetchListingDetails('https://myproagents.com/api/agents/listing-agent-properties/albaraa-atmeh-1?page=7')">7</a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link"
-                                                                href="javascript:void(0)"
-                                                                onclick="fetchListingDetails('https://myproagents.com/api/agents/listing-agent-properties/albaraa-atmeh-1?page=8')">8</a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link"
-                                                                href="javascript:void(0)"
-                                                                onclick="fetchListingDetails('https://myproagents.com/api/agents/listing-agent-properties/albaraa-atmeh-1?page=9')">9</a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link"
-                                                                href="javascript:void(0)"
-                                                                onclick="fetchListingDetails('https://myproagents.com/api/agents/listing-agent-properties/albaraa-atmeh-1?page=10')">10</a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link"
-                                                                href="javascript:void(0)"
-                                                                onclick="fetchListingDetails('https://myproagents.com/api/agents/listing-agent-properties/albaraa-atmeh-1?page=11')">11</a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link"
-                                                                href="javascript:void(0)"
-                                                                onclick="fetchListingDetails('https://myproagents.com/api/agents/listing-agent-properties/albaraa-atmeh-1?page=2')"><i
-                                                                    class="fa fa-angle-right"></i></a></li>
-                                                        <li class="page-item"><a class="page-link"
-                                                                href="javascript:void(0)"
-                                                                onclick="fetchListingDetails('undefined')"><i
-                                                                    class="fa fa-angle-double-right"></i></a></li>
-                                                    </ul>
-                                                    <p class="mt10 pagination_page_count text-center">1 - 6 of 64
-                                                        properties available</p>
+                                                   <pagination-controls class="pagi" (pageChange)="gty((page = $event))"></pagination-controls>
+                                                 
                                                 </div>
-                                                <br>
-
-                                            </nav>
+                                             </nav>
                                         </div>
                                     </div>
                                 </div>
@@ -538,41 +300,41 @@
 
             <div class="contact-sec" id="contact-sec">
                 <h6>Contact Info</h6>
-                <p><i class="ri-map-pin-line"></i> CALGARY</p>
+                <p><i class="ri-map-pin-line"></i> {{agent.city}}</p>
                 <ul class="list-unstyled">
                     <li>
                         <strong>Office</strong>
-                        <a href="tel:403-547-4102">
-                            <span class="agent-phone">403-547-4102</span>
+                        <a href="tel:{{agent.officePhone}}">
+                            <span class="agent-phone">{{agent.officePhone}}</span>
                         </a>
                     </li>
 
                     <hr class="my-2">
                     <li>
                         <strong>Mobile</strong>
-                        <a href="tel:4035474102">
-                            <span class="agent-phone">(403) 547-4102</span>
+                        <a href="tel:{{agent.memberPhone}}">
+                            <span class="agent-phone">{{agent.memberPhone}}</span>
                         </a>
                     </li>
                     <hr class="my-2">
 
                     <li>
                         <strong>Fax</strong>
-                        <a href="fax:403-547-6150">
-                            <span>403-547-6150</span>
+                        <a href="fax:{{agent.memberFax}}">
+                            <span>{{agent.memberFax}}</span>
                         </a>
                     </li>
                     <hr class="my-2">
 
                     <li class="email">
                         <strong>Email</strong>
-                        <a href="mailto:albaraa.realestate@gmail.com">albaraa.realestate</a>
+                        <a href="mailto:{{agent.memberEmail}}">{{agent.memberEmail}}</a>
                     </li>
                     <hr class="my-2">
 
                     <li>
                         <strong>Website</strong>
-                        <a target="_blank" href="#">N/A</a>
+                        <a target="_blank" href="{{agent.primaryWebsite}}">{{agent.primaryWebsite ? agent.primaryWebsite : 'N/A'}}</a>
 
                     </li>
                     <hr class="my-2">
@@ -585,10 +347,10 @@
                 <div class="social-widget text-center text-sm-center contact-icon">
                     <div class="social-style1">
 
-                        <a href="#"><i class="fab fa-facebook-f list-inline-item"></i></a>
-                        <a href="#"><i class="fab fa-twitter list-inline-item"></i></a>
-                        <a href="#"><i class="fab fa-instagram list-inline-item"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in list-inline-item"></i></a>
+                        <a href="{{agent.webFacebook}}"><i class="fab fa-facebook-f list-inline-item"></i></a>
+                        <a href="{{agent.webTwitter}}"><i class="fab fa-twitter list-inline-item"></i></a>
+                        <a href="{{agent.webInstagram}}"><i class="fab fa-instagram list-inline-item"></i></a>
+                        <a href="{{agent.webLinkedIn}}"><i class="fab fa-linkedin-in list-inline-item"></i></a>
                         <i class="fa-brands fa-youtube"></i>
                     </div>
                 </div>

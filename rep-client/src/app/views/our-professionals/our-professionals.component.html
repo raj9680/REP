@@ -97,7 +97,7 @@
                      <div class="col-12 col-sm-12 profile-delt mt-3 mt-sm-0">
                         <div class="profile-delt px-3">
                            <div class="d-flex align-items-start justify-content-between">
-                              <a href="/views/our-professional/{{item.memberKeyNumeric}}">
+                              <a routerLink="/views/our-professional/{{item.memberKeyNumeric + '-' + item.officeKeyNumeric}}">
                                  <h5>{{item.memberFullName}}</h5>
                               </a>
                               <div class="d-flex gap-2">

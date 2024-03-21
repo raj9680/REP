@@ -15,4 +15,10 @@ export class OurProfessionalsService {
   getAgentLists(): Observable<any[]> {
     return  this._httpClient.get<any[]>(this.httpURL + `api/Member/GetOurProfessionals?skip=0&take=10`);
   }
+  getAgentDetailByKey(key: string): Observable<any[]> {
+    return  this._httpClient.get<any[]>(this.httpURL + `api/Member/GetOurProfessionalsDetails?key=` + key);
+  }
+  GetMemberPropertyList(memberkey: string,officekey: string): Observable<any[]> {
+    return  this._httpClient.get<any[]>(this.httpURL + `api/Member/GetMemberPropertyList?memberKey=` + memberkey + '&officeKey=' + officekey);
+  }
 }

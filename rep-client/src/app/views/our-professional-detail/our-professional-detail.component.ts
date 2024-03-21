@@ -9,27 +9,45 @@ import { OurProfessionalsService } from '../services/our-professionals.service';
   styleUrls: ['./our-professional-detail.component.css']
 })
 export class OurProfessionalDetailComponent implements OnInit {
-
-  private routeSub: any;
   agents: any[] = [];
+  memberProperties: any = null;
   agent: any = "";
-  constructor(private route: ActivatedRoute, private _agentService: OurProfessionalsService) { }
+  memberKeyNumeric: string = '';
+  officeKeyNumeric: string = '';
+  public isDescriptionMore: boolean = false;
+  page: number = 1;
+  itemsPerPage = 6;
+  totalItems : any; 
+  constructor(private route: ActivatedRoute, private _agentService: OurProfessionalsService) {    
+    this.route.params.subscribe(params => {
+      this.memberKeyNumeric = params['id'].split('-')[0];
+      this.officeKeyNumeric = params['id'].split('-')[1];
+    });
+   }
 
   ngOnInit(): void {
     this.agentDetail();
+    this.agentProperties();
   }
 
   agentDetail() {
-    this.route.params.subscribe(params => {
-      this.routeSub = params['id'];
-    });
 
-    this._agentService.getAgentLists().subscribe(data => {
-      this.agent = data.find(o => o.agent_id == this.routeSub);
-      console.log(this.agent);
+    this._agentService.getAgentDetailByKey(this.memberKeyNumeric).subscribe(data => {
+      this.agent = data;
     });
   }
+  agentProperties() {
 
+    this._agentService.GetMemberPropertyList(this.memberKeyNumeric,this.officeKeyNumeric).subscribe(data => {
+      this.memberProperties = data;
+    });
+  }
+  gty(page: any){
+    this._agentService.GetMemberPropertyList(this.memberKeyNumeric,this.officeKeyNumeric).subscribe((data: any) => {
+      this.memberProperties = data;
+      this.totalItems = data.properties.lenght;
+    })
+  }
   ngOnDestroy() {
     // this.routeSub.unsubscribe();
   }
