@@ -1,3 +1,7 @@
+agm-map {
+    height: 600px;
+}
+
 .btn-outline-rep {
     font-size: 14px;
     height: 47px;
@@ -5,46 +9,56 @@
     padding: 9px 22px;
     border: 1px solid var(--secondary-500);
 }
+
 .list-meta2 {
     display: flex;
     gap: 0.2rem;
 }
-.h6, h6 {
+
+.h6,
+h6 {
     font-size: 15px;
 }
+
 .list-title {
     font-family: var(--title-font-family);
 }
+
 .listing-style5 {
     border: 1px solid #DDDDDD;
 }
-h6, .h6 {
+
+h6,
+.h6 {
     /* font-family: var(--body-font-family); */
     font-weight: 600;
     color: var(--headings-secondary-color);
 }
-              .top-sec {
-                background: #10579f;
-                padding: 13px 10px;
-              }
 
-              .top-sec p {
-                color: #fff;
-                margin-bottom: 0;
-                font-size: 15px;
-              }
+.top-sec {
+    background: #10579f;
+    padding: 13px 10px;
+}
 
-              .filertAndResults {
-                height: calc(100vh - 133px);
-                max-height: calc(100vh - 133px);
-                overflow-y: auto;
-                overflow-x: hidden;
-              }
-              .mid-sec {
+.top-sec p {
+    color: #fff;
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+.filertAndResults {
+    height: calc(100vh - 133px);
+    max-height: calc(100vh - 133px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mid-sec {
     padding: 13px 10px;
     background: #EFEFEF;
 }
-              .search {
+
+.search {
     outline: none;
     margin-bottom: 0.5rem;
     padding: 0 10px;
@@ -56,6 +70,7 @@ h6, .h6 {
     border-radius: 8px;
     border: 1px solid #ccc;
 }
+
 .dropdown select {
     outline: none;
     margin-bottom: 0.5rem;
@@ -70,16 +85,20 @@ h6, .h6 {
     cursor: pointer;
     font-size: 13px;
 }
+
 .more-btn button {
     height: 50px !important;
 }
+
 .accordion button {
     width: 100%;
 }
+
 .btn-primary {
     background-color: var(--primary-500);
     border-color: var(--primary-500);
 }
+
 .ud-btn {
     text-decoration: none;
     border-radius: 8px;
@@ -100,13 +119,32 @@ h6, .h6 {
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
+
 .half_map_area_content {
     padding: 0;
-    
+
 }
+
 .filertAndResults {
     height: calc(100vh - 133px);
     max-height: calc(100vh - 133px);
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+i#mapView {
+    padding: 8px 13px;
+}
+
+
+.icons.align-items-center.d-flex.gap-3.col-2.iconscss i {
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.sortby select {
+    padding: 3px;
+    border-radius: 8px;
+    cursor: pointer;
 }

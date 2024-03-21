@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { SharedService } from './shared/services/shared.service';
 
 @Component({
@@ -7,38 +7,19 @@ import { SharedService } from './shared/services/shared.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit{
   
-  public showOverlay = true;
-  title = 'RevampFrontendApp';
+  title = 'Real Estate Professional';
+  constructor(private router: Router, public _sharedService: SharedService) 
+  {   }
 
-  
-
-
-  constructor(private router: Router, public _sharedService: SharedService) {
-    router.events.subscribe((event: RouterEvent | any) => {
-      this.navigationInterceptor(event)
-    })
-    
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => { 
+            if (!(event instanceof NavigationEnd)) { 
+                return; 
+            } 
+            window.scrollTo(0, 0) 
+        }); 
   }
-
-
-  // Shows and hides the loading spinner during RouterEvent changes
-  navigationInterceptor(event: RouterEvent): void {
-    if (event instanceof NavigationStart) {
-      this.showOverlay = true;
-    }
-    if (event instanceof NavigationEnd) {
-      this.showOverlay = false;
-    }
-
-    // Set loading state to false in both of the below events to hide the spinner in case a request fails
-    if (event instanceof NavigationCancel) {
-      this.showOverlay = false;
-    }
-    if (event instanceof NavigationError) {
-      this.showOverlay = false;
-    }
-  }
-
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -20,4 +21,10 @@ export class PropertySearchService {
   getPropertyDetailByKey(listingKeyNumeric: string): Observable<any[]> {
     return this.http.get<any>("http://localhost:4200/assets/demo-api/SamplePropertyJson.json");
   }
+
+  // For Latitude & Longitude
+  getPropertyBySearch(key: any): Observable<any[]> {
+    return this.http.get<any[]>("http://localhost:4200/assets/demo-api/sampleMultiProperty.json");
+  }
+  
 }

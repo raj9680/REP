@@ -9,6 +9,7 @@ import { AuthInterceptorService } from './interceptors/auth-interceptor.service'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoaderInterceptorService } from './interceptors/loader-interceptor.service';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [

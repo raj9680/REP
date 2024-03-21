@@ -13,6 +13,7 @@ import { PropertyDetailComponent } from './property-detail/property-detail.compo
 import { OurProfessionalDetailComponent } from './our-professional-detail/our-professional-detail.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -31,7 +32,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CommonModule,
     ViewsRoutingModule, 
     NgImageSliderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDnJEAQfHhQPYxgAVdMjLbLL5r1hQ7PpoQ'
+    })
   ],
   exports: [
     WhyRepComponent, JoinRepComponent, OurProfessionalsComponent, PropertySearchComponent, HomeEvaluationComponent, ContactUsComponent, HomePageComponent

@@ -8,15 +8,20 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class HomePageService {
+
   readonly httpURL;
   constructor(private http: HttpClient) {
     this.httpURL = environment.apiEndpoint;
-   }
+  }
+   
+  
   getFeaturedProperties(): Observable<any[]> {
     return this.http.get<any>(this.httpURL + `api/Home/GetHomeProperties`).pipe(
       map(data => data.featured_properties)
     );
   }
+
+
   getDiamondProperties(): Observable<any[]> {
     return this.http.get<any>(this.httpURL + `api/Home/GetHomeProperties`).pipe(
       map(data => data.diamond_properties)
