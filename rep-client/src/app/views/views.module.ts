@@ -14,6 +14,8 @@ import { OurProfessionalDetailComponent } from './our-professional-detail/our-pr
 import { NgImageSliderModule } from 'ng-image-slider';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
+import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+
 
 
 @NgModule({
@@ -35,10 +37,17 @@ import { AgmCoreModule } from '@agm/core';
     NgxPaginationModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDnJEAQfHhQPYxgAVdMjLbLL5r1hQ7PpoQ'
-    })
+    }),
+    AgmJsMarkerClustererModule
   ],
   exports: [
-    WhyRepComponent, JoinRepComponent, OurProfessionalsComponent, PropertySearchComponent, HomeEvaluationComponent, ContactUsComponent, HomePageComponent
+    WhyRepComponent, 
+    JoinRepComponent, 
+    OurProfessionalsComponent, 
+    PropertySearchComponent, 
+    HomeEvaluationComponent, 
+    ContactUsComponent, 
+    HomePageComponent
   ]
   // providers: [ ]
 })

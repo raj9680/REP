@@ -1,11 +1,4 @@
-
-
-
-
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <!-- Property Half Map V4 -->
 <section class="p-0 bgc-f7">
   <div class="container-fluid">
@@ -13,12 +6,14 @@
       <div class="col-xl-7 overflow-hidden position-relative">
         <div class="half_map_area">
           <agm-map [latitude]="55.415091939445745" [longitude]="-111.23047813876623" [zoom]="4">
+            <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
             <agm-marker 
               *ngFor="let prop of propertiesFound" 
               [latitude]="prop.latitude" 
               [longitude]="prop.longitude"
               [markerClickable]="true">
             </agm-marker>
+          </agm-marker-cluster>
           </agm-map>
         </div>
       </div>

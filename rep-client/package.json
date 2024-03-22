@@ -11,6 +11,7 @@
   "private": true,
   "dependencies": {
     "@agm/core": "^1.1.0",
+    "@agm/js-marker-clusterer": "^1.1.0",
     "@angular/animations": "~13.3.0",
     "@angular/cdk": "^13.3.9",
     "@angular/common": "~13.3.0",
@@ -22,6 +23,7 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "js-marker-clusterer": "^1.0.0",
     "ng-image-slider": "^5.0.0",
     "ngx-pagination": "^6.0.3",
     "rxjs": "~7.5.0",
