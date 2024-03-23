@@ -16,10 +16,18 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => { 
-            if (!(event instanceof NavigationEnd)) { 
-                return; 
-            } 
-            window.scrollTo(0, 0) 
-        }); 
+        if (!(event instanceof NavigationEnd)) { 
+            return; 
+        } 
+        window.scrollTo(0, 0) 
+      });
+
+    this.delayFooterLoad();
+  }
+
+  delayFooterLoad() {
+    setTimeout(() => {
+        this._sharedService.footerLoading.next(true);
+    }, 2000);
   }
 }

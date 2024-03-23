@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HomePageService } from '../services/home-page.service';
 
 @Component({
@@ -9,8 +9,11 @@ import { HomePageService } from '../services/home-page.service';
 })
 export class HomePageComponent implements OnInit {
 
+
   featuredProperties: any[] | undefined;
   diamondProperties: any[] | undefined;
+  @ViewChild('catNext') nextElement: ElementRef | any;
+  @ViewChild('catPrev') prevElement: ElementRef | any;
   
   constructor(private homePage: HomePageService) { }
   imageObject: Array<object> = [
@@ -75,4 +78,16 @@ export class HomePageComponent implements OnInit {
       this.diamondProperties = properties;
     });
   }
+
+  // Community
+  prevClick() {
+    // var elm = this.nextElement.nativeElement;
+    // var item = elm.getElementsByClassName("catCarousel");
+    console.log("Hello Prev");
+  }
+
+  nextClick() {
+    console.log("Hello Next");
+  }
+  // Community
 }

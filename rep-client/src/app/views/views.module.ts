@@ -15,6 +15,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+import { AboutUsComponent } from './About/about-us/about-us.component';
 
 
 
@@ -28,7 +29,8 @@ import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
     ContactUsComponent,
     HomePageComponent,
     PropertyDetailComponent,
-    OurProfessionalDetailComponent
+    OurProfessionalDetailComponent,
+    AboutUsComponent
   ],
   imports: [
     CommonModule,

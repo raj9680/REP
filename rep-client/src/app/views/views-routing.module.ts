@@ -9,6 +9,7 @@ import { HomeEvaluationComponent } from './home-evaluation/home-evaluation.compo
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { WhyRepComponent } from './About/why-rep/why-rep.component';
 import { JoinRepComponent } from './About/join-rep/join-rep.component';
+import { AboutUsComponent } from './About/about-us/about-us.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
           { path: "our-professional/:id", component: OurProfessionalDetailComponent },
           { path: "home-evaluation", component: HomeEvaluationComponent },
           { path: "contact-us", component: ContactUsComponent },
+          { path: "about-us", component: AboutUsComponent },
           { path: "why-rep", component: WhyRepComponent },
           { path: "join-rep", component: JoinRepComponent },
       ]

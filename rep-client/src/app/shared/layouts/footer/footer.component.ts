@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  public footerLoader: any = new BehaviorSubject<boolean>(false);
+
+  constructor(private _footerloaderService: SharedService) {
+    _footerloaderService.footerLoading.subscribe(result => {
+      this.footerLoader = result;
+    });
+  }
 
   ngOnInit(): void {
+  
   }
 
 }

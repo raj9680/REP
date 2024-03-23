@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpEventType, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable, delay, finalize, tap } from 'rxjs';
-import { OurProfessionalsService } from '../views/services/our-professionals.service';
 import { SharedService } from '../shared/services/shared.service';
 
 @Injectable({

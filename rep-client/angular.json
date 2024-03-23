@@ -39,11 +39,10 @@
               "src/assets/css/flaticon.css",
               "src/assets/css/bootstrap-select.min.css",
               "src/assets/css/ud-custom-spacing.css",
-              "src/assets/css/style.css",
               "src/assets/css/animate.css",
               "src/assets/css/jquery-ui.min.css",
-              // "src/assets/css/slider.css",
-              "src/assets/css/responsive.css"
+              "src/assets/css/responsive.css",
+              "src/assets/css/style.css"
             ],
             "scripts": [
               "src/assets/js/jquery-3.6.4.min.js",
@@ -54,7 +53,6 @@
               "src/assets/js/jquery.mmenu.all.js",
               "src/assets/js/ace-responsive-menu.js",
               "src/assets/js/jquery-scrolltofixed-min.js",
-              // "src/assets/js/owl.js",
               "src/assets/js/wow.min.js",
               "src/assets/js/script.js"
             ]

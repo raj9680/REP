@@ -18,6 +18,12 @@ export class PropertySearchService {
     return this.http.get<any>(this.httpURL + `api/Property/GetPropertyDetailByKey?key=` + listingKeyNumeric);
   }
 
+  getPropertyDetails(): Observable<any[]> {
+    return this.http.get<any>("http://localhost:4200/assets/demo-api/SamplePropertyJson.json");
+  }
+
+  
+
   // For Latitude & Longitude
   getPropertyBySearch(key: any): Observable<any[]> {
     return this.http.get<any[]>("http://localhost:4200/assets/demo-api/sampleMultiProperty.json");

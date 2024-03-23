@@ -7,15 +7,14 @@
     font-weight: 600;
     line-height: 1.5;
 }
-.realators{
-    overflow-x: scroll;
+.ourTeam .feature-style2 .feature-img img {
+    width: 100%;
+    height: 460px;
+}
+.h5, h5 {
+    font-size: 18px;
+}
+.h4, h4 {
+    font-size: 20px;
 }
 
-.h6, h6 {
-    font-size: 15px;
-    font-weight: 600;
-}
-.testimonial-style3 {
-    padding: 60px 27px 55px;
- 
-}

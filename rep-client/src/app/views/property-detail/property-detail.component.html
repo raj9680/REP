@@ -121,10 +121,10 @@
               </div>
             </div>
             <div class="slider-container3">
-              <button class="slider-button3 left-arr2" (click)="prevClick()" #prev><i class="fa fa-angle-left"
-                  aria-hidden="true"></i></button>
-              <button class="slider-button3 right-arr2" (click)="nextClick()" #next><i class="fa fa-angle-right"
-                  aria-hidden="true"></i></button>
+              <div href="javascript:void(0)" class="slider-button3 left-arr2" (click)="prevClick()" #prev><i class="fa fa-angle-left"
+                  aria-hidden="true"></i></div>
+              <div href="javascript:void(0)" class="slider-button3 right-arr2" (click)="nextClick()" #next><i class="fa fa-angle-right"
+                  aria-hidden="true"></i></div>
             </div>
           </div>
 
@@ -137,8 +137,66 @@
           <!-- multi banner end -->
         </div>
 
-
-        <div class="overview mt-3 mb30 rounded-3">
+        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
+          <h4 class="title fz17 mb30">Overview</h4>
+          <div class="row">
+            <div class="col-sm-6 col-lg-4">
+              <div class="overview-element mb25 d-flex align-items-center">
+                <span class="icon flaticon-bed"></span>
+                <div class="ml15">
+                  <h6 class="mb-0">Bedroom</h6>
+                  <p class="text mb-0 fz15">3</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="overview-element mb25 d-flex align-items-center">
+                <span class="icon flaticon-shower"></span>
+                <div class="ml15">
+                  <h6 class="mb-0">Bath</h6>
+                  <p class="text mb-0 fz15">2</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="overview-element mb25 d-flex align-items-center">
+                <span class="icon flaticon-event"></span>
+                <div class="ml15">
+                  <h6 class="mb-0">Year Built</h6>
+                  <p class="text mb-0 fz15">2022</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="overview-element mb25-xs d-flex align-items-center">
+                <span class="icon flaticon-garage"></span>
+                <div class="ml15">
+                  <h6 class="mb-0">Garage</h6>
+                  <p class="text mb-0 fz15">2</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="overview-element mb25-xs d-flex align-items-center">
+                <span class="icon flaticon-expand"></span>
+                <div class="ml15">
+                  <h6 class="mb-0">Sqft</h6>
+                  <p class="text mb-0 fz15">1200</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="overview-element d-flex align-items-center">
+                <span class="icon flaticon-home-1"></span>
+                <div class="ml15">
+                  <h6 class="mb-0">Property Type</h6>
+                  <p class="text mb-0 fz15">Apartment</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="overview mt-3 mb30 rounded-3">
           <div class="d-flex alifn-items-center mb-4  justify-content-between">
             <h4>Overview</h4>
             <div> <strong>MLS ID : </strong> <span class="listingid">{{PropertyDetail.listingId}}</span>
@@ -186,7 +244,7 @@
               <div>
                 <div class="d-flex  align-items-center gap-2">
                   <span class="material-symbols-outlined opacity-75">
-                    square_foot
+                    <i class="fa-light fa-car"></i>
                   </span>
                   <h6 class="area">{{PropertyDetail.livingAreaSF}}</h6>
                 </div>
@@ -203,7 +261,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="about mt-5 mb30" id="section1">
           <h4 class="my-3">Description</h4>
           <hr class="mb-3">
@@ -219,35 +277,31 @@
           </div>
           <hr>
           <div class="row">
-            <div class="col-md-6 col-xl-4">
-              <div class="d-flex justify-content-between">
-                <div class="pd-list">
-                  <p class="fw600 mb10 ff-heading dark-color">Address</p>
-                  <p class="fw600 mb10 ff-heading dark-color">City</p>
-                  <p class="fw600 mb-0 ff-heading dark-color">State/county</p>
-                </div>
-                <div class="pd-list">
-                  <p class="text mb10">{{PropertyDetail.streetNumber + ' ' +PropertyDetail.streetName + ' '
-                    +PropertyDetail.streetSuffix + ' ' + PropertyDetail.streetDirSuffix}}</p>
-                  <p class="text mb10">{{PropertyDetail.city}}</p>
-                  <p class="text mb-0">{{PropertyDetail.stateOrProvince}}</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-xl-4 offset-xl-2">
-              <div class="d-flex justify-content-between">
-                <div class="pd-list">
-                  <p class="fw600 mb10 ff-heading dark-color">Zip/Postal Code</p>
-                  <p class="fw600 mb10 ff-heading dark-color">Area</p>
-                  <p class="fw600 mb-0 ff-heading dark-color">Country</p>
-                </div>
-                <div class="pd-list">
-                  <p class="text mb10">{{PropertyDetail.postalCode}}</p>
-                  <p class="text mb10">N/A</p>
-                  <p class="text mb-0">Canada</p>
-                </div>
-              </div>
-            </div>
+
+            <table class="table table-borderless">
+              <tbody>
+              <tr>
+                <th scope="row">Address</th>
+                <td><p>260064 Bearspaw Road null</p></td>
+                <th scope="row">Zip/Postal Code</th>
+                <td><p>T3R 1H4</p></td>
+              </tr>
+              <tr>
+                <th scope="row">City</th>
+                <td><p>Rural Rocky View County</p></td>
+                <th scope="row">Area</th>
+                <td><p>N/A</p></td>
+                </tr>
+                <tr>
+                <th scope="row">State/county</th>
+                  <td><p>Alberta</p></td>
+                  <th scope="row">Country</th>
+                  <td><p>Canada</p></td>
+                 </tr>
+               </tbody>
+              </table>
+
+
           </div>
         </div>
         <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
