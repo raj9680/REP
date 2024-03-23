@@ -33,16 +33,16 @@ export class PropertyDetailComponent implements OnInit {
       this.listingKeyNumeric = params['id'];
     });
 
-    // this.propertySearchService.getPropertyDetailByKey(this.listingKeyNumeric).subscribe(data => {
-    //   console.log(data);
-    //   this.PropertyDetail = data;
-    //   this.images = this.PropertyDetail.imagesUrl;
-    // });
-
-    this.propertySearchService.getPropertyDetails().subscribe(data => {
+    this.propertySearchService.getPropertyDetailByKey(this.listingKeyNumeric).subscribe(data => {
+      console.log(data);
       this.PropertyDetail = data;
       this.images = this.PropertyDetail.imagesUrl;
     });
+
+    // this.propertySearchService.getPropertyDetails().subscribe(data => {
+    //   this.PropertyDetail = data;
+    //   this.images = this.PropertyDetail.imagesUrl;
+    // });
 
     
 
