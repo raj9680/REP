@@ -65,8 +65,8 @@ Tag: advanced search, agency, agent, classified, directory, house, listing, prop
   --primary-50:#E2EBF3;
   --primary-100:#B7CDE2;
   --primary-400:#3470ad;
-  --primary-500:#10579F;
-  --primary-700:#0C468D;
+  --primary-500:#10579F !important;
+  --primary-700:#0C468D !important;
   --primary-A400:#3c73ff;
   --headings-color:#181A20;
   --headings-secondary-color:var(--primary-500);

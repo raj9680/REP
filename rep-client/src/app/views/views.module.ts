@@ -20,6 +20,7 @@ import { InputMaskDirective } from '../shared/Directives/inputmask.directive';
 import { AboutUsComponent } from './About/about-us/about-us.component';
 import { ListingTypesComponent } from './listing-types/listing-types.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {DialogModule} from 'primeng/dialog';
 
 
 
@@ -49,7 +50,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AgmJsMarkerClustererModule,    
     FormsModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    DialogModule
   ]
   // providers: [ ]
 })

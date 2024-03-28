@@ -65,16 +65,16 @@
                         <div class="at-home5">
                            <div class="row align-items-center">
                               <div class="col bdrr1 bdrrn-sm">
-                                 <input class="form-control bgc-f7 bdrs12 border-0" type="text" name="search"
+                                 <input class="form-control bgc-f7 bdrs12 border-0"  [(ngModel)]="evaluationAddress" type="text" name="search"
                                     placeholder="Enter Your Address" />
                               </div>
                               <div class="col">
-                                 <input class="form-control bgc-f7 bdrs12 border-0" type="text" name="search"
+                                 <input class="form-control bgc-f7 bdrs12 border-0" [(ngModel)]="evaluationEMail" type="text" name="search"
                                     placeholder="Enter Your Email" />
                               </div>
                               <div class="submitBoxWidth">
                                  <div class="d-flex align-items-center justify-content-end mt-2 mt-md-0 me-2">
-                                    <button class="ud-btn btn-thm" type="button">
+                                    <button class="ud-btn btn-thm" (click)="showHomeEvauationDialog();" type="button">
                                        Submit
                                     </button>
                                  </div>
@@ -2049,3 +2049,213 @@
       </div>
    </div>
 </section>
+
+<p-dialog header="Get a Listing Appointment" [(visible)]="display" [modal]="true" [style]="{width: '60vw'}" [draggable]="false" [resizable]="false">
+   <!-- Our CTA -->
+      <div class="col-md-12 wow fadeInLeft">
+         <div class="card p-3">
+             <div class="card-body">
+                 <form action="" class="form-style1">
+                     <div class="row row-gap-3">
+                         <div class="col-md-6">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >First Name</label
+                             >
+                             <input
+                                 type="text"
+                                 class="form-control"
+                                 placeholder="First Name" required name="first_name"
+                             />
+                         </div>
+                         <div class="col-md-6">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >Last Name</label
+                             >
+                             <input
+                                 type="text"
+                                 class="form-control"
+                                 placeholder="Last Name" required name="last_name"
+                             />
+                         </div>
+                         <div class="col-md-6">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >Phone Number</label
+                             >
+                             <input
+                                 type="tel"
+                                 class="form-control"
+                                 placeholder="Phone" required name="phone"
+                             />
+                         </div>
+                         <div class="col-md-6">
+                             <label class="heading-color ff-heading fw600 mb10">Email Address</label>
+                             <input type="email" class="form-control" placeholder="Email" [value]="evaluationEMail" required name="email" value="">
+                         </div>
+                         
+                         <div class="col-md-6">
+                             <label class="heading-color ff-heading fw600 mb10">Property Address</label>
+                             <input type="text" class="form-control" placeholder="Property Address" [value]="evaluationAddress"  required name="property_address" value="">
+                         </div>
+                         
+   
+   
+                         <div class="col-md-6">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >Community Your Property Is Located In</label
+                             >
+                             <input
+                                 type="text"
+                                 class="form-control"
+                                 placeholder="Community"  required name="community"
+                             />
+                         </div>
+   
+                         <div class="col-md-6">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >Approximate Age Of The Property</label
+                             >
+                             <input
+                                 type="text"
+                                 class="form-control"
+                                 placeholder="Age"  required name="approx_age_of_property"
+                             />
+                         </div>
+                         <div class="col-md-6">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >Approximate Size Of Your Property (sq. ft.)</label
+                             >
+                             <input
+                                 type="text"
+                                 class="form-control"
+                                 placeholder="Size"  required name="approx_size_of_property" 
+                             />
+                         </div>
+                         <div class="col-lg-6">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >Style Of Your Property</label
+                             >
+   
+                             <select
+                                 class="form-select form-control"
+                                 aria-label="Default select example"   required name="style_of_property"
+                             >
+                                 <option value="Condominium" selected>Condominium</option>
+                                 <option value="Bungalow">Bungalow</option>
+                                 <option value="Detached">Detached</option>
+                                 <option value="Attached">Attached</option>
+                                 <option value="Etc">Etc</option>
+   
+                             </select>
+                         </div>
+   
+                         <div class="col-lg-6">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >Number of Bedrooms</label
+                             >
+   
+                             <select
+                                 class="form-select form-control"
+                                 aria-label="Default select example"  required name="no_of_bedrooms"
+                             >
+                                 <option value="1">1</option>
+                                 <option value="2">2</option>
+                                 <option value="3">3</option>
+                                 <option value="4">4</option>
+                                 <option value="5">5</option>
+                                 <option value="6">6</option>
+                                 <option value="7">7</option>
+                                 <option value="8">8</option>
+                                 <option value="9">9</option>
+                                 <option value="10">10</option>
+   
+                             </select>
+                         </div>
+   
+                         <div class="col-lg-6">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >Number of Bathrooms</label
+                             >
+   
+                             <select
+                                 class="form-select form-control"
+                                 aria-label="Default select example"  required name="no_of_bathrooms"
+                             >
+                                 <option value="1">1</option>
+                                 <option value="2">2</option>
+                                 <option value="3">3</option>
+                                 <option value="4">4</option>
+                                 <option value="5">5</option>
+                                 <option value="6">6</option>
+                                 <option value="7">7</option>
+                                 <option value="8">8</option>
+                                 <option value="9">9</option>
+                                 <option value="10">10</option>
+   
+                             </select>
+                         </div>
+                         <div class="col-lg-6">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >Basement Development</label
+                             >
+   
+                             <select
+                                 class="form-select form-control"
+                                 aria-label="Default select example"  required name="basement_development"
+                             >
+                                 <option value="Undeveloped">Undeveloped</option>
+                                 <option value="Partially Developed">Partially Developed</option>
+                                 <option value="Full Developed">Full Developed</option>
+   
+   
+                             </select>
+                         </div>
+   
+                         <div class="col-md-6">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >Parking</label
+                             >
+                             <input
+                                 type="text"
+                                 class="form-control"
+                                 placeholder=""  required name="parking"
+                             />
+                         </div>
+   
+                         <div class="col-lg-6">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >Are You Looking To</label
+                             >
+   
+                             <select
+                                 class="form-select form-control"
+                                 aria-label="Default select example"  required name="interest"
+                             >
+                                 <option value="Purchase">Purchase</option>
+                                 <option value="Sell">Sell</option>
+                                 <option value="Both">Both</option>
+   
+   
+                             </select>
+                         </div>
+                         <div class="col-lg-12">
+                             <label class="heading-color ff-heading fw600 mb10"
+                             >Additional Information</label
+                             >
+                             <input
+                                 type="text"
+                                 class="form-control"
+                                 placeholder=""   required name="additional_information"
+                             />
+   
+                         </div>
+                         <div class="col-md-12">
+                             <button type="submit" class="ud-btn btn-primary w-100">
+                                 Get Appointment
+                             </button>
+                         </div>
+                     </div>
+                 </form>
+             </div>
+         </div>
+     </div>
+</p-dialog>

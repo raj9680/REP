@@ -13,6 +13,8 @@ export class HomePageComponent implements OnInit {
 
   featuredProperties: any[] | undefined;
   diamondProperties: any[] | undefined;
+  evaluationAddress: any = '';
+  evaluationEMail: any = '';
   @ViewChild('catNext') nextElement: ElementRef | any;
   @ViewChild('catPrev') prevElement: ElementRef | any;
   
@@ -93,4 +95,9 @@ export class HomePageComponent implements OnInit {
     elm.append(item[0]);
   }
   // Community
+  display: boolean = false;
+
+  showHomeEvauationDialog() {
+      this.display = true;
+  }
 }
