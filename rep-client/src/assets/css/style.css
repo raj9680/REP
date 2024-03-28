@@ -10676,13 +10676,6 @@ color:var(--bs-white)
       max-width: 1280px;
   }
 }
-/* 
-@media (min-width: 1900px){
-
-  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-      max-width: 1650px;
-  }
-} */
 
 .bg-p50{
   background-color: var(--primary-50);

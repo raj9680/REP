@@ -76,6 +76,7 @@ export class PropertyDetailComponent implements OnInit {
   nextClick() {
     var elm = this.nextElement.nativeElement.parentElement.parentElement.children[0];
     var item = elm.getElementsByClassName("slide-parent");
+    console.log(item);
     elm.append(item[0]);
   }
   

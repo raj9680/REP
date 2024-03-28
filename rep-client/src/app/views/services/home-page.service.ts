@@ -12,6 +12,7 @@ export class HomePageService {
   readonly httpURL;
   constructor(private http: HttpClient) {
     this.httpURL = environment.apiEndpoint;
+    // this.httpURL = "https://musing-lehmann.108-175-0-196.plesk.page/";
   }
    
   
@@ -27,4 +28,10 @@ export class HomePageService {
       map(data => data.diamond_properties)
     );
   }
+
+  // getDiamondProperties(): Observable<any[]> {
+  //   return this.http.get<any>("http://localhost:4200/assets/demo-api/sampleMultiProperty.json").pipe(
+  //     map(data => data.diamond_properties)
+  //   );
+  // }
 }

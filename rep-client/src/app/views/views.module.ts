@@ -16,6 +16,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AboutUsComponent } from './About/about-us/about-us.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -40,7 +41,8 @@ import { AboutUsComponent } from './About/about-us/about-us.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDnJEAQfHhQPYxgAVdMjLbLL5r1hQ7PpoQ'
     }),
-    AgmJsMarkerClustererModule
+    AgmJsMarkerClustererModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     WhyRepComponent, 

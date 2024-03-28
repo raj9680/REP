@@ -42,7 +42,7 @@
               "src/assets/css/animate.css",
               "src/assets/css/jquery-ui.min.css",
               "src/assets/css/responsive.css",
-              "src/assets/css/style.css"
+              "src/assets/css/style-compressed.css"
             ],
             "scripts": [
               "src/assets/js/jquery-3.6.4.min.js",
