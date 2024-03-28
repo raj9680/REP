@@ -15,7 +15,10 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputMaskDirective } from '../shared/Directives/inputmask.directive';
 import { AboutUsComponent } from './About/about-us/about-us.component';
+import { ListingTypesComponent } from './listing-types/listing-types.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
@@ -31,7 +34,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HomePageComponent,
     PropertyDetailComponent,
     OurProfessionalDetailComponent,
-    AboutUsComponent
+    InputMaskDirective,
+    AboutUsComponent,
+    ListingTypesComponent
   ],
   imports: [
     CommonModule,
@@ -41,17 +46,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDnJEAQfHhQPYxgAVdMjLbLL5r1hQ7PpoQ'
     }),
-    AgmJsMarkerClustererModule,
+    AgmJsMarkerClustererModule,    
+    FormsModule,
+    ReactiveFormsModule,
     MatProgressSpinnerModule
-  ],
-  exports: [
-    WhyRepComponent, 
-    JoinRepComponent, 
-    OurProfessionalsComponent, 
-    PropertySearchComponent, 
-    HomeEvaluationComponent, 
-    ContactUsComponent, 
-    HomePageComponent
   ]
   // providers: [ ]
 })

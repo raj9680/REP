@@ -10,10 +10,12 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { WhyRepComponent } from './About/why-rep/why-rep.component';
 import { JoinRepComponent } from './About/join-rep/join-rep.component';
 import { AboutUsComponent } from './About/about-us/about-us.component';
+import { ListingTypesComponent } from './listing-types/listing-types.component';
 
 const routes: Routes = [
   {
       path: "", children: [
+          { path: "listing/:listingTypes", component: ListingTypesComponent },
           { path: "home", component:HomePageComponent },
           { path: "property-search", component: PropertySearchComponent },
           { path: "property-detail/:id", component: PropertyDetailComponent },

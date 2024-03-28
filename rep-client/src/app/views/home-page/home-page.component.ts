@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HomePageService } from '../services/home-page.service';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-home-page',
@@ -15,7 +16,7 @@ export class HomePageComponent implements OnInit {
   @ViewChild('catNext') nextElement: ElementRef | any;
   @ViewChild('catPrev') prevElement: ElementRef | any;
   
-  constructor(private homePage: HomePageService) { }
+  constructor(private homePage: HomePageService, public _sharedService: SharedService) { }
   imageObject: Array<object> = [
     {
     image: 'https://mukeshswami.com/frontend/images/home/citycenter.webp',

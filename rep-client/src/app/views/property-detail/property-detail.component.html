@@ -195,72 +195,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="overview mt-3 mb30 rounded-3">
-          <div class="d-flex alifn-items-center mb-4  justify-content-between">
-            <h4>Overview</h4>
-            <div> <strong>MLS ID : </strong> <span class="listingid">{{PropertyDetail.listingId}}</span>
-            </div>
-          </div>
-          <hr>
-          <div class="row mt-4">
-            <div class="col-6 col-sm-4 col-md">
-              <div>
-                <div class="d-flex align-items-center gap-2">
-                  <i class="fa-light fa-house-blank"></i>
-                  <h6 class="propertytype">{{PropertyDetail.propertyType}}</h6>
-                </div>
-                <p>Property Type</p>
-              </div>
-            </div>
-            <div class="col-6 col-sm-4 col-md">
-              <div>
-                <div class="d-flex  align-items-center gap-2">
-                  <i class="fa-light fa-bed-front"></i>
-                  <h6 class="bedroom">{{PropertyDetail.bedrooms}}</h6>
-                </div>
-                <p>Bedrooms</p>
-              </div>
-            </div>
-            <div class="col-6 col-sm-4 col-md">
-              <div>
-                <div class="d-flex  align-items-center gap-2">
-                  <i class="fa-light fa-shower"></i>
-                  <h6 class="bathroom">{{PropertyDetail.bathrooms}}</h6>
-                </div>
-                <p>Bathroom</p>
-              </div>
-            </div>
-            <div class="col-6 col-sm-4 col-md" *ngIf="PropertyDetail.isGarage == 1">
-              <div>
-                <div class="d-flex  align-items-center gap-2">
-                  <i class="fa-light fa-car"></i>
-                  <h6 class="garage">{{PropertyDetail.garage}}</h6>
-                </div>
-                <p>Garage</p>
-              </div>
-            </div>
-            <div class="col-6 col-sm-4 col-md">
-              <div>
-                <div class="d-flex  align-items-center gap-2">
-                  <span class="material-symbols-outlined opacity-75">
-                    <i class="fa-light fa-car"></i>
-                  </span>
-                  <h6 class="area">{{PropertyDetail.livingAreaSF}}</h6>
-                </div>
-                <p>Sq Ft</p>
-              </div>
-            </div>
-            <div class="col-6 col-sm-4 col-md">
-              <div>
-                <div class="d-flex  align-items-center gap-2">
-                  <i class="fa-light fa-calendar-days"></i>
-                  <h6 class="years">{{PropertyDetail.yearBuilt}}</h6>
-                </div>
-                <p>Year Built</p>
-              </div>
-            </div>
-          </div>
-        </div> -->
         <div class="about mt-5 mb30" id="section1">
           <h4 class="my-3">Description</h4>
           <hr class="mb-3">
@@ -281,19 +215,19 @@
               <tbody>
               <tr>
                 <th scope="row">Address</th>
-                <td><p>260064 Bearspaw Road null</p></td>
+                <td><p>{{PropertyDetail?.fullAddress}}</p></td>
                 <th scope="row">Zip/Postal Code</th>
-                <td><p>T3R 1H4</p></td>
+                <td><p>{{PropertyDetail?.postalCode}}</p></td>
               </tr>
               <tr>
                 <th scope="row">City</th>
-                <td><p>Rural Rocky View County</p></td>
+                <td><p>{{PropertyDetail?.city}}</p></td>
                 <th scope="row">Area</th>
-                <td><p>N/A</p></td>
+                <td><p>{{PropertyDetail?.streetName}}</p></td>
                 </tr>
                 <tr>
                 <th scope="row">State/county</th>
-                  <td><p>Alberta</p></td>
+                  <td><p>{{PropertyDetail?.stateOrProvince}}</p></td>
                   <th scope="row">Country</th>
                   <td><p>Canada</p></td>
                  </tr>
@@ -317,7 +251,7 @@
               <div class="row mt-4">
                 <div class="col-12 col-sm">
                   <div class="d-flex align-items-center justify-content-between">
-                    <span><strong>MLS ID :</strong></span>
+                    <span><strong>MLS Number :</strong></span>
                     <p class="mb-2 listingid">{{PropertyDetail.listingId}}</p>
                   </div>
                   <hr>
@@ -1110,20 +1044,3 @@
     </div>
   </div>
 </section>
-<!-- <div class="fixed-tabs" id="navbar" >
-   <div class="top-tabs">
-     <h4 onclick="scrollToSection('section1')">Description</h4>
-     <h4 onclick="scrollToSection('section2')">Address</h4>
-     <h4 onclick="scrollToSection('section3')">Details</h4>
-     <h4 onclick="scrollToSection('section4')" class="feat">Features</h4>
-     <h4 onclick="scrollToSection('section5')">Floor Plans</h4>
-     <h4 onclick="scrollToSection('section13')">Mortgage Calculator</h4>
-     <h4 onclick="scrollToSection('section6')" class="vidtab" style="display: none;">Video</h4>
-     <h4 onclick="scrollToSection('section7')" class="tourtab" style="display: none;">360* Virtual Tour</h4>
-     <h4 onclick="scrollToSection('section8')">Walk Score</h4>
-     <h4 onclick="scrollToSection('section9')">What's Nearby?</h4>
-     <h4 onclick="scrollToSection('section10')">Contact</h4>
-     <h4 onclick="scrollToSection('section11')">Reviews</h4>
-     <h4 onclick="scrollToSection('section12')">Similar Listings</h4>
-   </div>
-   </div> -->

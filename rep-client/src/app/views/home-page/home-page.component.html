@@ -91,7 +91,7 @@
 </section>
 <!-- Diamond Property -->
 <!-- bgc-thm -->
-<section class="pb50  pb30-md bgc-gray">
+<section class="pb50 pt120 pb30-md bgc-gray">
    <div class="container">
       <div class="row wow fadeInUp align-items-center" data-wow-delay="00ms"
          style="visibility: visible; animation-delay: 0ms; animation-name: fadeInUp;">
@@ -99,24 +99,21 @@
             <div class="main-title2 mb-3">
                <h2 class="title"><i class="fa-thin fa-gem"></i> Diamond Listings</h2>
                <p class="paragraph">
-                  Here’s an inside look into our amazing luxury home listings currently posted on the MLS® System.
+                  Here’s an inside look into our amazing luxury listings
+                  currently on the MLS system.
                </p>
             </div>
          </div>
          <div class="col-lg-3">
             <div class="dark-light-navtab style2 text-start text-lg-end mt-0 mt-lg-4 mb-4 ">
                <div class="text-start text-lg-end mb-3">
-                  <a class="ud-btn btn-outline-rep" href="#!">See All Diamond
+                  <a class="ud-btn btn-outline-rep" routerLink="/views/listing/diamond">See All Diamond
                      Listings<i class="fal fa-arrow-right-long dark-color"></i></a>
                </div>
             </div>
          </div>
       </div>
-       <!-- <div class="row" id="diamond_listings" *ngIf="diamondProperties"> -->
-         <div class="row" id="diamond_listings"></div>
-         <div *ngIf="_sharedService.isLoading | async" style="text-align: -webkit-center;">
-            <mat-spinner [diameter]="70" [strokeWidth]="4"></mat-spinner>
-         </div>
+      <div class="row" id="diamond_listings" *ngIf="diamondProperties">
          <div class="col-sm-6 col-lg-4 col-xl-3" *ngFor="let property of diamondProperties">
             <div class="listing-style5">
                <div class="list-thumb">
@@ -142,11 +139,10 @@
                   </h6>
                   <p class="list-text">{{property.propertyType}}</p>
                   <div class="list-meta d-flex align-items-center gap-3">
-                     <a href="javascript:void(0)"><span class="flaticon-bed"></span>{{property.bedroomsTotal}} bed</a>
-                     <a href="javascript:void(0)"><span class="flaticon-shower"></span>{{property.bathroomsFull}} bath</a>
-                     <a href="javascript:void(0)"><span class="flaticon-expand"></span>{{property.livingAreaSF}} sqft</a>
-                 </div>
-                  <span class="mlsNumber">MLS® Number: {{property.listingId}}</span>
+                     <a href="javascript:void(0)"><span class="flaticon-expand"></span>{{property.livingAreaSF}}
+                        sqft</a>
+                  </div>
+                  <span class="mlsNumber">MLS® # {{property.listingId}}</span>
                </div>
             </div>
          </div>

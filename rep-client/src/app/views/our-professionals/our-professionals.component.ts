@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OurProfessionalsService } from '../services/our-professionals.service';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-our-professionals',
@@ -13,7 +14,7 @@ export class OurProfessionalsComponent implements OnInit {
   itemsPerPage = 8;
   totalItems : any; 
 
-  constructor(private _agentService: OurProfessionalsService) { }
+  constructor(private _agentService: OurProfessionalsService, public _sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.getAgents();
