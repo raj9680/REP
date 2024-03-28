@@ -50,8 +50,10 @@
 
                 <p id="description">{{isDescriptionMore ?(agent.description) : (agent.description | slice : 0:250)}}</p>
 
-                    <div id="showMoreContainer"><h6 id="showMore" *ngIf="isDescriptionMore" (click)="isDescriptionMore = false;">Show more</h6>
-                    <h6 id="showLess" *ngIf="!isDescriptionMore" (click)="isDescriptionMore = true;">Show less</h6></div>
+                <div id="showMoreContainer">
+                    <h6 id="showMore" *ngIf="isDescriptionMore" (click)="isDescriptionMore = false;">Show more</h6>
+                    <h6 id="showLess" *ngIf="!isDescriptionMore" (click)="isDescriptionMore = true;">Show less</h6>
+                </div>
                 <i class="ri-chat-3-line"></i>
                 <strong>Language:</strong>
                 {{agent.memberLanguages}}
@@ -90,10 +92,13 @@
                                               }">
                                                 <div class="listing-style5">
                                                     <div class="list-thumb">
-                                                        <img src="{{property.image_url}}" alt="{{property.listingKeyNumeric}}">
+                                                        <img src="{{property.image_url}}"
+                                                            alt="{{property.listingKeyNumeric}}">
 
                                                         <div class="list-tag fz12">
-                                                            <i class="fa-thin fa-gem me-2"></i>{{property.isDiamondProperty ? 'Diamond' : 'Feature'}}
+                                                            <i
+                                                                class="fa-thin fa-gem me-2"></i>{{property.isDiamondProperty
+                                                            ? 'Diamond' : 'Feature'}}
                                                         </div>
                                                         <div class="list-meta2">
                                                             <a href="javascript:void(0)" data-bs-toggle="tooltip"
@@ -115,8 +120,10 @@
 
                                                         <p class="list-text">{{property.propertyType}}</p>
                                                         <div class="list-meta d-flex align-items-center gap-3 mt-1">
-                                                            <a href="#"><span class="flaticon-bed"></span>{{property.bedroomsTotal}}</a>
-                                                            <a href="#"><span class="flaticon-shower"></span>{{property.bathroomsFull}}</a>
+                                                            <a href="#"><span
+                                                                    class="flaticon-bed"></span>{{property.bedroomsTotal}}</a>
+                                                            <a href="#"><span
+                                                                    class="flaticon-shower"></span>{{property.bathroomsFull}}</a>
                                                             <a href="#"><span
                                                                     class="flaticon-expand"></span>{{property.livingAreaSF}}</a>
                                                         </div>
@@ -125,13 +132,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-center mt-5" *ngIf="memberProperties.properties.length > 0">
+                                        <div class="d-flex align-items-center justify-content-center mt-5"
+                                            *ngIf="memberProperties.properties.length > 0">
                                             <nav aria-label="Agent Pagination">
                                                 <div class="mbp_pagination text-center">
-                                                   <pagination-controls class="pagi" (pageChange)="gty((page = $event))"></pagination-controls>
-                                                 
+                                                    <pagination-controls class="pagi"
+                                                        (pageChange)="gty((page = $event))"></pagination-controls>
+
                                                 </div>
-                                             </nav>
+                                            </nav>
                                         </div>
                                     </div>
                                 </div>
@@ -173,42 +182,42 @@
                         <div class="leave-rev">
                             <h6>Leave A Review</h6>
                             <hr>
-                            <form id="reviewForm">
+                            <form id="reviewForm" [formGroup]="reviewSubmitForm" autocomplete="off">
                                 <div>
                                     <h5>Email<span style="color: red;">*</span></h5>
-                                    <input type="email" placeholder="Enter your email" name="review_from" required="">
+                                    <input type="email" placeholder="Enter your email" formControlName="email"
+                                        name="review_from" required="">
                                 </div>
                                 <div class="row my-3">
                                     <div class="col-6">
                                         <h5>Name<span style="color: red;">*</span></h5>
-                                        <input type="text" placeholder="Enter your name" name="title" required="">
+                                        <input type="text" placeholder="Enter your name" formControlName="fullName"
+                                            name="title" required="">
                                     </div>
 
                                     <div class="col-6">
                                         <h5>Rating <span style="color: red;">*</span></h5>
                                         <div class="input-2 ">
-                                            <select name="rating" class="select-boxes-filter" required="">
-                                                <option value="">Select</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
+                                            <select name="rating" formControlName="rating" class="select-boxes-filter">
+                                                <option value="0">Select</option>
+                                                <option value="1">1 Star - Poor</option>
+                                                <option value="2">2 Star - Fair</option>
+                                                <option value="3">3 Star - Average</option>
+                                                <option value="4">4 Star - Good </option>
+                                                <option value="5">5 Star - Excellent</option>
                                             </select>
 
                                         </div>
                                     </div>
-
-
-
-
                                 </div>
                                 <div>
                                     <h5>Review<span style="color: red;">*</span></h5>
-                                    <textarea placeholder="Write a review" name="review" cols="30" rows="10"
-                                        maxlength="200" oninput="checkLength(this)" required=""></textarea>
+                                    <textarea placeholder="Write a review" formControlName="review" name="review"
+                                        cols="30" rows="10" maxlength="200" oninput="checkLength(this)"
+                                        required=""></textarea>
                                 </div>
-                                <button type="submit" class="ud-btn  blue-btn">Submit Review</button>
+                                <button type="button" (click)="submitReviewForm()" class="ud-btn  blue-btn">Submit
+                                    Review</button>
                             </form>
                         </div>
 
@@ -219,21 +228,21 @@
         </div>
 
         <div class="col-12 col-sm-3 mt-5 p-0">
-
-
-            <div class="find-agent ">
+            <div class="find-agent">
                 <div>
                     <h6>Contact</h6>
                     <p></p>
                     <ul class="nav row nav-pills mb-3 mt-3 d-flex justify-content-between" id="pills-tab"
                         role="tablist">
-                        <li class="nav-item col-6" style="padding-right:2px;" role="presentation">
+                        <li class="nav-item col-6" style="padding-right:2px;" (click)="meetingType = 'InPerson'"
+                            role="presentation">
                             <button class="nav-link active btn-secondary ud-btn " id="pills-person-tab"
                                 data-bs-toggle="pill" data-bs-target="#pills-person" type="button" role="tab"
                                 aria-controls="pills-person" aria-selected="true">In
                                 Person</button>
                         </li>
-                        <li class="nav-item tabs col-6" style="padding-left: 2px;" role="presentation">
+                        <li class="nav-item tabs col-6" style="padding-left: 2px;" (click)="meetingType = 'VideoChat'"
+                            role="presentation">
                             <button class="nav-link video-btn btn-secondary ud-btn  " id="pills-profile-tab"
                                 data-bs-toggle="pill" data-bs-target="#pills-person" type="button" role="tab"
                                 aria-controls="pills-person" aria-selected="false">Video
@@ -243,34 +252,40 @@
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-person" role="tabpanel"
                             aria-labelledby="pills-person-tab" tabindex="0">
-                            <form class="form-style1">
+                            <form class="form-style1" [formGroup]="contactForm" autocomplete="off">
 
                                 <div>
                                     <div class="input mt-3">
-                                        <input type="text" placeholder="Name*" name="first_name" required>
+                                        <input type="text" placeholder="Name*" formControlName="fullName" maxlength="20"
+                                            name="first_name" required>
+
                                     </div>
 
 
                                     <div class="input mt-3">
-                                        <input type="text" placeholder="Phone*" name="phone" required>
+                                        <input type="text" placeholder="Phone*" [appInputMask]="'(999) 999-9999'"
+                                            maxlength="14" formControlName="phone" name="phone" required>
                                     </div>
 
                                     <div class="input mt-3">
-                                        <input type="email" placeholder="Email*" name="email" maxlength="40" required>
+                                        <input type="email" placeholder="Email*" formControlName="email" name="email"
+                                            maxlength="40" required>
                                     </div>
                                     <div class="input mt-3">
-                                        <input type="datetime-local" placeholder="Time*" name="time" required>
+                                        <input type="datetime-local" placeholder="Time*" formControlName="scheduleTime"
+                                            name="scheduleTime" required>
                                         <i class="ri-expand-up-down-line opacity-50"></i>
                                     </div>
 
 
                                     <textarea class="mt-3 txt-area " cols="42" rows="3"
-                                        placeholder="Enter your Message*" name="comment" required></textarea>
+                                        placeholder="Enter your Message*" formControlName="comment" name="comment"
+                                        required></textarea>
 
                                     <div class="chkbox">
                                         <div class="mt-1 d-flex align-items-cente gap-2"> <input
-                                                class="checkbox opacity-50" type="checkbox" name="terms_agreement"
-                                                id="terms_agreement" required>
+                                                class="checkbox opacity-50" formControlName="isAgreeTermCondition"
+                                                type="checkbox" name="terms_agreement" id="terms_agreement" required>
 
                                             <p class="mb-0 fw-medium fs-6">By submitting this form I agree
                                                 to
@@ -281,20 +296,15 @@
                                     </div>
 
                                     <div class="d-grid schedule mt-2">
-                                        <button class="btn btn-secondary ud-btn  blue-btn" type="submit">Submit</button>
-
+                                        <button class="btn btn-secondary ud-btn  blue-btn" type="button"
+                                            (click)="submitContactForm()">Submit</button>
                                     </div>
-
                                 </div>
                             </form>
                         </div>
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab" tabindex="0">...s</div>
-
                     </div>
-
-
-
                 </div>
             </div>
 
@@ -334,7 +344,8 @@
 
                     <li>
                         <strong>Website</strong>
-                        <a target="_blank" href="{{agent.primaryWebsite}}">{{agent.primaryWebsite ? agent.primaryWebsite : 'N/A'}}</a>
+                        <a target="_blank" href="{{agent.primaryWebsite}}">{{agent.primaryWebsite ? agent.primaryWebsite
+                            : 'N/A'}}</a>
 
                     </li>
                     <hr class="my-2">

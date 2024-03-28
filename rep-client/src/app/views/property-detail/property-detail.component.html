@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<section class="pt60 pb90 bgc-f7">
+<section class="pt60 pb90 bgc-f7" *ngIf="PropertyDetail != null">
   <div class="container">
     <div class="row mb30 wow fadeInUp" data-wow-delay="100ms" style="margin-bottom: 0 !important;">
       <div class="col-lg-8">
         <div class="single-property-content mb30-md">
-          <h1 class="sp-lg-title">{{PropertyDetail.fullAddress}}</h1>
+          <h1 class="sp-lg-title">{{PropertyDetail?.fullAddress}}</h1>
           <div class="buttons">
             <button class="features me-2" style="background-color: rgb(16, 87, 159);">{{PropertyDetail.isDiamondType ?
               'Diamond' : 'Feature'}}</button>
@@ -33,9 +33,8 @@
               <a class="icon mr10" href="#"><span class="flaticon-share-1"></span></a>
               <a class="icon" href="#"><span class="flaticon-printer"></span></a>
             </div>
-            <h4 class="price mb-0">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow' }}</h4>
-            <p class="text space fz15">{{ PropertyDetail.listPriceSquareFoot | number | currency: 'CAD' :
-              'symbol-narrow' }}/sq ft</p>
+            <h4 class="price mb-0">{{ PropertyDetail.listPrice  | currency: 'CAD' : 'symbol-narrow' : '4.0-2' }}</h4>
+            <p class="text space fz15">{{ PropertyDetail.listPriceSquareFoot | number  | currency: 'CAD' : 'symbol-narrow' : '4.0-2' }}/sq ft</p>
           </div>
         </div>
       </div>
@@ -324,13 +323,12 @@
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Price :</strong></span>
-                    <p class="mb-2 listprice">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow' }}</p>
+                    <p class="mb-2 listprice">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2' }}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Property Size :</strong></span>
-                    <p class="mb-2 propertysize">{{ PropertyDetail.listPriceSquareFoot | number | currency: 'CAD' :
-                      'symbol-narrow' }} Sq ft</p>
+                    <p class="mb-2 propertysize">{{ PropertyDetail.listPriceSquareFoot | number  | currency: 'CAD' : 'symbol-narrow' : '4.0-2' }} Sq ft</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">

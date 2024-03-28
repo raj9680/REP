@@ -1,0 +1,92 @@
+<section class="advance-search-menu bg-white position-relative default-box-shadow2 py30">
+    <div class="container-fluid container-xxl">
+        <div class="row">
+            <div class="col-md-12 text-center" *ngIf="listingTypes == 'diamond'">
+                <h1>Diamond Listings</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center" *ngIf="listingTypes == 'feature'">
+                <h1>Featured Listings</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="">
+    <div class="container-fluid container-xl">
+        <div class="row align-items-center mb10">
+            <div class=" col-md-6" *ngIf="listingTypes == 'diamond'">
+                <h4 class="mb-1 text-nowrap">Diamond Listings</h4>
+            </div>
+            <div class=" col-md-6" *ngIf="listingTypes == 'feature'">
+                <h4 class="mb-1 text-nowrap">Featured Listings</h4>
+            </div>
+            <div class=" col-md-6">
+                <div class="page_control_shorting d-flex align-items-center justify-content-end justify-content-xl-end">
+                    <!-- <div class="pcs_dropdown pr10 sort d-flex align-items-center gap-3">
+
+                        <h6> Sort by:</h6>
+                        <div class="sort-by-div">
+                            <select class="show-tick" id="sort_by" name="sort_by"
+                                onchange="fetchPropertiesWithSorting()">
+                                <option value="desc">Newest</option>
+                                <option value="price_low">Price Low</option>
+                                <option value="price_high">Price High</option>
+                            </select>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="row" id="diamond_listings" *ngIf="properties">
+         <div class="col-sm-6 col-lg-4 col-xl-3" *ngFor="let property of properties| paginate
+         : {
+           itemsPerPage: itemsPerPage,
+           currentPage: page,
+           totalItems: totalItems
+           }">
+            <div class="listing-style5">
+               <div class="list-thumb">
+                  <img src="{{property.image_url}}" alt="{{property.listingKeyNumeric}}">
+                  <div class="list-tag fz12">
+                     <i class="fa-thin fa-gem me-2"></i>Diamond
+                  </div>
+                  <div class="list-meta2">
+                     <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
+                        class="set-as-fav">
+                        <span class="flaticon-like"></span>
+                     </a>
+                     <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}" data-bs-toggle="tooltip"
+                        data-bs-placement="top" title="Preview" target="_blank">
+                        <span class="flaticon-fullscreen"></span>
+                     </a>
+                  </div>
+               </div>
+               <div class="list-content">
+                  <div class="list-price mb-2">{{property.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2'}}</div>
+                  <h6 class="list-title">
+                    <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}">{{property.fullAddress}}</a>
+                 </h6>
+                  <p class="list-text">{{property.propertyType}}</p>
+                  <div class="list-meta d-flex align-items-center gap-3">
+                     <a href="javascript:void(0)"><span class="flaticon-expand"></span>{{property.livingAreaSF}}
+                        sqft</a>
+                  </div>
+                  <span class="mlsNumber">MLS® # {{property.listingId}}</span>
+               </div>
+            </div>
+         </div>
+      </div>
+
+    </div>
+    <div class="d-flex align-items-center justify-content-center mt-5"
+    *ngIf="properties.length > 0">
+    <nav aria-label="Agent Pagination">
+        <div class="mbp_pagination text-center">
+            <pagination-controls class="pagi"
+                (pageChange)="gty((page = $event))"></pagination-controls>
+
+        </div>
+    </nav>
+</div>
+</section>

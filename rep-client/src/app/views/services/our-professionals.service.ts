@@ -21,4 +21,11 @@ export class OurProfessionalsService {
   GetMemberPropertyList(memberkey: string,officekey: string): Observable<any[]> {
     return  this._httpClient.get<any[]>(this.httpURL + `api/Member/GetMemberPropertyList?memberKey=` + memberkey + '&officeKey=' + officekey);
   }
+
+  SaveClientContactInfo(request: any): Observable<any> {
+    return this._httpClient.post(this.httpURL + `api/Member/SaveClientContactInfo`, request);
+  }
+  SubmitMemberReview(request: any): Observable<any> {
+    return this._httpClient.post(this.httpURL + `api/Member/SubmitMemberReview`, request);
+  }
 }

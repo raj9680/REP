@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HomePageService } from '../services/home-page.service';
-import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-home-page',
@@ -10,13 +9,13 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 })
 export class HomePageComponent implements OnInit {
 
-  math = Math;
+
   featuredProperties: any[] | undefined;
   diamondProperties: any[] | undefined;
   @ViewChild('catNext') nextElement: ElementRef | any;
   @ViewChild('catPrev') prevElement: ElementRef | any;
   
-  constructor(private homePage: HomePageService, public _sharedService: SharedService) { }
+  constructor(private homePage: HomePageService) { }
   imageObject: Array<object> = [
     {
     image: 'https://mukeshswami.com/frontend/images/home/citycenter.webp',
@@ -72,13 +71,11 @@ export class HomePageComponent implements OnInit {
     //getFeaturedProperties
     this.homePage.getFeaturedProperties().subscribe(properties => {
       this.featuredProperties = properties;
-      console.log("featured-prpperties", this.featuredProperties);
     });
     
     //getDiamondProperties
     this.homePage.getDiamondProperties().subscribe(properties => {
       this.diamondProperties = properties;
-      console.log("diamond-prpperties", this.diamondProperties);
     });
   }
 

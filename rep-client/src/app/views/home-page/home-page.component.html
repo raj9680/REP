@@ -112,8 +112,8 @@
             </div>
          </div>
       </div>
-      <!-- <div class="row" id="diamond_listings" *ngIf="diamondProperties"> -->
-      <div class="row" id="diamond_listings">
+       <!-- <div class="row" id="diamond_listings" *ngIf="diamondProperties"> -->
+         <div class="row" id="diamond_listings"></div>
          <div *ngIf="_sharedService.isLoading | async" style="text-align: -webkit-center;">
             <mat-spinner [diameter]="70" [strokeWidth]="4"></mat-spinner>
          </div>
@@ -136,10 +136,9 @@
                   </div>
                </div>
                <div class="list-content">
-                  <div class="list-price mb-2">{{math.trunc(property.listPrice) | currency: 'CAD' : 'symbol-narrow'}}</div>
+                  <div class="list-price mb-2">{{property.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2'}}</div>
                   <h6 class="list-title">
-                     <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}">{{property.city}},
-                        {{property.stateOrProvince}}</a>
+                     <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}">{{property.fullAddress}}</a>
                   </h6>
                   <p class="list-text">{{property.propertyType}}</p>
                   <div class="list-meta d-flex align-items-center gap-3">
@@ -247,7 +246,7 @@
          <div class="col-lg-3">
             <div class="dark-light-navtab style2 text-start text-lg-end mt-0 mt-lg-4 mb-4">
                <div class="text-start text-lg-end mb-3">
-                  <a class="ud-btn btn-outline-rep" href="#">See All Featured Listings<i
+                  <a class="ud-btn btn-outline-rep" routerLink="/views/listing/feature">See All Featured Listings<i
                         class="fal fa-arrow-right-long dark-color"></i></a>
                </div>
             </div>
@@ -259,32 +258,31 @@
             <div class="tab-content" id="pills-tabContent">
                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                   <div class="row" id="featured_listings">
-
                      <div *ngIf="_sharedService.isLoading | async" style="text-align: -webkit-center;">
                         <mat-spinner [diameter]="70" [strokeWidth]="4"></mat-spinner>
                      </div>
-
                      <div class="col-sm-6 col-lg-4 col-xl-3" *ngFor="let property of featuredProperties">
                         <div class="listing-style5">
                            <div class="list-thumb">
-                              <img src="{{property.image_url}}" alt="{{property.listingKeyNumeric}}"
-                                 onerror="this.src='https://mukeshswami.com/images/no_image.jpg';">
+                              <img src="{{property.image_url}}" onerror="" alt="{{property.listingKeyNumeric}}">
                               <div class="list-tag fz12">
                                  <i class="fa fa-star me-2"></i>Featured
                               </div>
                               <div class="list-meta2">
-                                 <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Preview" target="_blank">
+                                 <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
+                                    class="set-as-fav">
+                                    <span class="flaticon-like"></span>
+                                 </a>
+                                 <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Preview" target="_blank">
                                     <span class="flaticon-fullscreen"></span>
                                  </a>
                               </div>
                            </div>
                            <div class="list-content">
-                              <div class="list-price mb-2">{{property.listPrice | currency: 'CAD' : 'symbol-narrow'}}
-                              </div>
+                              <div class="list-price mb-2">{{property.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2'}}</div>
                               <h6 class="list-title">
-                                 <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}">{{property.city}},
-                                    {{property.stateOrProvince}}</a>
+                                 <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}">{{property.fullAddress}}</a>
                               </h6>
                               <p class="list-text">{{property.propertyType}}</p>
                               <div class="list-meta d-flex align-items-center gap-3">
@@ -296,8 +294,6 @@
                            </div>
                         </div>
                      </div>
-
-
                   </div>
                </div>
             </div>

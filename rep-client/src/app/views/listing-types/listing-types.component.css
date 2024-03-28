@@ -1,0 +1,97 @@
+.list-thumb img{object-fit: cover; width: 100%; height: 220px; min-height: 220px;}
+
+img.image{
+    width:228px !important;
+    height: 330px !important;
+}
+.listing-style5 .list-meta2{
+    display: flex;
+    gap: 0.3rem;
+}
+.home-banner-style3::before {
+     background: #3333337d;
+ }
+ .hero-title{
+    font-size: 40px !important;
+ }
+ .subtextbanner {
+    letter-spacing: 1px;
+    font-size: 16px !important;
+}
+
+.home-banner-style3{
+    background-size: cover !important;
+}
+.h2, h2 {
+    font-size: 30px !important;
+}
+.apartment-img img{
+height: 310px;
+}
+.activedot{
+    background-color: #222222;
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+}
+.imgg{
+    max-width: 100% !important;
+}
+.inactivedot{
+    background-color: #d7d7d7;
+    border-radius: 50%;
+    height: 6px;
+    position: relative;
+    width: 6px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+}
+.h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5 {
+    font-family: var(--heading-font);
+    color: var(--headings-secondary-color);
+    font-weight: 600;
+    line-height: 1.5;
+}
+.h6, h6 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.top-right-300 {
+    right: 0;
+}
+@media only screen and (min-width: 756px){
+.top-left-300, .top-right-300 {
+    top: -300px;
+}
+}
+
+
+@media (max-width: 600px){
+    .office-north {
+        position: absolute;
+        top: 36px !important;
+    }
+    .s-off {
+    position: relative;
+    top: 43px !important;
+}
+}
+@media only screen and (max-width:480px){
+    .whyrep{
+        padding: 0;
+    }
+    .featuredlist{
+        padding-bottom: 1rem;
+    }
+    .hero-title{
+        font-size: 30px !important;
+     }
+     .row.rep-style-3 .bt-floating {
+        padding-top: 35px;
+    }
+}
