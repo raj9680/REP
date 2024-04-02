@@ -97,3 +97,21 @@ height: 310px;
         padding-top: 35px;
     }
 }
+#suggestion-list {
+    position: fixed;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    width: 100%;
+}
+.category {
+    font-weight: bold;
+    background: #10579f;
+    color: #fff;
+    padding: 12px 12px;
+}
+.suggestion {
+    padding: 8px 12px;
+    cursor: pointer;
+}

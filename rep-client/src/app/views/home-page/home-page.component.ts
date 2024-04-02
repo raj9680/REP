@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HomePageService } from '../services/home-page.service';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -15,9 +16,10 @@ export class HomePageComponent implements OnInit {
   diamondProperties: any[] | undefined;
   evaluationAddress: any = '';
   evaluationEMail: any = '';
+  searchQueryText: string = '';
   @ViewChild('catNext') nextElement: ElementRef | any;
   @ViewChild('catPrev') prevElement: ElementRef | any;
-  
+  private searchSubject = new Subject<string>();
   constructor(private homePage: HomePageService, public _sharedService: SharedService) { }
   imageObject: Array<object> = [
     {
@@ -71,6 +73,11 @@ export class HomePageComponent implements OnInit {
   ];
   
   ngOnInit(): void {
+    //Seach with debounce
+    this.searchSubject.pipe(debounceTime(300),distinctUntilChanged()).subscribe((searchValue) => {
+      this.performSearch(searchValue);
+    });
+
     //getFeaturedProperties
     this.homePage.getFeaturedProperties().subscribe(properties => {
       this.featuredProperties = properties;
@@ -99,5 +106,24 @@ export class HomePageComponent implements OnInit {
 
   showHomeEvauationDialog() {
       this.display = true;
+  }
+
+  ChangePropertySearchVal() {
+    this.searchSubject.next(this.searchQueryText);
+  }
+  searchResult:any= null;
+  performSearch(searchValue: string) {
+    // Perform the actual search operation here
+    if(searchValue.length > 2){
+    this.homePage.GetPropertyBySearch(searchValue).subscribe((data: any) => {
+      this.searchResult = data;
+    });
+    }
+    else{
+      this.searchResult= null;
+    }
+  }
+  ngOnDestroy() {
+    this.searchSubject.complete();
   }
 }

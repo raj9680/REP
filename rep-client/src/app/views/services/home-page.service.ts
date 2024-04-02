@@ -27,4 +27,8 @@ export class HomePageService {
       map(data => data.diamond_properties)
     );
   }
+
+  GetPropertyBySearch(searchQueryText: string): Observable<any> {
+    return this.http.post<any>(this.httpURL + `api/Home/GetSearchProperty?searchQueryText=` + searchQueryText, null);
+  }
 }
