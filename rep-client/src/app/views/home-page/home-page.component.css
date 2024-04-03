@@ -97,6 +97,13 @@ height: 310px;
         padding-top: 35px;
     }
 }
+.inlineSearchLoader {
+    width: fit-content;
+    display: inline-block;
+    right: -48px;
+    position: absolute;
+    top: 14px;
+}
 #suggestion-list {
     position: fixed;
     z-index: 1000;
@@ -114,4 +121,16 @@ height: 310px;
 .suggestion {
     padding: 8px 12px;
     cursor: pointer;
+}
+@media screen and (max-width: 911px) {
+    .inlineSearchLoader {
+        right: -40px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .inlineSearchLoader {
+        right: 10px;
+        background: #f7f7f7;
+        padding-left: 3px;
+    }
 }

@@ -38,9 +38,12 @@
                                        accept-charset="utf-8">
                                        <div class="box-search">
                                           <span class="icon flaticon-home-1"></span>
+                                          <span class="load">
                                           <input class="form-control bgc-f7 bdrs12" [(ngModel)]="searchQueryText"
                                              (input)="ChangePropertySearchVal()" type="text" name="search"
                                              placeholder="Search by address, neighborhood, city or postal code." />
+                                             <span class="inlineSearchLoader" *ngIf="inlineSearchLoader"><mat-spinner [diameter]="30" [strokeWidth]="3"></mat-spinner></span>
+                                          </span>
                                        </div>
                                     </form>
                                  </div>
@@ -50,7 +53,7 @@
                                     class="d-flex gap-3 align-items-center justify-content-start justify-content-md-center mt-3 mt-md-0">
                                     <button class="advance-search-btn" type="button" data-bs-toggle="modal"
                                        data-bs-target="#exampleModal">
-                                       <span class="flaticon-settings"></span>
+                                       <span class="flaticon-settings"> </span>
                                        Advanced
                                     </button>
                                     <button class="ud-btn btn-primary" type="button">
@@ -692,7 +695,7 @@
   </section> -->
 <!-- Explore Apartment -->
 <section class="bgc-gray position-relative pt-0 pb-0"
-   style="background-color: #3739a7;color: #fff !important; padding-top: 20px !important;">
+   style="background-color: #105795;color: #fff !important; padding-top: 20px !important;">
    <div class="container">
       <div class="row">
          <div class="col-lg-6">

@@ -17,9 +17,13 @@ export class HomePageComponent implements OnInit {
   evaluationAddress: any = '';
   evaluationEMail: any = '';
   searchQueryText: string = '';
+  inlineSearchLoader: boolean = false;
+
   @ViewChild('catNext') nextElement: ElementRef | any;
   @ViewChild('catPrev') prevElement: ElementRef | any;
+
   private searchSubject = new Subject<string>();
+
   constructor(private homePage: HomePageService, public _sharedService: SharedService) { }
   imageObject: Array<object> = [
     {
@@ -111,15 +115,18 @@ export class HomePageComponent implements OnInit {
   ChangePropertySearchVal() {
     this.searchSubject.next(this.searchQueryText);
   }
+
   searchResult:any= null;
   performSearch(searchValue: string) {
-    // Perform the actual search operation here
-    if(searchValue.length > 2){
-    this.homePage.GetPropertyBySearch(searchValue).subscribe((data: any) => {
+      // Perform the actual search operation here
+      if(searchValue.length > 2) {
+      this.inlineSearchLoader = true;
+      this.homePage.GetPropertyBySearch(searchValue).subscribe((data: any) => {
       this.searchResult = data;
-    });
+      this.inlineSearchLoader = false;
+      });
     }
-    else{
+    else {
       this.searchResult= null;
     }
   }
