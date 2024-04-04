@@ -48,9 +48,12 @@
             <div class="listing-style5">
                <div class="list-thumb">
                   <img src="{{property.image_url}}" alt="{{property.listingKeyNumeric}}">
-                  <div class="list-tag fz12">
+                  <div class="list-tag fz12" *ngIf="listingTypes == 'diamond'">
                      <i class="fa-thin fa-gem me-2"></i>Diamond
                   </div>
+                  <div class="list-tag fz12" *ngIf="listingTypes != 'diamond'">
+                    <i class="fa-thin fa-gem me-2"></i>Featured
+                 </div>
                   <div class="list-meta2">
                      <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
                         class="set-as-fav">
