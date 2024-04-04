@@ -1,7 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HomePageService } from '../services/home-page.service';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
+
 
 @Component({
   selector: 'app-home-page',
@@ -9,7 +10,7 @@ import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
   styleUrls: ['./home-page.component.css'],
   providers: [HomePageService]
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, AfterViewInit {
 
 
   featuredProperties: any[] | undefined;
@@ -23,21 +24,22 @@ export class HomePageComponent implements OnInit {
   @ViewChild('catPrev') prevElement: ElementRef | any;
 
   private searchSubject = new Subject<string>();
+  @ViewChild('addresstext') addresstext: any;
 
   constructor(private homePage: HomePageService, public _sharedService: SharedService) { }
   imageObject: Array<object> = [
     {
-    image: 'https://mukeshswami.com/frontend/images/home/citycenter.webp',
-    thumbImage: 'https://mukeshswami.com/frontend/images/home/citycenter.webp',
-    alt: '1',
-    title: 'City Center',
-    }, 
+      image: 'https://mukeshswami.com/frontend/images/home/citycenter.webp',
+      thumbImage: 'https://mukeshswami.com/frontend/images/home/citycenter.webp',
+      alt: '1',
+      title: 'City Center',
+    },
     {
-    image: 'https://mukeshswami.com/frontend/images/home/north.webp',
-    thumbImage: 'https://mukeshswami.com/frontend/images/home/north.webp',
-    title: 'North Calgary',
-    alt: '2',
-    order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
+      image: 'https://mukeshswami.com/frontend/images/home/north.webp',
+      thumbImage: 'https://mukeshswami.com/frontend/images/home/north.webp',
+      title: 'North Calgary',
+      alt: '2',
+      order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
     },
     {
       image: 'https://mukeshswami.com/frontend/images/home/north-East.webp',
@@ -75,10 +77,10 @@ export class HomePageComponent implements OnInit {
       order: 6 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
     }
   ];
-  
+
   ngOnInit(): void {
     //Seach with debounce
-    this.searchSubject.pipe(debounceTime(300),distinctUntilChanged()).subscribe((searchValue) => {
+    this.searchSubject.pipe(debounceTime(300), distinctUntilChanged()).subscribe((searchValue) => {
       this.performSearch(searchValue);
     });
 
@@ -86,7 +88,7 @@ export class HomePageComponent implements OnInit {
     this.homePage.getFeaturedProperties().subscribe(properties => {
       this.featuredProperties = properties;
     });
-    
+
     //getDiamondProperties
     this.homePage.getDiamondProperties().subscribe(properties => {
       this.diamondProperties = properties;
@@ -109,28 +111,74 @@ export class HomePageComponent implements OnInit {
   display: boolean = false;
 
   showHomeEvauationDialog() {
-      this.display = true;
+    this.display = true;
   }
 
   ChangePropertySearchVal() {
     this.searchSubject.next(this.searchQueryText);
   }
 
-  searchResult:any= null;
+  searchResult: any = null;
   performSearch(searchValue: string) {
-      // Perform the actual search operation here
-      if(searchValue.length > 2) {
+    // Perform the actual search operation here
+    if (searchValue.length > 2) {
       this.inlineSearchLoader = true;
       this.homePage.GetPropertyBySearch(searchValue).subscribe((data: any) => {
-      this.searchResult = data;
-      this.inlineSearchLoader = false;
+        this.searchResult = data;
+        this.inlineSearchLoader = false;
       });
     }
     else {
-      this.searchResult= null;
+      this.searchResult = null;
     }
   }
   ngOnDestroy() {
     this.searchSubject.complete();
+  }
+
+  ngAfterViewInit() {
+    this.getPlaceAutocomplete();
+  }
+
+  private getPlaceAutocomplete() {
+    const autocomplete = new google.maps.places.Autocomplete(this.addresstext.nativeElement, {
+      types: ['geocode'],
+      componentRestrictions: { country: 'CA' },
+      strictBounds: true,
+      bounds: {
+        north: 60.0000, // Adjust these coordinates as needed to cover Alberta
+        south: 48.9993,
+        east: -110.0000,
+        west: -120.0000
+      }
+    });
+    autocomplete.addListener('place_changed', () => {
+      const place: any = autocomplete.getPlace();
+      if (!place.geometry) {
+        //console.log("Place details not found for the input: ", input.value);
+        return;
+      }
+
+      if (place.address_components.some((component: any) =>
+        component.types.includes('country') && component.short_name === 'CA'
+      )) {
+        const province = place.address_components.find((component: any) =>
+          component.types.includes('administrative_area_level_1') && component.short_name === 'AB'
+        );
+        this.evaluationAddress = place.formatted_address;
+
+        if (province) {
+          const address = place.formatted_address;
+          console.log("Address from the Province of Alberta in Canada: ", address);
+          // Proceed with the address from Alberta
+        } else {
+          console.log("Address is not from the Province of Alberta in Canada.");
+          // Handle addresses not from Alberta
+        }
+      } else {
+        console.log("Address is not from Canada.");
+        // Handle addresses not from Canada
+      }
+    });
   }
 }
