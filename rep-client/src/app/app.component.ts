@@ -19,7 +19,8 @@ export class AppComponent implements OnInit{
         if (!(event instanceof NavigationEnd)) { 
             return; 
         } 
-        window.scrollTo(0, 0) 
+        window.scrollTo(0, 0) ;
+        this._sharedService.footerLoading.next(false);
       });
 
     this.delayFooterLoad();

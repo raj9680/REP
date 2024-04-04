@@ -11,8 +11,7 @@ export class HomePageService {
 
   readonly httpURL;
   constructor(private http: HttpClient) {
-    // this.httpURL = environment.apiEndpoint;
-    this.httpURL = "https://musing-lehmann.108-175-0-196.plesk.page/"; 
+    this.httpURL = environment.apiEndpoint;
   }
    
   

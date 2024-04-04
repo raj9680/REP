@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<section class="pt60 pb90 bgc-f7" *ngIf="PropertyDetail != null">
+<section class="pt60 pb90 bgc-f7">
   <div class="container">
     <div class="row mb30 wow fadeInUp" data-wow-delay="100ms" style="margin-bottom: 0 !important;">
       <div class="col-lg-8">
@@ -455,17 +455,17 @@
               <div class="col-12 col-sm-6 hrcustom">
                 <div class="d-flex align-items-center val  justify-content-between w-100">
                   <h6>Down Payment</h6>
-                  <p id="downPayment">$235000.00</p>
+                  <p id="downPayment">{{PropertyDetail.listPrice * (0.2) | currency: 'CAD':'symbol-narrow' }}</p>
                 </div>
                 <hr>
                 <div class="d-flex align-items-center val  justify-content-between w-100">
                   <h6>Loan Amount</h6>
-                  <p id="loanAmount">$940000.00</p>
+                  <p id="loanAmount">{{PropertyDetail.listPrice - (PropertyDetail.listPrice * (0.2)) | currency: 'CAD':'symbol-narrow' }}</p>
                 </div>
                 <hr>
                 <div class="d-flex align-items-center val  justify-content-between w-100">
                   <h6>Monthly Mortgage Payment</h6>
-                  <p id="monthlyPayment">$6203.58</p>
+                  <p id="monthlyPayment">{{(PropertyDetail.listPrice - (PropertyDetail.listPrice * (0.2))) * 0.05 | currency: 'CAD':'symbol-narrow' }}</p>
                 </div>
                 <hr>
                 <div class="d-flex align-items-center val  justify-content-between w-100">
@@ -495,28 +495,28 @@
                 <h6>Total Amount</h6>
                 <div class="inp">
                   <div class="icons">$</div>
-                  <input type="text" id="totalAmount">
+                  <input [disabled]="true" type="text" id="totalAmount" value="{{ PropertyDetail.listPrice}}">
                 </div>
               </div>
               <div class="col-6 col-sm-4">
                 <h6>Down Payment</h6>
                 <div class="inp">
                   <div class="icons">%</div>
-                  <input type="text" id="downPaymentPercentage">
+                  <input type="text" id="downPaymentPercentage" value="20" [disabled]="true">
                 </div>
               </div>
               <div class="col-6 col-sm-4 mt-4 mt-sm-0">
                 <h6>Interest Rate</h6>
                 <div class="inp">
                   <div class="icons">%</div>
-                  <input type="text" id="interestRate">
+                  <input type="text" id="interestRate" value="5" [disabled]="true">
                 </div>
               </div>
               <div class="col-6 col-sm-4 mt-4">
                 <h6>Loan Terms (Years)</h6>
                 <div class="inp">
                   <div class="icons"><i class="fa-light fa-calendar-days"></i></div>
-                  <input type="text" id="loanTermYears">
+                  <input type="text" id="loanTermYears" value="20" [disabled]="true">
                 </div>
               </div>
               <div class="col-6 col-sm-4 mt-4">
