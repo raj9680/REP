@@ -1,19 +1,36 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <!-- Property Half Map V4 -->
 <section class="p-0 bgc-f7">
   <div class="container-fluid">
     <div class="row wow fadeInUp" data-wow-delay="100ms">
       <div class="col-xl-7 overflow-hidden position-relative">
         <div class="half_map_area">
-          <agm-map [latitude]="55.415091939445745" [longitude]="-111.23047813876623" [zoom]="4">
-            <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
-            <agm-marker 
-              *ngFor="let prop of propertiesFound" 
-              [latitude]="prop.latitude" 
-              [longitude]="prop.longitude"
-              [markerClickable]="true">
-            </agm-marker>
-          </agm-marker-cluster>
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="9">
+            <agm-marker-cluster [styles]="clusterStyles">
+              <agm-marker *ngFor="let prop of propertiesFound" [latitude]="prop.latitude" [longitude]="prop.longitude"
+                [iconUrl]="$any(markerIcon)" [title]="prop.unparsedAddress" [markerClickable]="true">
+                <agm-info-window style="padding-inline-end: 0px; padding-bottom: 0px;
+                  padding-top: 12px;
+                  max-width: 356px !important;max-height: 429px;min-width: 0px;" [disableAutoPan]="false" #infoWindow>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <img [src]="prop.image_url" style="width: 150px; height: 150px" />
+                    </div>
+                    <div class="col-md-6">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h3>{{prop.listPrice}}</h3>
+                        </div>
+                        <div class="col-md-12">
+                          <h5><a target="_blank" routerLink="/views/property-detail/{{prop.listingKeyNumeric}}"> {{prop.unparsedAddress +
+                              (prop.unparsedAddress ? ', ' : '') + prop.city + ', ' + prop.stateOrProvince}}</a></h5>
+                        </div>
+                        <div class="col-md-12"><small>MLS Number #{{prop.listingId}}</small></div>
+                      </div>
+                    </div>
+                  </div>
+                </agm-info-window>
+              </agm-marker>
+            </agm-marker-cluster>
           </agm-map>
         </div>
       </div>
@@ -21,49 +38,26 @@
         <div class="half_map_area_content bg-white filertAndResults">
           <!-- New -->
           <div class="filterSection position-relative">
-            <div
-              class="top-sec d-flex align-items-center justify-content-between"
-            >
-              <p id="results">15743 Properties</p>
+            <div class="top-sec d-flex align-items-center justify-content-between">
+              <p id="results">{{propertiesFound.length}} Properties</p>
 
-              <button
-                class="ud-btn btn-outline-rep bg-white"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
+              <button class="ud-btn btn-outline-rep bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Save Search
               </button>
 
               <!-- Modal -->
-              <div
-                class="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header border-0">
-                      <h1
-                        class="modal-title text-center fs-5"
-                        id="exampleModalLabel"
-                      >
+                      <h1 class="modal-title text-center fs-5" id="exampleModalLabel">
                         Saved Search
                       </h1>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body py-0 savesearch">
-                      <input
-                        type="text"
-                        placeholder="Give a name to your search"
-                        class="save-input"
-                      />
+                      <input type="text" placeholder="Give a name to your search" class="save-input" />
                       <h5>Setup New Listing Alert</h5>
                       <p>Receive Alerts Frequency</p>
                       <div class="d-flex align-items-center gap-3 mt-2">
@@ -78,10 +72,7 @@
                       </div>
                     </div>
                     <div class="modal-footer pt-2 border-0">
-                      <button
-                        type="button"
-                        class="w-100 ud-btn btn-primary collapsed"
-                      >
+                      <button type="button" class="w-100 ud-btn btn-primary collapsed">
                         Save Filter
                       </button>
                     </div>
@@ -91,29 +82,42 @@
             </div>
 
             <div class="mid-sec row px-3">
-              <div
-                id="loader"
-                class="spinner-border text-primary"
-                role="status"
-                style="display: none"
-              >
+              <div id="loader" class="spinner-border text-primary" role="status" style="display: none">
                 <span class="visually-hidden">Loading...</span>
               </div>
               <div class="col-12 px-1">
-                <input
-                  class="search autocompletes"
-                  id="autocomplete"
-                  type="Search"
-                  placeholder="City, Neighborhood, Address, Mls #"
-                />
-                <div id="suggestion-list"></div>
+                <span class="load">
+                  <input class="form-control bgc-f7 bdrs12" [(ngModel)]="searchQueryText"
+                     (input)="ChangePropertySearchVal()" type="text" name="search"
+                     placeholder="Search by address, neighborhood, city or postal code." />
+                     <span class="inlineSearchLoader" *ngIf="inlineSearchLoader"><mat-spinner [diameter]="30" [strokeWidth]="3"></mat-spinner></span>
+                  </span>
+                  <div id="suggestion-list" *ngIf="searchResult != null">
+                    <div *ngIf="searchResult.city != null && searchResult.city.length > 0">
+                       <!-- <div class="category">Cities</div> -->
+                       <div class="suggestion" *ngFor="let city of searchResult.city" 
+                       (click)="searchQueryText = city; searchResult = null;getPropertyAdvanceSearch();">{{city}} <span style="opacity: 0.5;"> - (City)</span></div>
+                    </div>
+                    <div *ngIf="searchResult.stateOrProvince != null && searchResult.stateOrProvince.length > 0">
+                       <!-- <div class="category">State or Province</div> -->
+                       <div class="suggestion" *ngFor="let StateOrProvince of searchResult.stateOrProvince"
+                       (click)="searchQueryText = StateOrProvince; searchResult = null;getPropertyAdvanceSearch();">{{StateOrProvince}}<span style="opacity: 0.5;"> - (State or Province)</span></div>
+                    </div>
+                    <div *ngIf="searchResult.postalCode != null && searchResult.postalCode.length > 0">
+                       <!-- <div class="category">Postal Code</div> -->
+                       <div class="suggestion" *ngFor="let postalCode of searchResult.postalCode"
+                       (click)="searchQueryText = postalCode; searchResult = null;getPropertyAdvanceSearch();">{{postalCode}}<span style="opacity: 0.5;"> - (Postal Code)</span></div>
+                    </div>
+                    <div *ngIf="searchResult.address != null && searchResult.address.length > 0">
+                       <!-- <div class="category">Address</div> -->
+                       <div class="suggestion" *ngFor="let address of searchResult.address"
+                       (click)="searchQueryText = address; searchResult = null;getPropertyAdvanceSearch();">{{address}}<span style="opacity: 0.5;"> - (Address)</span></div>
+                    </div>
+                 </div>
               </div>
               <div class="dropdown col-3 px-1 drp-dwn">
-                <select
-                  id="min-price"
-                  class="form-select"
-                  onchange="updateMaxPriceOptions(); applyFilter('min_list_price', this.value);"
-                >
+                <select id="min-price" class="form-select"
+                  onchange="updateMaxPriceOptions(); applyFilter('min_list_price', this.value);">
                   <option selected="" disabled="">Min Price</option>
                   <option value="25000">$25k</option>
                   <option value="35000">$35k</option>
@@ -121,11 +125,8 @@
               </div>
 
               <div class="dropdown col-3 px-1 drp-dwn">
-                <select
-                  id="max-price"
-                  class="form-select"
-                  onchange="updateMinPriceOptions(); applyFilter('max_list_price', this.value);"
-                >
+                <select id="max-price" class="form-select"
+                  onchange="updateMinPriceOptions(); applyFilter('max_list_price', this.value);">
                   <option selected="" disabled="">Max Price</option>
                   <option value="25000">$25k</option>
                   <option value="35000">$35k</option>
@@ -133,10 +134,7 @@
               </div>
 
               <div class="dropdown col-3 px-1 drp-dwn">
-                <select
-                  class="form-select"
-                  onchange="applyFilter('min_bedrooms', this.value);"
-                >
+                <select class="form-select" onchange="applyFilter('min_bedrooms', this.value);">
                   <option selected="" disabled="">Beds</option>
                   <option value="">Beds</option>
                   <option value="1">1 +</option>
@@ -148,10 +146,7 @@
               </div>
 
               <div class="dropdown col-3 px-1 drp-dwn">
-                <select
-                  class="form-select"
-                  onchange="applyFilter('min_bathrooms', this.value);"
-                >
+                <select class="form-select" onchange="applyFilter('min_bathrooms', this.value);">
                   <option selected="" disabled="">Baths</option>
                   <option value="">Baths</option>
                   <option value="1">1 +</option>
@@ -163,11 +158,7 @@
               </div>
 
               <div class="dropdown col-3 px-1 mt-2 drp-dwn">
-                <select
-                  class="form-select"
-                  onchange="applyFilter('mls_status', this.value);"
-                  disabled=""
-                >
+                <select class="form-select" onchange="applyFilter('mls_status', this.value);" disabled="">
                   <option selected="" disabled="">Sale</option>
                   <option value="Sale">For Sale</option>
                   <option value="Lease">For Lease</option>
@@ -175,10 +166,7 @@
               </div>
 
               <div class="dropdown col-3 px-1 mt-2 drp-dwn">
-                <select
-                  class="form-select"
-                  onchange="applyFilter('property_type', this.value);"
-                >
+                <select class="form-select" onchange="applyFilter('property_type', this.value);">
                   <option selected="" disabled="">Property Type</option>
                   <option value="Residential">Residential</option>
                   <option value="Land">Land</option>
@@ -191,27 +179,16 @@
               </div>
 
               <div class="col-2 px-0">
-                <div
-                  class="d-flex align-items-center h-100 justify-content-center"
-                >
+                <div class="d-flex align-items-center h-100 justify-content-center">
                   <i class="ri-refresh-line" id="clearFilters"></i>
                 </div>
               </div>
 
-              <div
-                class="accordion px-1 more-btn col-4 mt-2 zi2"
-                id="accordionExample"
-              >
+              <div class="accordion px-1 more-btn col-4 mt-2 zi2" id="accordionExample">
                 <div class="accordion-item px-0">
                   <div class="accordion-header" id="headingOne">
-                    <button
-                      class="ud-btn btn-primary collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
+                    <button class="ud-btn btn-primary collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                       More Filters
                     </button>
                   </div>
@@ -220,43 +197,24 @@
 
               <div class="row row-2 mt-3">
                 <div class="col-6">
-                  <div
-                    class="d-flex align-items-center justify-content-start px-0"
-                  >
-                    <div
-                      class="icons align-items-center d-flex gap-3 col-2 iconscss"
-                    >
-                      <i
-                        class="fa fa-map-marker"
-                        aria-hidden="true"
-                        id="mapView"
-                        style="
+                  <div class="d-flex align-items-center justify-content-start px-0">
+                    <div class="icons align-items-center d-flex gap-3 col-2 iconscss">
+                      <i class="fa fa-map-marker" aria-hidden="true" id="mapView" style="
                           background-color: rgb(16, 87, 159);
                           color: rgb(255, 255, 255);
-                        "
-                      ></i>
-                      <i
-                        class="fa fa-th-large"
-                        aria-hidden="true"
-                        id="gridView"
-                        style="
+                        "></i>
+                      <i class="fa fa-th-large" aria-hidden="true" id="gridView" style="
                           background-color: rgb(16, 87, 159);
                           color: rgb(255, 255, 255);
-                        "
-                      ></i>
+                        "></i>
 
                       <!-- <i class="ri-layout-grid-2-fill" id="mapView" style=""></i> -->
                     </div>
                   </div>
                 </div>
                 <div class="col-6">
-                  <div
-                    class="sortby d-flex align-items-center justify-content-end px-0"
-                  >
-                    <select
-                      name="Sort By"
-                      onchange="applyFilter('sort_by', this.value);"
-                    >
+                  <div class="sortby d-flex align-items-center justify-content-end px-0">
+                    <select name="Sort By" onchange="applyFilter('sort_by', this.value);">
                       <option value="">Sort By</option>
                       <option value="asc_list">Price Low to High</option>
                       <option value="desc_list">Price High to Low</option>
@@ -272,201 +230,57 @@
 
           <div class="row px-3 pt-3">
 
-            <div *ngFor="let property of propertiesFound" class="col-sm-6 col-12">
-              <div class="listing-style5">
-                <div class="list-thumb">
-                  <img class="w-100" src="{{property.primaryImage}}" alt="{{property.listingId}}"
-                    onerror="this.src='https://mukeshswami.com/images/no_image.jpg';"/>
-                  <div class="list-meta2">
-                    <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite" class="set-as-fav">
-                      <span class="flaticon-like"></span>
-                    </a>
-                    <a href="#!" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview" target="_blank">
-                      <span class="flaticon-fullscreen"></span>
-                    </a>
+            <div class="col-md-6 col-sm-6 listings_div" *ngFor="let property of propertiesFound| paginate
+         : {
+           itemsPerPage: itemsPerPage,
+           currentPage: page,
+           totalItems: totalItems
+           }">
+            <div class="listing-style5">
+               <div class="list-thumb">
+                  <img src="{{property.image_url}}" alt="{{property.listingKeyNumeric}}">
+                  <div class="list-tag fz12" *ngIf="property.isDiamondProperty">
+                     <i class="fa-thin fa-gem me-2"></i>Diamond
                   </div>
-                </div>
-                <div class="list-content">
-                  <div class="list-price mb-2">${{property.listPrice}}</div>
+                  <div class="list-tag fz12" *ngIf="!property.isDiamondProperty">
+                    <i class="fa-thin fa-gem me-2"></i>Featured
+                 </div>
+                  <div class="list-meta2">
+                     <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
+                        class="set-as-fav">
+                        <span class="flaticon-like"></span>
+                     </a>
+                     <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}" data-bs-toggle="tooltip"
+                        data-bs-placement="top" title="Preview" target="_blank">
+                        <span class="flaticon-fullscreen"></span>
+                     </a>
+                  </div>
+               </div>
+               <div class="list-content">
+                  <div class="list-price mb-2">{{property.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2'}}</div>
                   <h6 class="list-title">
-                    <a href="#!">{{property.stateOrProvince}}</a>
-                  </h6>
+                    <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}">{{property.fullAddress}}</a>
+                 </h6>
                   <p class="list-text">{{property.propertyType}}</p>
                   <div class="list-meta d-flex align-items-center gap-3">
-                    <a href="#"><span class="flaticon-expand"></span>{{property.listPriceSquareFoot}} sqft</a>
+                     <a href="javascript:void(0)"><span class="flaticon-expand"></span>{{property.livingAreaSF}}
+                        sqft</a>
                   </div>
                   <span class="mlsNumber">MLS® # {{property.listingId}}</span>
-                </div>
-              </div>
+               </div>
             </div>
-
-            <!-- <div class="col-sm-6 col-12">
-              <div class="listing-style5">
-                <div class="list-thumb">
-                  <img
-                    class="w-100"
-                    src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg"
-                    alt="A2073668"
-                    onerror="this.src='https://mukeshswami.com/images/no_image.jpg';"
-                  />
-
-                  <div class="list-meta2">
-                    <a
-                      href="javascript:void(0)"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="Favourite"
-                      class="set-as-fav"
-                      ><span class="flaticon-like"></span></a
-                    ><a
-                      href="https://mukeshswami.com/property-detail/A2073668"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="Preview"
-                      target="_blank"
-                      ><span class="flaticon-fullscreen"></span
-                    ></a>
-                  </div>
-                </div>
-                <div class="list-content">
-                  <div class="list-price mb-2">$1,200,000</div>
-                  <h6 class="list-title">
-                    <a href="https://mukeshswami.com/property-detail/A2073668"
-                      >Calgary, Alberta</a
-                    >
-                  </h6>
-                  <p class="list-text">Commercial</p>
-                  <div class="list-meta d-flex align-items-center gap-3">
-                    <a href="#"
-                      ><span class="flaticon-expand"></span>2178 sqft</a
-                    >
-                  </div>
-                  <span class="mlsNumber">MLS® # A2073668</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-12">
-              <div class="listing-style5">
-                <div class="list-thumb">
-                  <img
-                    class="w-100"
-                    src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg"
-                    alt="A2073668"
-                    onerror="this.src='https://mukeshswami.com/images/no_image.jpg';"
-                  />
-
-                  <div class="list-meta2">
-                    <a
-                      href="javascript:void(0)"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="Favourite"
-                      class="set-as-fav"
-                      ><span class="flaticon-like"></span></a
-                    ><a
-                      href="https://mukeshswami.com/property-detail/A2073668"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="Preview"
-                      target="_blank"
-                      ><span class="flaticon-fullscreen"></span
-                    ></a>
-                  </div>
-                </div>
-                <div class="list-content">
-                  <div class="list-price mb-2">$1,200,000</div>
-                  <h6 class="list-title">
-                    <a href="https://mukeshswami.com/property-detail/A2073668"
-                      >Calgary, Alberta</a
-                    >
-                  </h6>
-                  <p class="list-text">Commercial</p>
-                  <div class="list-meta d-flex align-items-center gap-3">
-                    <a href="#"
-                      ><span class="flaticon-expand"></span>2178 sqft</a
-                    >
-                  </div>
-                  <span class="mlsNumber">MLS® # A2073668</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-12">
-              <div class="listing-style5">
-                <div class="list-thumb">
-                  <img
-                    class="w-100"
-                    src="https://myproagents.com/storage/85452790/photo-85452790-1.jpeg"
-                    alt="A2073668"
-                    onerror="this.src='https://mukeshswami.com/images/no_image.jpg';"
-                  />
-
-                  <div class="list-meta2">
-                    <a
-                      href="javascript:void(0)"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="Favourite"
-                      class="set-as-fav"
-                      ><span class="flaticon-like"></span></a
-                    ><a
-                      href="https://mukeshswami.com/property-detail/A2073668"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="Preview"
-                      target="_blank"
-                      ><span class="flaticon-fullscreen"></span
-                    ></a>
-                  </div>
-                </div>
-                <div class="list-content">
-                  <div class="list-price mb-2">$1,200,000</div>
-                  <h6 class="list-title">
-                    <a href="https://mukeshswami.com/property-detail/A2073668"
-                      >Calgary, Alberta</a
-                    >
-                  </h6>
-                  <p class="list-text">Commercial</p>
-                  <div class="list-meta d-flex align-items-center gap-3">
-                    <a href="#"
-                      ><span class="flaticon-expand"></span>2178 sqft</a
-                    >
-                  </div>
-                  <span class="mlsNumber">MLS® # A2073668</span>
-                </div>
-              </div>
-            </div> -->
+         </div>
           </div>
-
-          <div class="row">
-            <div class="mbp_pagination text-center">
-              <ul class="page_navigation">
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    <span class="fas fa-angle-left"></span
-                  ></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active" aria-current="page">
-                  <a class="page-link" href="#"
-                    >2 <span class="sr-only">(current)</span></a
-                  >
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                <li class="page-item"><a class="page-link" href="#">20</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#"
-                    ><span class="fas fa-angle-right"></span
-                  ></a>
-                </li>
-              </ul>
-              <p class="mt10 pagination_page_count text-center">
-                1 – 20 of 300+ property available
-              </p>
-            </div>
-          </div>
+          <div class="d-flex align-items-center justify-content-center mt-5"
+          *ngIf="propertiesFound.length > itemsPerPage">
+          <nav aria-label="Agent Pagination">
+              <div class="mbp_pagination text-center">
+                  <pagination-controls class="pagi"
+                      (pageChange)="gty((page = $event))"></pagination-controls>
+      
+              </div>
+          </nav>
+      </div>
 
         </div>
       </div>

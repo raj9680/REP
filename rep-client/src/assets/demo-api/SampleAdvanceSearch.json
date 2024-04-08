@@ -1,0 +1,20 @@
+{
+    "id": 16001,
+    "listingKeyNumeric": "88517094",
+    "latitude": "51.03119944",
+    "longitude": "-114.06975175",
+    "bathroomsFull": "1",
+    "bedroomsTotal": "1",
+    "buildingAreaTotalSF": null,
+    "propertyType": "Residential",
+    "unparsedAddress": "405, 315 24 Avenue SW",
+    "listPrice": "299900.00",
+    "listingId": "A2109517",
+    "image_url": "http://localhost:8080/Images/PropertyImages/88517094/PropertyLarge_088517094.jpg",
+    "livingAreaSF": "683.70",
+    "fullAddress": "405, 315, 24",
+    "city": "Calgary",
+    "stateOrProvince": "Alberta",
+    "isDiamondProperty": false,
+    "modificationTimestamp": "2024-03-09T07:35:03.237"
+}

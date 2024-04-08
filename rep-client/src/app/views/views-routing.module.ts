@@ -17,6 +17,7 @@ const routes: Routes = [
       path: "", children: [
           { path: "listing/:listingTypes", component: ListingTypesComponent },
           { path: "home", component:HomePageComponent },
+          { path: "property-search/:query", component: PropertySearchComponent },
           { path: "property-search", component: PropertySearchComponent },
           { path: "property-detail/:id", component: PropertyDetailComponent },
           { path: "our-professionals", component: OurProfessionalsComponent },

@@ -25,6 +25,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
 
   private searchSubject = new Subject<string>();
   @ViewChild('addresstext') addresstext: any;
+  searchResult: any = null;
 
   constructor(private homePage: HomePageService, public _sharedService: SharedService) { }
   imageObject: Array<object> = [
@@ -118,7 +119,6 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     this.searchSubject.next(this.searchQueryText);
   }
 
-  searchResult: any = null;
   performSearch(searchValue: string) {
     // Perform the actual search operation here
     if (searchValue.length > 2) {

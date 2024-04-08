@@ -29,4 +29,8 @@ export class PropertySearchService {
     return this.http.get<any[]>("http://localhost:4200/assets/demo-api/sampleMultiProperty.json");
   }
   
+
+  getPropertyAdvanceSearch(search: any): Observable<any[]> {
+    return this.http.get<any[]>(this.httpURL + `api/PropertySearch/GetPropertySearchDetail?query=` + search);
+  }
 }
