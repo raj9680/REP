@@ -15,10 +15,15 @@ img.image{
  }
  .hero-title{
     font-size: 40px !important;
+    line-height: 48px;
  }
  .subtextbanner {
     letter-spacing: 1px;
     font-size: 16px !important;
+}
+.home-banner-style3 {
+    
+    background-position: center;
 }
 
 .home-banner-style3{
@@ -67,6 +72,12 @@ height: 310px;
     right: 0;
 }
 @media only screen and (min-width: 756px){
+    .bork-built {
+        margin-top: 5rem;
+    }
+    .home-banner-style3 .home-style3 {
+        height: calc(100vh - 50px);
+   }
 .top-left-300, .top-right-300 {
     top: -300px;
 }
@@ -85,7 +96,7 @@ height: 310px;
 }
 @media only screen and (max-width:480px){
     .whyrep{
-        padding: 0;
+        padding: 25px 0;
     }
     .featuredlist{
         padding-bottom: 1rem;

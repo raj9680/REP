@@ -1,0 +1,36 @@
+.headerForm-style-cta::before {
+    background: #000000b4 !important;
+}
+h2{
+    font-size: 2rem;
+}
+.ctnBox a {
+    color: #007bff;
+}
+section.our-about h2 {
+    color: #212529;
+}
+.about-box2 p{
+	    font-weight: 600;
+    font-size: 16px;
+}
+.iconbox-style6 .icon {
+    color: #10579f;
+    font-size: 36px;
+    position: absolute;
+    right: 30px;
+    top: 17px;
+}
+.iconsCards {
+    width: 36px;
+}
+h3.title.mb-1 {
+    font-size: 1.75rem;
+}
+.h6, h6 {
+    font-size: 1rem;
+}
+.headerForm-style-cta{
+
+    background-size: cover;
+}	

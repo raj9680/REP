@@ -23,7 +23,7 @@ export class AppComponent implements OnInit{
         this._sharedService.footerLoading.next(false);
       });
 
-    this.delayFooterLoad();
+    // this.delayFooterLoad();
   }
 
   delayFooterLoad() {
