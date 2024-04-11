@@ -30,7 +30,11 @@ export class PropertySearchService {
   }
   
 
-  getPropertyAdvanceSearch(search: any): Observable<any[]> {
+  getPropertySearch(search: any): Observable<any[]> {
     return this.http.get<any[]>(this.httpURL + `api/PropertySearch/GetPropertySearchDetail?query=` + search);
+  }
+
+  getPropertyByAdvanceSearch(search: any): Observable<any[]> {
+    return this.http.post<any[]>(this.httpURL + `api/PropertySearch/GetPropertyByAdvanceSearch`, search);
   }
 }

@@ -5,6 +5,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { HomePageService } from '../services/home-page.service';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-property-search',
@@ -25,7 +26,20 @@ export class PropertySearchComponent implements OnInit {
   inlineSearchLoader: boolean = false;
   searchResult: any = null;
   searchQueryText: string = '';
-  constructor(private _propertySearchService: PropertySearchService, private homePage: HomePageService, private route: ActivatedRoute,) {
+  amenitiesArr: any[]=[];
+  advanceSearchForm: FormGroup = new FormGroup({
+    priceRgFrom: new FormControl(''),
+    priceRgTo: new FormControl(''),
+    propertyType: new FormControl(''),
+    propertyId: new FormControl(''),
+    bathroom: new FormControl(0),
+    bedroom: new FormControl(0),
+    city: new FormControl(''),
+    sqFrom: new FormControl(''),
+    sqTo: new FormControl(''),
+    amenities: new FormControl(this.amenitiesArr)
+  });
+  constructor(private _propertySearchService: PropertySearchService, private homePage: HomePageService, private route: ActivatedRoute, private fb: FormBuilder) {
     this.route.params.subscribe(params => {
       this.searchQueryText = params['query'];
       console.log(params['query'])
@@ -33,9 +47,39 @@ export class PropertySearchComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.resetAdvanceSearchform();
     this.getPropertyAdvanceSearch();
     this.searchSubject.pipe(debounceTime(300), distinctUntilChanged()).subscribe((searchValue) => {
       this.performSearch(searchValue);
+    });
+  }
+  SearchPropertyByAdvance(){
+    this._propertySearchService.getPropertyByAdvanceSearch(this.advanceSearchForm.value).subscribe((data:any) =>{
+      this.propertiesFound = [];
+      this.propertiesFound = data;
+    })
+  }
+  addOrRemoveAmities(item: string){
+    this.amenitiesArr.indexOf(item) === -1 ? this.amenitiesArr.push(item) : this.amenitiesArr.splice(this.amenitiesArr.indexOf(item),1);
+  }
+  resetAdvanceSearchform() {
+    this.amenitiesArr=[];
+    this.advanceSearchForm = this.fb.group({
+      priceRgFrom: [''],
+      priceRgTo: [''],
+      propertyType: [''],
+      propertyId: [''],
+      bathroom: [0],
+      bedroom: [0],
+      city: [''],
+      sqFrom: [''],
+      sqTo: [''],
+      amenities: [this.amenitiesArr]
+    });
+  }
+  setAdvanceSearchFormValue(name: string, value: string){
+    this.advanceSearchForm.patchValue({
+      name: value
     });
   }
   performSearch(searchValue: string) {
@@ -56,7 +100,7 @@ export class PropertySearchComponent implements OnInit {
   }
   getPropertyAdvanceSearch(){
     this.propertiesFound = [];
-    this._propertySearchService.getPropertyAdvanceSearch(this.searchQueryText ? this.searchQueryText : '').subscribe((data: any) => {
+    this._propertySearchService.getPropertySearch(this.searchQueryText ? this.searchQueryText : '').subscribe((data: any) => {
       this.propertiesFound = data;
     })
   }

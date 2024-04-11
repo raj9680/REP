@@ -297,13 +297,13 @@
             <h5 class="modal-title" id="AdvanceSearchModalLabel">More Filter</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body pb-0">
+          <div class="modal-body pb-0" [formGroup]="advanceSearchForm">
             <div class="row">
               <div class="col-6">
                 <div class="widget-wrapper">
                   <h6 class="list-title">Price Range From</h6>
                   <div class="form-style2 input-group">
-                    <select class="selectpicker" data-live-search="true" data-width="100%">
+                    <select class="" formControlName="priceRgFrom" data-live-search="true" data-width="100%">
                       <option>Range</option>
                       <option data-tokens="Apartments">$5M</option>
                       <option data-tokens="Bungalow">$15M</option>
@@ -317,7 +317,7 @@
                 <div class="widget-wrapper">
                   <h6 class="list-title">Price Range To</h6>
                   <div class="form-style2 input-group">
-                    <select class="selectpicker" data-live-search="true" data-width="100%">
+                    <select class="" formControlName="priceRgTo" data-live-search="true" data-width="100%">
                       <option>Range</option>
                       <option data-tokens="Apartments">$5M</option>
                       <option data-tokens="Bungalow">$15M</option>
@@ -333,7 +333,7 @@
                 <div class="widget-wrapper">
                   <h6 class="list-title">Type</h6>
                   <div class="form-style2 input-group">
-                    <select class="selectpicker" data-live-search="true" data-width="100%">
+                    <select class="" formControlName="propertyType" data-live-search="true" data-width="100%">
                       <option>Property</option>
                       <option data-tokens="Apartments">Apartments</option>
                       <option data-tokens="Bungalow">Bungalow</option>
@@ -350,7 +350,7 @@
                 <div class="widget-wrapper">
                   <h6 class="list-title">Property ID</h6>
                   <div class="form-style2">
-                    <input type="text" class="form-control" placeholder="RT04949213">
+                    <input type="text" formControlName="propertyId" class="form-control" placeholder="RT04949213">
                   </div>
                 </div>
               </div>
@@ -361,27 +361,27 @@
                   <h6 class="list-title">Bedrooms</h6>
                   <div class="d-flex">
                     <div class="selection">
-                      <input id="xany" name="xbeds" type="radio" checked>
+                      <input id="xany" name="xbeds" value="0" formControlName="bedroom" type="radio" checked>
                       <label for="xany">any</label>
                     </div>
                     <div class="selection">
-                      <input id="xoneplus" name="xbeds" type="radio">
+                      <input id="xoneplus" name="xbeds" value="1" formControlName="bedroom" type="radio">
                       <label for="xoneplus">1+</label>
                     </div>
                     <div class="selection">
-                      <input id="xtwoplus" name="xbeds" type="radio">
+                      <input id="xtwoplus" name="xbeds" value="2" formControlName="bedroom" type="radio">
                       <label for="xtwoplus">2+</label>
                     </div>
                     <div class="selection">
-                      <input id="xthreeplus" name="xbeds" type="radio">
+                      <input id="xthreeplus" name="xbeds" value="3" formControlName="bedroom" type="radio">
                       <label for="xthreeplus">3+</label>
                     </div>
                     <div class="selection">
-                      <input id="xfourplus" name="xbeds" type="radio">
+                      <input id="xfourplus" name="xbeds" value="4" formControlName="bedroom" type="radio">
                       <label for="xfourplus">4+</label>
                     </div>
                     <div class="selection">
-                      <input id="xfiveplus" name="xbeds" type="radio">
+                      <input id="xfiveplus" name="xbeds" value="5" formControlName="bedroom" type="radio">
                       <label for="xfiveplus">5+</label>
                     </div>
                   </div>
@@ -392,27 +392,27 @@
                   <h6 class="list-title">Bathrooms</h6>
                   <div class="d-flex">
                     <div class="selection">
-                      <input id="yany" name="ybath" type="radio" checked>
+                      <input id="yany" name="ybath" value="0" formControlName="bathroom" type="radio" checked>
                       <label for="yany">any</label>
                     </div>
                     <div class="selection">
-                      <input id="yoneplus" name="ybath" type="radio">
+                      <input id="yoneplus" name="ybath" value="1" formControlName="bathroom" type="radio">
                       <label for="yoneplus">1+</label>
                     </div>
                     <div class="selection">
-                      <input id="ytwoplus" name="ybath" type="radio">
+                      <input id="ytwoplus" name="ybath" value="2" formControlName="bathroom" type="radio">
                       <label for="ytwoplus">2+</label>
                     </div>
                     <div class="selection">
-                      <input id="ythreeplus" name="ybath" type="radio">
+                      <input id="ythreeplus" name="ybath" value="3" formControlName="bathroom" type="radio">
                       <label for="ythreeplus">3+</label>
                     </div>
                     <div class="selection">
-                      <input id="yfourplus" name="ybath" type="radio">
+                      <input id="yfourplus" name="ybath" value="4" formControlName="bathroom" type="radio">
                       <label for="yfourplus">4+</label>
                     </div>
                     <div class="selection">
-                      <input id="yfiveplus" name="ybath" type="radio">
+                      <input id="yfiveplus" name="ybath" value="5" formControlName="bathroom" type="radio">
                       <label for="yfiveplus">5+</label>
                     </div>
                   </div>
@@ -424,7 +424,7 @@
                 <div class="widget-wrapper">
                   <h6 class="list-title">Location</h6>
                   <div class="form-style2 input-group">
-                    <select class="selectpicker" data-live-search="true" data-width="100%">
+                    <select class="" formControlName="city" data-live-search="true" data-width="100%">
                       <option>All Cities</option>
                       <option data-tokens="California">California</option>
                       <option data-tokens="Chicago">Chicago</option>
@@ -445,11 +445,11 @@
                   <div class="space-area">
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="form-style1">
-                        <input type="text" class="form-control" placeholder="Min.">
+                        <input type="text" formControlName="sqFrom" class="form-control" placeholder="Min.">
                       </div>
                       <span class="dark-color">-</span>
                       <div class="form-style1">
-                        <input type="text" class="form-control" placeholder="Max">
+                        <input type="text" formControlName="sqTo" class="form-control" placeholder="Max">
                       </div>
                     </div>
                   </div>
@@ -465,21 +465,21 @@
               <div class="col-sm-4">
                 <div class="widget-wrapper mb20">
                   <div class="checkbox-style1">
-                    <label class="custom_checkbox">Attic
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
+                    <label class="custom_checkbox" >Attic
+                      <input type="checkbox"  value="Attic">
+                      <span class="checkmark"(click)="addOrRemoveAmities('Attic');"></span>
                     </label>
                     <label class="custom_checkbox">Basketball court
-                      <input type="checkbox" checked="checked">
-                      <span class="checkmark"></span>
+                      <input type="checkbox" value="Basketball court">
+                      <span class="checkmark" (click)="addOrRemoveAmities('Basketball court')"></span>
                     </label>
                     <label class="custom_checkbox">Air Conditioning
-                      <input type="checkbox" checked="checked">
-                      <span class="checkmark"></span>
+                      <input type="checkbox" value="Air Conditioning">
+                      <span class="checkmark" (click)="addOrRemoveAmities('Air Conditioning')"></span>
                     </label>
-                    <label class="custom_checkbox">Lawn
-                      <input type="checkbox" checked="checked">
-                      <span class="checkmark"></span>
+                    <label class="custom_checkbox" >Lawn
+                      <input type="checkbox" value="Lawn">
+                      <span class="checkmark"(click)="addOrRemoveAmities('Lawn')"></span>
                     </label>
                   </div>
                 </div>
@@ -488,20 +488,20 @@
                 <div class="widget-wrapper mb20">
                   <div class="checkbox-style1">
                     <label class="custom_checkbox">TV Cable
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
+                      <input type="checkbox" value="TV Cable">
+                      <span class="checkmark" (click)="addOrRemoveAmities('TV Cable')"></span>
                     </label>
                     <label class="custom_checkbox">Dryer
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
+                      <input type="checkbox" value="Dryer">
+                      <span class="checkmark" (click)="addOrRemoveAmities('Dryer')"></span>
                     </label>
                     <label class="custom_checkbox">Outdoor Shower
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
+                      <input type="checkbox" value="Outdoor Shower">
+                      <span class="checkmark" (click)="addOrRemoveAmities('Outdoor Shower')"></span>
                     </label>
                     <label class="custom_checkbox">Washer
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
+                      <input type="checkbox" value="Washer">
+                      <span class="checkmark" (click)="addOrRemoveAmities('Washer')"></span>
                     </label>
                   </div>
                 </div>
@@ -510,20 +510,20 @@
                 <div class="widget-wrapper mb20">
                   <div class="checkbox-style1">
                     <label class="custom_checkbox">Lake view
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
+                      <input type="checkbox" value="Lake view">
+                      <span class="checkmark" (click)="addOrRemoveAmities('Lake view')"></span>
                     </label>
                     <label class="custom_checkbox">Wine cellar
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
+                      <input type="checkbox" value="Wine cellar">
+                      <span class="checkmark" (click)="addOrRemoveAmities('Wine cellar')"></span>
                     </label>
                     <label class="custom_checkbox">Front yard
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
+                      <input type="checkbox" value="Front yard">
+                      <span class="checkmark" (click)="addOrRemoveAmities('Front yard')"></span>
                     </label>
                     <label class="custom_checkbox">Refrigerator
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
+                      <input type="checkbox" value="Refrigerator">
+                      <span class="checkmark" (click)="addOrRemoveAmities('Refrigerator')"></span>
                     </label>
                   </div>
                 </div>
@@ -531,9 +531,9 @@
             </div>
           </div>
           <div class="modal-footer justify-content-between">
-            <a class="reset-button" href="#"><span class="flaticon-turn-back"></span><u>Reset all filters</u></a>
+            <a class="reset-button" (click)="resetAdvanceSearchform();"><span class="flaticon-turn-back"></span><u>Reset all filters</u></a>
             <div class="btn-area">
-              <button class="ud-btn btn-thm"><span class="flaticon-search align-text-top pr10"></span>Search</button>
+              <button class="ud-btn btn-thm" (click)="SearchPropertyByAdvance();"><span class="flaticon-search align-text-top pr10"></span>Search</button>
             </div>
           </div>
         </div>
