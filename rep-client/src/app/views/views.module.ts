@@ -11,7 +11,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PropertyDetailComponent } from './property-detail/property-detail.component';
 import { OurProfessionalDetailComponent } from './our-professional-detail/our-professional-detail.component';
-import { NgImageSliderModule } from 'ng-image-slider';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
@@ -20,7 +19,7 @@ import { InputMaskDirective } from '../shared/Directives/inputmask.directive';
 import { AboutUsComponent } from './About/about-us/about-us.component';
 import { ListingTypesComponent } from './listing-types/listing-types.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import {DialogModule} from 'primeng/dialog';
+import { DialogModule } from 'primeng/dialog';
 
 
 
@@ -41,8 +40,7 @@ import {DialogModule} from 'primeng/dialog';
   ],
   imports: [
     CommonModule,
-    ViewsRoutingModule, 
-    NgImageSliderModule,
+    ViewsRoutingModule,
     NgxPaginationModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDnJEAQfHhQPYxgAVdMjLbLL5r1hQ7PpoQ'

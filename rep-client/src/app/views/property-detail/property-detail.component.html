@@ -33,8 +33,9 @@
               <a class="icon mr10" href="#"><span class="flaticon-share-1"></span></a>
               <a class="icon" href="#"><span class="flaticon-printer"></span></a>
             </div>
-            <h4 class="price mb-0">{{ PropertyDetail.listPrice  | currency: 'CAD' : 'symbol-narrow' : '4.0-2' }}</h4>
-            <p class="text space fz15">{{ PropertyDetail.listPriceSquareFoot | number  | currency: 'CAD' : 'symbol-narrow' : '4.0-2' }}/sq ft</p>
+            <h4 class="price mb-0">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2' }}</h4>
+            <p class="text space fz15">{{ PropertyDetail.listPriceSquareFoot | number | currency: 'CAD' :
+              'symbol-narrow' : '4.0-2' }}/sq ft</p>
           </div>
         </div>
       </div>
@@ -54,7 +55,6 @@
             </div>
           </div>
           <!-- Single banner End -->
-          <!-- Button trigger modal -->
 
 
           <!-- Modal -->
@@ -120,10 +120,10 @@
               </div>
             </div>
             <div class="slider-container3">
-              <div href="javascript:void(0)" class="slider-button3 left-arr2" (click)="prevClick()" #prev><i class="fa fa-angle-left"
-                  aria-hidden="true"></i></div>
-              <div href="javascript:void(0)" class="slider-button3 right-arr2" (click)="nextClick()" #next><i class="fa fa-angle-right"
-                  aria-hidden="true"></i></div>
+              <div href="javascript:void(0)" class="slider-button3 left-arr2" (click)="prevClick()" #prev><i
+                  class="fa fa-angle-left" aria-hidden="true"></i></div>
+              <div href="javascript:void(0)" class="slider-button3 right-arr2" (click)="nextClick()" #next><i
+                  class="fa fa-angle-right" aria-hidden="true"></i></div>
             </div>
           </div>
 
@@ -213,26 +213,38 @@
 
             <table class="table table-borderless">
               <tbody>
-              <tr>
-                <th scope="row">Address</th>
-                <td><p>{{PropertyDetail?.fullAddress}}</p></td>
-                <th scope="row">Zip/Postal Code</th>
-                <td><p>{{PropertyDetail?.postalCode}}</p></td>
-              </tr>
-              <tr>
-                <th scope="row">City</th>
-                <td><p>{{PropertyDetail?.city}}</p></td>
-                <th scope="row">Area</th>
-                <td><p>{{PropertyDetail?.streetName}}</p></td>
+                <tr>
+                  <th scope="row">Address</th>
+                  <td>
+                    <p>{{PropertyDetail?.fullAddress}}</p>
+                  </td>
+                  <th scope="row">Zip/Postal Code</th>
+                  <td>
+                    <p>{{PropertyDetail?.postalCode}}</p>
+                  </td>
                 </tr>
                 <tr>
-                <th scope="row">State/county</th>
-                  <td><p>{{PropertyDetail?.stateOrProvince}}</p></td>
+                  <th scope="row">City</th>
+                  <td>
+                    <p>{{PropertyDetail?.city}}</p>
+                  </td>
+                  <th scope="row">Area</th>
+                  <td>
+                    <p>{{PropertyDetail?.streetName}}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">State/county</th>
+                  <td>
+                    <p>{{PropertyDetail?.stateOrProvince}}</p>
+                  </td>
                   <th scope="row">Country</th>
-                  <td><p>Canada</p></td>
-                 </tr>
-               </tbody>
-              </table>
+                  <td>
+                    <p>Canada</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
 
           </div>
@@ -257,12 +269,14 @@
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Price :</strong></span>
-                    <p class="mb-2 listprice">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2' }}</p>
+                    <p class="mb-2 listprice">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2'
+                      }}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Property Size :</strong></span>
-                    <p class="mb-2 propertysize">{{ PropertyDetail.listPriceSquareFoot | number  | currency: 'CAD' : 'symbol-narrow' : '4.0-2' }} Sq ft</p>
+                    <p class="mb-2 propertysize">{{ PropertyDetail.listPriceSquareFoot | number | currency: 'CAD' :
+                      'symbol-narrow' : '4.0-2' }} Sq ft</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
@@ -447,25 +461,24 @@
             <hr class="mt-4 mb-3">
             <div class="row">
               <div class="col-12 col-sm-6">
-                <div class="mortgage-circle">
-                  <!-- Mortgage price will be displayed here -->
-                  <div class="mortgage-price">$6203.58</div>
-                </div>
+                <canvas id="myChart"></canvas>
               </div>
               <div class="col-12 col-sm-6 hrcustom">
                 <div class="d-flex align-items-center val  justify-content-between w-100">
                   <h6>Down Payment</h6>
-                  <p id="downPayment">{{PropertyDetail.listPrice * (0.2) | currency: 'CAD':'symbol-narrow' }}</p>
+                  <p> {{downPaymentPrice * downPaymentPercentage / 100 | currency: 'CAD':'symbol-narrow' : '4.0-2' }}
+                  </p>
                 </div>
                 <hr>
                 <div class="d-flex align-items-center val  justify-content-between w-100">
                   <h6>Loan Amount</h6>
-                  <p id="loanAmount">{{PropertyDetail.listPrice - (PropertyDetail.listPrice * (0.2)) | currency: 'CAD':'symbol-narrow' }}</p>
+                  <p id="loanAmount">{{downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)) | currency:
+                    'CAD':'symbol-narrow':'4.0-2' }}</p>
                 </div>
                 <hr>
                 <div class="d-flex align-items-center val  justify-content-between w-100">
-                  <h6>Monthly Mortgage Payment</h6>
-                  <p id="monthlyPayment">{{(PropertyDetail.listPrice - (PropertyDetail.listPrice * (0.2))) * 0.05 | currency: 'CAD':'symbol-narrow' }}</p>
+                  <h6>Monthly Mortgage Payment </h6>
+                  <p id="monthlyPayment">{{ interestRate | currency: 'CAD':'symbol-narrow': '4.0-2' }}</p>
                 </div>
                 <hr>
                 <div class="d-flex align-items-center val  justify-content-between w-100">
@@ -495,28 +508,31 @@
                 <h6>Total Amount</h6>
                 <div class="inp">
                   <div class="icons">$</div>
-                  <input [disabled]="true" type="text" id="totalAmount" value="{{ PropertyDetail.listPrice}}">
+                  <input type="text" [disabled]="true" value="{{PropertyDetail.listPrice}}">
                 </div>
               </div>
               <div class="col-6 col-sm-4">
-                <h6>Down Payment</h6>
+                <h6>Down Payment {{downPaymentPercentage}}</h6>
                 <div class="inp">
                   <div class="icons">%</div>
-                  <input type="text" id="downPaymentPercentage" value="20" [disabled]="true">
+                  <input type="text" [(ngModel)]="downPaymentPercentage"
+                    (keyup)="CalcMonthlyInterestRate(downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)), interestRatePercentage, loanTerms)">
                 </div>
               </div>
               <div class="col-6 col-sm-4 mt-4 mt-sm-0">
-                <h6>Interest Rate</h6>
+                <h6>Interest Rate {{interestRatePercentage}}</h6>
                 <div class="inp">
                   <div class="icons">%</div>
-                  <input type="text" id="interestRate" value="5" [disabled]="true">
+                  <input type="text" [(ngModel)]="interestRatePercentage"
+                    (keyup)="CalcMonthlyInterestRate(downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)), interestRatePercentage, loanTerms)">
                 </div>
               </div>
               <div class="col-6 col-sm-4 mt-4">
-                <h6>Loan Terms (Years)</h6>
+                <h6>Loan Terms (Years) {{loanTerms}}</h6>
                 <div class="inp">
                   <div class="icons"><i class="fa-light fa-calendar-days"></i></div>
-                  <input type="text" id="loanTermYears" value="20" [disabled]="true">
+                  <input type="text" [(ngModel)]="loanTerms"
+                    (keyup)="CalcMonthlyInterestRate(downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)), interestRatePercentage, loanTerms)">
                 </div>
               </div>
               <div class="col-6 col-sm-4 mt-4">
@@ -802,8 +818,7 @@
                     <hr class="mt-4 mb-3">
                     <div class=" sm-align-items-start gap-3 d-flex flex-column flex-sm-row">
                       <div class="profile">
-                        <img src="{{PropertyDetail.memberImageName}}" alt="Description of the image"
-                          class="agent-img">
+                        <img src="{{PropertyDetail.memberImageName}}" alt="Description of the image" class="agent-img">
                       </div>
                       <div class="pro-info">
                         <div class="d-flex align-items-center gap-2">
@@ -812,10 +827,13 @@
                         </div>
                         <div class="d-flex flex-column mt-2 ">
                           <div class="d-flex align-items-center gap-2"><i class="fa fa-phone" aria-hidden="true"></i>
-                            <span><a class="phoneno" href="tel:{{PropertyDetail.memberDirectPhone}}">{{PropertyDetail.memberDirectPhone}}</a></span>
+                            <span><a class="phoneno"
+                                href="tel:{{PropertyDetail.memberDirectPhone}}">{{PropertyDetail.memberDirectPhone}}</a></span>
                           </div>
-                          <div class="d-flex align-items-center gap-2" *ngIf="PropertyDetail.memberFax"><i class="fa fa-mobile" aria-hidden="true"></i>
-                            <span><a class="contactno" href="tel:{{PropertyDetail.memberFax}}">{{PropertyDetail.memberFax}}</a></span>
+                          <div class="d-flex align-items-center gap-2" *ngIf="PropertyDetail.memberFax"><i
+                              class="fa fa-mobile" aria-hidden="true"></i>
+                            <span><a class="contactno"
+                                href="tel:{{PropertyDetail.memberFax}}">{{PropertyDetail.memberFax}}</a></span>
                           </div>
                           <div class="d-flex align-items-center gap-2"><i class="fa fa-whatsapp" aria-hidden="true"></i>
                             <span>WhatsApp</span>
