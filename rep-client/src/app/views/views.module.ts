@@ -20,6 +20,7 @@ import { AboutUsComponent } from './About/about-us/about-us.component';
 import { ListingTypesComponent } from './listing-types/listing-types.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DialogModule } from 'primeng/dialog';
+import { ChartModule } from 'primeng/chart';
 
 
 
@@ -45,6 +46,7 @@ import { DialogModule } from 'primeng/dialog';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDnJEAQfHhQPYxgAVdMjLbLL5r1hQ7PpoQ'
     }),
+    ChartModule,
     AgmJsMarkerClustererModule,    
     FormsModule,
     ReactiveFormsModule,

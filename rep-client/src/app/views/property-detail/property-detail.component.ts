@@ -16,6 +16,16 @@ export class PropertyDetailComponent implements OnInit {
   downPaymentPercentage: number = 20;
   interestRatePercentage: number = 5;
   loanTerms: number = 20;
+
+  propertyTaxPercentage: any = 1.2;
+  monthlyPropertyTax:any;
+  monthlyPmiPercentage: any = 0;
+  monthlyPmi: any = 0;
+  pmiPercentage: any = 0;
+  homeInsurance: any = 1500;
+  hoa:any = 0;
+  totalMonthlyPayment: any;
+  
   downPaymentPrice: any;
   monthlyInterestRate: any;
   loanAmount: any;
@@ -38,6 +48,8 @@ export class PropertyDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    
+    
     if (this.autoSlide) {
       this.autoSlideImages();
     }
@@ -52,11 +64,9 @@ export class PropertyDetailComponent implements OnInit {
         this.PropertyDetail = data;
         this.downPaymentPrice = this.PropertyDetail.listPrice;
         this.loanAmount = this.downPaymentPrice - this.downPaymentPrice * 0.2;
-        console.log(this.loanTerms);
         this.interestRate = this.CalcMonthlyInterestRate(
           this.loanAmount,
-          this.interestRatePercentage,
-          this.loanTerms
+          this.interestRatePercentage
         );
         this.images = this.PropertyDetail.imagesUrl;
       });
@@ -109,33 +119,35 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   /* Monthly Interest Rate Calculator */
-  CalcMonthlyInterestRate(loanAmt: any, intRate: any, loaNTerms: any) {
+  CalcMonthlyInterestRate(loanAmt: any, intRate: any) {
     this.interestRate =
       (loanAmt *
         ((intRate / 12 / 100) *
-          Math.pow(1 + intRate / 12 / 100, loaNTerms * 12))) /
-      (Math.pow(1 + intRate / 12 / 100, loaNTerms * 12) - 1);
-    this.RenderMortageChart(loanAmt, this.interestRate);
+          Math.pow(1 + intRate / 12 / 100, this.loanTerms * 12))) /
+      (Math.pow(1 + intRate / 12 / 100, this.loanTerms * 12) - 1);
+      
+    this.monthlyPropertyTax = this.downPaymentPrice * (this.propertyTaxPercentage/100) / 12;
+    this.monthlyPmi = this.downPaymentPrice * (this.monthlyPmiPercentage/100) / 12;
+    this.MortageChart(loanAmt, this.interestRate, this.monthlyPropertyTax, this.homeInsurance);
     return Math.round(this.interestRate);
   }
 
-  async RenderMortageChart(principalAmount: any, interestRate: any) {
-    this.myChart = new Chart('myChart', {
-      type: 'pie',
-      data: {
-        labels: ['Principal', 'Total Interest'],
-        datasets: [
-          {
-            // label: '',
-            data: [
-              Math.round(principalAmount),
-              Math.round(interestRate * this.loanTerms * 12 - principalAmount),
-            ],
-            backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)'],
-            hoverOffset: 4,
-          },
+  
+  // Chart
+  mortageData: any;
+  MortageChart(principalAmount: any, interestRate: any, monthlyTax:any, homeInsurance:any) {
+    this.mortageData = {
+      labels: ['Principal & Interest', 'Total Interest', 'Total Property Tax', 'Total Home Insurance'],
+      datasets: [{
+        data: [
+          Math.round(principalAmount + interestRate * this.loanTerms * 12),
+          Math.round(interestRate * this.loanTerms * 12 - principalAmount),
+          Math.round(monthlyTax * this.loanTerms * 12),
+          Math.round(homeInsurance * this.loanTerms * 12)
         ],
-      },
-    });
+      }],
+      backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(50, 168, 82)', 'rgb(209, 205, 75)'],
+      hoverOffset: 4,
+    }
   }
 }

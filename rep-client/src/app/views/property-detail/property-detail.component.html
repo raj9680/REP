@@ -461,7 +461,8 @@
             <hr class="mt-4 mb-3">
             <div class="row">
               <div class="col-12 col-sm-6">
-                <canvas id="myChart"></canvas>
+                <!-- <canvas id="myChart"></canvas> -->
+                <p-chart type="pie" [data]="mortageData"></p-chart>
               </div>
               <div class="col-12 col-sm-6 hrcustom">
                 <div class="d-flex align-items-center val  justify-content-between w-100">
@@ -483,22 +484,22 @@
                 <hr>
                 <div class="d-flex align-items-center val  justify-content-between w-100">
                   <h6>Property Tax</h6>
-                  <p id="propertyTax">$0.00</p>
+                  <p id="propertyTax">{{monthlyPropertyTax | currency: 'CAD':'symbol-narrow': '4.0-2'}}</p>
                 </div>
                 <hr>
                 <div class="d-flex align-items-center val  justify-content-between w-100">
                   <h6>Home Insurance</h6>
-                  <p id="homeInsurance">$0.00</p>
+                  <p id="homeInsurance">{{homeInsurance | currency: 'CAD':'symbol-narrow'}}</p>
                 </div>
                 <hr>
                 <div class="d-flex align-items-center val  justify-content-between w-100">
                   <h6>PMI</h6>
-                  <p id="pmi">$0.00</p>
+                  <p id="pmi">{{monthlyPmi | currency: 'CAD':'symbol-narrow': '4.0-2'}}</p>
                 </div>
                 <hr>
                 <div class="d-flex align-items-center val  justify-content-between w-100">
                   <h6>Monthly HOA Fees</h6>
-                  <p id="monthlyHoaFees">$0.00</p>
+                  <p id="monthlyHoaFees">{{hoa | currency: 'CAD':'symbol-narrow': '4.0-2'}}</p>
                 </div>
                 <hr>
               </div>
@@ -516,7 +517,7 @@
                 <div class="inp">
                   <div class="icons">%</div>
                   <input type="text" [(ngModel)]="downPaymentPercentage"
-                    (keyup)="CalcMonthlyInterestRate(downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)), interestRatePercentage, loanTerms)">
+                    (keyup)="CalcMonthlyInterestRate(downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)), interestRatePercentage)">
                 </div>
               </div>
               <div class="col-6 col-sm-4 mt-4 mt-sm-0">
@@ -524,7 +525,7 @@
                 <div class="inp">
                   <div class="icons">%</div>
                   <input type="text" [(ngModel)]="interestRatePercentage"
-                    (keyup)="CalcMonthlyInterestRate(downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)), interestRatePercentage, loanTerms)">
+                    (keyup)="CalcMonthlyInterestRate(downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)), interestRatePercentage)">
                 </div>
               </div>
               <div class="col-6 col-sm-4 mt-4">
@@ -532,35 +533,38 @@
                 <div class="inp">
                   <div class="icons"><i class="fa-light fa-calendar-days"></i></div>
                   <input type="text" [(ngModel)]="loanTerms"
-                    (keyup)="CalcMonthlyInterestRate(downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)), interestRatePercentage, loanTerms)">
+                    (keyup)="CalcMonthlyInterestRate(downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)), interestRatePercentage)">
                 </div>
               </div>
               <div class="col-6 col-sm-4 mt-4">
                 <h6>Property Tax</h6>
                 <div class="inp">
                   <div class="icons">%</div>
-                  <input type="text" id="propertyTaxPercentage">
+                  <input type="text" id="propertyTaxPercentage" [(ngModel)]="propertyTaxPercentage"
+                  (keyup)="CalcMonthlyInterestRate(downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)), interestRatePercentage)">
                 </div>
               </div>
               <div class="col-6 col-sm-4 mt-4">
                 <h6>Home Insurance</h6>
                 <div class="inp">
                   <div class="icons">$</div>
-                  <input type="text" id="homeInsuranceAmount">
+                  <input type="text" id="homeInsuranceAmount" [(ngModel)]="homeInsurance"
+                  (keyup)="CalcMonthlyInterestRate(downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)), interestRatePercentage)">
                 </div>
               </div>
               <div class="col-6 col-sm-4 mt-4">
                 <h6>Monthly HOA Fees</h6>
                 <div class="inp">
                   <div class="icons">$</div>
-                  <input type="text" id="monthlyHoaFeesAmount">
+                  <input type="text" id="monthlyHoaFeesAmount" [(ngModel)]="hoa">
                 </div>
               </div>
               <div class="col-6 col-sm-4 mt-4">
                 <h6>PMI</h6>
                 <div class="inp">
                   <div class="icons">%</div>
-                  <input type="text" id="pmiPercentage">
+                  <input type="text" id="pmiPercentage" [(ngModel)]="monthlyPmiPercentage"
+                  (keyup)="CalcMonthlyInterestRate(downPaymentPrice - (downPaymentPrice * (downPaymentPercentage / 100)), interestRatePercentage)">
                 </div>
               </div>
             </div>
