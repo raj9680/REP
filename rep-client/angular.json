@@ -57,8 +57,7 @@
               "src/assets/js/ace-responsive-menu.js",
               "src/assets/js/jquery-scrolltofixed-min.js",
               "src/assets/js/wow.min.js",
-              "src/assets/js/script.js",
-              "node_modules/chart.js/dist/chart.js"
+              "src/assets/js/script.js"
             ]
           },
           "configurations": {
