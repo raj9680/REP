@@ -51,11 +51,11 @@
                               <div class="col-md-5 col-lg-5">
                                  <div
                                     class="d-flex gap-3 align-items-center justify-content-start justify-content-md-center mt-3 mt-md-0">
-                                    <button class="advance-search-btn" routerLink="/views/property-search" type="button" >
+                                    <button class="advance-search-btn" routerLink="/property-search/advance-search" type="button" >
                                        <span class="flaticon-settings"> </span>
                                        Advanced
                                     </button>
-                                    <button class="ud-btn btn-primary" routerLink="/views/property-search/{{searchQueryText}}" type="button">
+                                    <button class="ud-btn btn-primary" routerLink="/property-search/{{searchQueryText}}" type="button">
                                        Search
                                        <!-- <span class="flaticon-search"></span> -->
                                     </button>
@@ -132,7 +132,7 @@
          <div class="col-lg-3">
             <div class="dark-light-navtab style2 text-start text-lg-end mt-0 mt-lg-4 mb-4 ">
                <div class="text-start text-lg-end mb-3">
-                  <a class="ud-btn btn-outline-rep" routerLink="/views/listing/diamond">See All Diamond
+                  <a class="ud-btn btn-outline-rep" routerLink="/listing/diamond">See All Diamond
                      Listings<i class="fal fa-arrow-right-long dark-color"></i></a>
                </div>
             </div>
@@ -151,7 +151,7 @@
                         class="set-as-fav">
                         <span class="flaticon-like"></span>
                      </a>
-                     <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}" data-bs-toggle="tooltip"
+                     <a routerLink="/property-detail/{{property.listingKeyNumeric}}" data-bs-toggle="tooltip"
                         data-bs-placement="top" title="Preview" target="_blank">
                         <span class="flaticon-fullscreen"></span>
                      </a>
@@ -161,7 +161,7 @@
                   <div class="list-price mb-2">{{property.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2'}}
                   </div>
                   <h6 class="list-title">
-                     <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}">{{property.fullAddress}}</a>
+                     <a routerLink="/property-detail/{{property.listingKeyNumeric}}">{{property.fullAddress}}</a>
                   </h6>
                   <p class="list-text">{{property.propertyType}}</p>
                   <div class="list-meta d-flex align-items-center gap-3">
@@ -271,7 +271,7 @@
          <div class="col-lg-3">
             <div class="dark-light-navtab style2 text-start text-lg-end mt-0 mt-lg-4 mb-4">
                <div class="text-start text-lg-end mb-3">
-                  <a class="ud-btn btn-outline-rep" routerLink="/views/listing/feature">See All Featured Listings<i
+                  <a class="ud-btn btn-outline-rep" routerLink="/listing/feature">See All Featured Listings<i
                         class="fal fa-arrow-right-long dark-color"></i></a>
                </div>
             </div>
@@ -298,7 +298,7 @@
                                     title="Favourite" class="set-as-fav">
                                     <span class="flaticon-like"></span>
                                  </a>
-                                 <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}"
+                                 <a routerLink="/property-detail/{{property.listingKeyNumeric}}"
                                     data-bs-toggle="tooltip" data-bs-placement="top" title="Preview" target="_blank">
                                     <span class="flaticon-fullscreen"></span>
                                  </a>
@@ -309,7 +309,7 @@
                                  '4.0-2'}}</div>
                               <h6 class="list-title">
                                  <a
-                                    routerLink="/views/property-detail/{{property.listingKeyNumeric}}">{{property.fullAddress}}</a>
+                                    routerLink="/property-detail/{{property.listingKeyNumeric}}">{{property.fullAddress}}</a>
                               </h6>
                               <p class="list-text">{{property.propertyType}}</p>
                               <div class="list-meta d-flex align-items-center gap-3">
@@ -420,7 +420,7 @@
 
                <div class="row d-flex catCarousel" style="overflow-x: hidden; flex-wrap: nowrap;">
 
-                  <div class="col-md-3 cat">
+                  <!-- <div class="col-md-3 cat">
                      <div class="apartment-style1">
                         <div class="apartment-img">
 
@@ -433,8 +433,8 @@
                            <p class="text mb-0">3 Properties</p>
                         </div>
                      </div>
-                  </div>
-                  <div class="col-md-3 cat">
+                  </div> -->
+                  <!-- <div class="col-md-3 cat">
                      <div class="apartment-style1">
                         <div class="apartment-img">
                            <img class="w-100"
@@ -445,8 +445,8 @@
                            <p class="text mb-0">5 Properties</p>
                         </div>
                      </div>
-                  </div>
-                  <div class="col-md-3 cat">
+                  </div> -->
+                  <!-- <div class="col-md-3 cat">
                      <div class="apartment-style1">
                         <div class="apartment-img">
 
@@ -459,40 +459,17 @@
                            <p class="text mb-0">8 Properties</p>
                         </div>
                      </div>
-                  </div>
-                  <div class="col-md-3 cat">
-                     <div class="apartment-style1">
+                  </div> -->
+                  <div class="col-md-3 cat" *ngFor="let community of propertiesCommunities">
+                     <div class="apartment-style1" routerLink="/property-search/{{community.city}}">
                         <div class="apartment-img">
-                           <!-- <img
-            class="w-100"
-            src="https://calgaryhomes.ca/thumbs/282x195/uploads/calgary-city-centre.jpg"
-            alt=""
-          /> -->
                            <img class="w-100"
-                              src="https://myproagents.com/storage/city_images/PHIMV0nMGDzZYfwBPrV6W5wIbiA1MWk3q1eWrUbr.jpg"
+                              [src]="community.img_url"
                               alt="">
                         </div>
                         <div class="apartment-content">
-                           <h6 class="title mb-0">Beiseker</h6>
-                           <p class="text mb-0">12 Properties</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-3 cat">
-                     <div class="apartment-style1">
-                        <div class="apartment-img">
-                           <!-- <img
-            class="w-100"
-            src="https://calgaryhomes.ca/thumbs/282x195/uploads/calgary-city-centre.jpg"
-            alt=""
-          /> -->
-                           <img class="w-100"
-                              src="https://myproagents.com/storage/city_images/PHIMV0nMGDzZYfwBPrV6W5wIbiA1MWk3q1eWrUbr.jpg"
-                              alt="">
-                        </div>
-                        <div class="apartment-content">
-                           <h6 class="title mb-0">Beiseker</h6>
-                           <p class="text mb-0">16 Properties</p>
+                           <h6 class="title mb-0">{{community.city}}</h6>
+                           <p class="text mb-0">{{community.total_Count}} Properties</p>
                         </div>
                      </div>
                   </div>

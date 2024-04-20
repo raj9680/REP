@@ -15,6 +15,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
 
   featuredProperties: any[] | undefined;
   diamondProperties: any[] | undefined;
+  propertiesCommunities: any[] | undefined;
   evaluationAddress: any = '';
   evaluationEMail: any = '';
   searchQueryText: string = '';
@@ -94,8 +95,37 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     this.homePage.getDiamondProperties().subscribe(properties => {
       this.diamondProperties = properties;
     });
-  }
 
+    this.homePage.getPropertyCommunities().subscribe(data => {
+      
+      let _propertiesCommunities: any[] = [];
+      data.forEach((value) => {
+        let obj = {
+          total_Count: value.total_Count,
+          city: value.city,
+          img_url: this.getRandomImage()
+        }
+        _propertiesCommunities.push(obj);
+      }); 
+      this.propertiesCommunities = _propertiesCommunities;
+    });
+  }
+getRandomImage(){
+  let index = Math.floor(Math.random() * 9) + 1;
+  let imagesUrl = [
+    'https://myproagents.com/storage/city_images/PHIMV0nMGDzZYfwBPrV6W5wIbiA1MWk3q1eWrUbr.jpg',
+    'https://calgaryhomes.ca/thumbs/282x195/uploads/calgary-city-centre.jpg',
+    'https://myproagents.com/storage/city_images/PHIMV0nMGDzZYfwBPrV6W5wIbiA1MWk3q1eWrUbr.jpg',
+    '../../../assets/images/home/north.webp',
+    '../../../assets/images/home/north-East.webp',
+    '../../../assets/images/home/east-west.webp',
+    '../../../assets/images/home/south-east.webp',
+    '../../../assets/images/home/south-west.webp',
+    '../../../assets/images/home/north-west.webp',
+    '../../../assets/images/home/west-calgary.webp'
+  ]
+  return imagesUrl[index];
+}
   // Community
   prevClick() {
     var elm = this.nextElement.nativeElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].children[0].children[0].children[0];

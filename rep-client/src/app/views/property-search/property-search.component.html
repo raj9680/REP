@@ -21,7 +21,7 @@
                           <h3>{{prop.listPrice}}</h3>
                         </div>
                         <div class="col-md-12">
-                          <h5><a target="_blank" routerLink="/views/property-detail/{{prop.listingKeyNumeric}}"> {{prop.unparsedAddress +
+                          <h5><a target="_blank" routerLink="/property-detail/{{prop.listingKeyNumeric}}"> {{prop.unparsedAddress +
                               (prop.unparsedAddress ? ', ' : '') + prop.city + ', ' + prop.stateOrProvince}}</a></h5>
                         </div>
                         <div class="col-md-12"><small>MLS Number #{{prop.listingId}}</small></div>
@@ -188,7 +188,7 @@
               <div class="accordion px-1 more-btn col-4 mt-2 zi2" id="accordionExample">
                 <div class="accordion-item px-0">
                   <div class="accordion-header" id="headingOne">
-                    <button class="ud-btn btn-primary collapsed" type="button"   data-bs-toggle="modal" data-bs-target="#AdvanceSearchModal">
+                    <button class="ud-btn btn-primary collapsed" id="btn_moresearchFilter" type="button" data-bs-toggle="modal" data-bs-target="#AdvanceSearchModal">
                       More Filters
                     </button>
                   </div>
@@ -250,7 +250,7 @@
                         class="set-as-fav">
                         <span class="flaticon-like"></span>
                      </a>
-                     <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}" data-bs-toggle="tooltip"
+                     <a routerLink="/property-detail/{{property.listingKeyNumeric}}" data-bs-toggle="tooltip"
                         data-bs-placement="top" title="Preview" target="_blank">
                         <span class="flaticon-fullscreen"></span>
                      </a>
@@ -259,7 +259,7 @@
                <div class="list-content">
                   <div class="list-price mb-2">{{property.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2'}}</div>
                   <h6 class="list-title">
-                    <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}">{{property.fullAddress}}</a>
+                    <a routerLink="/property-detail/{{property.listingKeyNumeric}}">{{property.fullAddress}}</a>
                  </h6>
                   <p class="list-text">{{property.propertyType}}</p>
                   <div class="list-meta d-flex align-items-center gap-3">
@@ -467,15 +467,15 @@
                   <div class="checkbox-style1">
                     <label class="custom_checkbox" >Attic
                       <input type="checkbox"  value="Attic">
-                      <span class="checkmark"(click)="addOrRemoveAmities('Attic');"></span>
+                      <span class="checkmark"(click)="addOrRemoveAmities('Balcony(s)');"></span>
                     </label>
                     <label class="custom_checkbox">Basketball court
                       <input type="checkbox" value="Basketball court">
-                      <span class="checkmark" (click)="addOrRemoveAmities('Basketball court')"></span>
+                      <span class="checkmark" (click)="addOrRemoveAmities('Basketball')"></span>
                     </label>
                     <label class="custom_checkbox">Air Conditioning
-                      <input type="checkbox" value="Air Conditioning">
-                      <span class="checkmark" (click)="addOrRemoveAmities('Air Conditioning')"></span>
+                      <input type="checkbox" value="Ceiling Fan(s)">
+                      <span class="checkmark" (click)="addOrRemoveAmities('Compressed Air Lines')"></span>
                     </label>
                     <label class="custom_checkbox" >Lawn
                       <input type="checkbox" value="Lawn">
@@ -493,7 +493,7 @@
                     </label>
                     <label class="custom_checkbox">Dryer
                       <input type="checkbox" value="Dryer">
-                      <span class="checkmark" (click)="addOrRemoveAmities('Dryer')"></span>
+                      <span class="checkmark" (click)="addOrRemoveAmities('Dock')"></span>
                     </label>
                     <label class="custom_checkbox">Outdoor Shower
                       <input type="checkbox" value="Outdoor Shower">
@@ -501,7 +501,7 @@
                     </label>
                     <label class="custom_checkbox">Washer
                       <input type="checkbox" value="Washer">
-                      <span class="checkmark" (click)="addOrRemoveAmities('Washer')"></span>
+                      <span class="checkmark" (click)="addOrRemoveAmities('Laundry Facility')"></span>
                     </label>
                   </div>
                 </div>
@@ -511,19 +511,19 @@
                   <div class="checkbox-style1">
                     <label class="custom_checkbox">Lake view
                       <input type="checkbox" value="Lake view">
-                      <span class="checkmark" (click)="addOrRemoveAmities('Lake view')"></span>
+                      <span class="checkmark" (click)="addOrRemoveAmities('Lake')"></span>
                     </label>
                     <label class="custom_checkbox">Wine cellar
                       <input type="checkbox" value="Wine cellar">
-                      <span class="checkmark" (click)="addOrRemoveAmities('Wine cellar')"></span>
+                      <span class="checkmark" (click)="addOrRemoveAmities('Beach')"></span>
                     </label>
                     <label class="custom_checkbox">Front yard
                       <input type="checkbox" value="Front yard">
-                      <span class="checkmark" (click)="addOrRemoveAmities('Front yard')"></span>
+                      <span class="checkmark" (click)="addOrRemoveAmities('Front Yard')"></span>
                     </label>
                     <label class="custom_checkbox">Refrigerator
                       <input type="checkbox" value="Refrigerator">
-                      <span class="checkmark" (click)="addOrRemoveAmities('Refrigerator')"></span>
+                      <span class="checkmark" (click)="addOrRemoveAmities('Freezer(s)')"></span>
                     </label>
                   </div>
                 </div>

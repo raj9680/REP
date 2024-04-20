@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PropertySearchService } from '../services/property-search.service';
 import { ClusterStyle } from '@agm/js-marker-clusterer/services/google-clusterer-types';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -39,10 +39,15 @@ export class PropertySearchComponent implements OnInit {
     sqTo: new FormControl(''),
     amenities: new FormControl(this.amenitiesArr)
   });
+  @ViewChild('AdvanceSearchModal') content: any;
   constructor(private _propertySearchService: PropertySearchService, private homePage: HomePageService, private route: ActivatedRoute, private fb: FormBuilder) {
     this.route.params.subscribe(params => {
-      this.searchQueryText = params['query'];
-      console.log(params['query'])
+      if(params['query'] != 'advance-search'){
+        this.searchQueryText = params['query'];
+      }
+      else{
+        this.content.open();
+      }
     });
    }
 

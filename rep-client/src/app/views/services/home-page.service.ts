@@ -28,6 +28,10 @@ export class HomePageService {
     );
   }
 
+  getPropertyCommunities(): Observable<any[]> {
+    return this.http.get<any>(this.httpURL + `api/Home/GetPropertyCommunities`);
+  }
+
   GetPropertyBySearch(searchQueryText: string): Observable<any> {
     return this.http.post<any>(this.httpURL + `api/Home/GetSearchProperty?searchQueryText=` + searchQueryText, null);
   }

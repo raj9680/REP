@@ -59,7 +59,7 @@
                         class="set-as-fav">
                         <span class="flaticon-like"></span>
                      </a>
-                     <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}" data-bs-toggle="tooltip"
+                     <a routerLink="/property-detail/{{property.listingKeyNumeric}}" data-bs-toggle="tooltip"
                         data-bs-placement="top" title="Preview" target="_blank">
                         <span class="flaticon-fullscreen"></span>
                      </a>
@@ -68,7 +68,7 @@
                <div class="list-content">
                   <div class="list-price mb-2">{{property.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2'}}</div>
                   <h6 class="list-title">
-                    <a routerLink="/views/property-detail/{{property.listingKeyNumeric}}">{{property.fullAddress}}</a>
+                    <a routerLink="/property-detail/{{property.listingKeyNumeric}}">{{property.fullAddress}}</a>
                  </h6>
                   <p class="list-text">{{property.propertyType}}</p>
                   <div class="list-meta d-flex align-items-center gap-3">
