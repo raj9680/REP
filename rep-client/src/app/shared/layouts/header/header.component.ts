@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from '../../services/shared.service';
 import { BehaviorSubject } from 'rxjs';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +9,13 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
 
-  
-  constructor() { }
+  public IsAdmin$ = new BehaviorSubject<boolean>(false);
+  constructor(private _footerloaderService: SharedService) { }
 
   ngOnInit(): void {
+    this._footerloaderService.IsFooter$.subscribe(x => {
+      this.IsAdmin$.next(x);
+    })
   }
 
 }

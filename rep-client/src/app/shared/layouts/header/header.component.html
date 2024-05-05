@@ -1,4 +1,5 @@
-<header class="header-nav nav-homepage-style at-home3 main-menu shadow-sm">
+<!-- Default Header -->
+<header  class="header-nav nav-homepage-style at-home3 main-menu shadow-sm av" *ngIf="IsAdmin$ | async">
     <nav class="posr">
       <div class="container-xxl container-fluid posr menu_bdrt1">
         <div class="row align-items-center justify-content-between">
@@ -6,20 +7,21 @@
             <div class="d-flex align-items-center justify-content-between">
               <div class="logos mr20 mr10-lg">
                 <a class="header-logo logo2" [routerLink]="['/']">
-                  <!-- <img src="./assets/images/header-logo2.svgg" alt="Header Logo"/> -->
+                 
                   <img src="https://mukeshswami.com/images/logo.svg" alt="Header Logo"/>
                 </a>
                 <a class="header-logo logo1" [routerLink]="['/']">
                   <img src="https://mukeshswami.com/images/logo.svg" alt="Header Logo"/>
                 </a>
               </div>
-              <!-- Responsive Menu Structure-->
+              
               <ul id="respMenu" class="ace-responsive-menu d-flex justify-content-center" data-menu-style="horizontal">
                 <li class="visible_list">
                   <a class="list-item" [routerLink]="['/','about-us']"><span class="title">About Us</span></a>
                   <ul class="sub-menu" style="display: none">
                     <li><a [routerLink]="['/','why-rep']" >Why REP</a></li>
                     <li><a [routerLink]="['/','join-rep']">Join REP</a></li>
+                    <li><a [routerLink]="['/admin','dashboard']">Dashboard</a></li>
                   </ul>
                 </li>
                 <li class="visible_list">
@@ -45,7 +47,7 @@
           </div>
           <div class="col-auto">
             <div class="d-flex align-items-center gap-2">
-              <a class="ud-btn btn-primary" href="#">Client Portal</a>
+              <a class="ud-btn btn-primary" href="#ClientPortalModalToggle" data-bs-toggle="modal" >Client Portal</a>
               <a class="ud-btn btn-outline-rep" data-bs-toggle="modal" href="#exampleModalToggle" role="button" >Realtor® Login</a>
             </div>
           </div>
@@ -53,7 +55,71 @@
       </div>
     </nav>
   </header>
-  <!-- Signup Modal -->
+<!-- Default Header End -->
+
+
+<!-- Dashboard Header -->
+<header class="header-nav nav-homepage-style at-home3 main-menu shadow-sm" style="position: fixed;  z-index: 10 !important;
+animation: .35s ease-out slideDown;" *ngIf="!(IsAdmin$ | async)">
+    <nav class="posr">
+      <div class="container-xxl container-fluid posr menu_bdrt1">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-auto flex-grow-1">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="logos mr20 mr10-lg">
+                <a class="header-logo logo2" [routerLink]="['/']">
+                 
+                  <img src="https://mukeshswami.com/images/logo.svg" alt="Header Logo"/>
+                </a>
+                <a class="header-logo logo1" [routerLink]="['/']">
+                  <img src="https://mukeshswami.com/images/logo.svg" alt="Header Logo"/>
+                </a>
+              </div>
+              
+              <ul id="respMenu" class="ace-responsive-menu d-flex justify-content-center" data-menu-style="horizontal">
+                <li class="visible_list">
+                  <a class="list-item" [routerLink]="['/','about-us']"><span class="title">About Us</span></a>
+                  <ul class="sub-menu" style="display: none">
+                    <li><a [routerLink]="['/','why-rep']" >Why REP</a></li>
+                    <li><a [routerLink]="['/','join-rep']">Join REP</a></li>
+                    <li><a [routerLink]="['/admin','dashboard']">Dashboard</a></li>
+                  </ul>
+                </li>
+                <li class="visible_list">
+                  <a class="list-item" [routerLink]="['/','our-professionals']">
+                    <span class="title">Our Professionals</span>
+                  </a>
+                </li>
+                <li class="visible_list">
+                  <a class="list-item" [routerLink]="['/','property-search']">
+                    <span class="title">Property Search</span>
+                    </a>
+                </li>
+                <li class="visible_list">
+                  <a class="list-item" [routerLink]="['/','home-evaluation']">
+                    <span class="title">Home Evaluation</span>
+                  </a>
+                </li>
+                <li class="visible_list">
+                  <a [routerLink]="['/','contact-us']" class="list-item">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="d-flex align-items-center gap-2">
+              <a class="ud-btn btn-primary" href="#ClientPortalModalToggle" data-bs-toggle="modal" >Client Portal</a>
+              <a class="ud-btn btn-outline-rep" data-bs-toggle="modal" href="#exampleModalToggle" role="button" >Realtor® Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+<!-- Dashboard Header -->
+
+
+
   <div class="signup-modal">
     <div
       class="modal fade"
@@ -252,7 +318,7 @@
       </div>
     </div>
   </div>
-  <!-- Menu In Hiddn SideBar -->
+  
   
 
 
@@ -260,7 +326,7 @@
   <div class="hiddenbar-body-ovelay"></div>
 
 
-  <!-- Mobile Nav  -->
+  
   <div id="page" class="mobilie_header_nav stylehome1">
     <div class="mobile-menu">
       <div class="header innerpage-style">
@@ -301,7 +367,9 @@
             >Submit Property<i class="fal fa-arrow-right-long"></i
           ></a>
         </li>
-        <!-- Only for Mobile View -->
+       
       </ul>
     </nav>
   </div>
+
+

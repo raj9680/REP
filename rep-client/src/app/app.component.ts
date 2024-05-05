@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { SharedService } from './shared/services/shared.service';
 
 @Component({
@@ -11,8 +11,23 @@ import { SharedService } from './shared/services/shared.service';
 export class AppComponent implements OnInit{
   
   title = 'Real Estate Professional';
+
   constructor(private router: Router, public _sharedService: SharedService) 
-  {   }
+  {  
+      this.router.events.subscribe(event => {
+        if (event instanceof NavigationStart) {
+          if(event.url.split("/")[1] == "admin") {
+            _sharedService.IsFooter$.next(false);
+          }
+        }
+
+        if (event instanceof NavigationEnd) {
+          if(event.url.split("/")[1] != "admin") {
+            _sharedService.IsFooter$.next(true);
+          }
+        }
+      });
+  }
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => { 

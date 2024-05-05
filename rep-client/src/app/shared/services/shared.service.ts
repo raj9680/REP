@@ -3,10 +3,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SharedService {
 
   public isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public footerLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public IsFooter$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   
   constructor() { }
 

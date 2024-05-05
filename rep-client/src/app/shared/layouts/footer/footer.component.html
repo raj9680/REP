@@ -1,5 +1,5 @@
 <!-- <section class="footer-style1 pt60 pb-0" *ngIf="footerLoader"> -->
-  <section class="footer-style1 pt60 pb-0">
+  <section class="footer-style1 pt60 pb-0" *ngIf="IsAdmin$ | async">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -109,3 +109,399 @@
     </div>
   </section>
   <a class="scrollToHome" href="#"><i class="fas fa-angle-up"></i></a>
+
+<style>
+    #ClientPortalModalToggle  .modal-body{
+    padding:0;
+  }
+  #ClientPortalModalToggle .sm_inner_button {
+    padding: 8px 8px;
+    background: #FFFFFF;
+    border-radius: 2px;
+    border: 1px solid black;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+#ClientPortalModalToggle .sm_inner_button p{
+margin: 0;
+}
+#ClientPortalModalToggle .sm_button[tabindex="0"] {
+    margin-bottom: 8px;
+}
+#ClientPortalModalToggle  .readMoreLink {
+    color: #23a1c0;
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+#Realtorlogin, #RealtorContinuLogin {
+    color: white;
+    margin-top: 25px;
+}
+#RealtorContinuLogin a, #Realtorlogin a {
+    color: #7ECBDD !important;
+}
+#signInPrevious .signUpLegalText a, #signInAll .signUpLegalText a {
+    color: #7ECBDD !important;
+}
+#signInAll .read-more, #signInPrevious .read-more {
+    font-size: 13pt !important;
+    margin-bottom: 0px !important;
+    width: 140px;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-radius: 25px;
+    padding: 0 5px;
+}
+.signInTabHRHeading {
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+}
+#ClientPortalModalToggle .signInTabConSocialIconsCon {
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#ClientPortalModalToggle  #signInWithEmail, #signInContinuWithEmail {
+    margin-top: 15px;
+    display: flex;
+    gap: 0.5rem;
+    padding: 16px;
+    border-radius: 2px;
+    border: 1px solid white;
+    max-width: 286px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    cursor: pointer;
+}
+   #ClientPortalModalToggle .mainContentDesktop.SignIn {
+    background-color: #f0f0eb;
+}
+  #ClientPortalModalToggle #signInPage {
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: inherit;
+    padding: 25px 50px 20px 50px;
+    background-image: url(https://www.realtor.ca/images/common/backgrounds/signin_home_hero_medium_treated.jpg);
+}
+#ClientPortalModalToggle #signInHeaderTitle {
+    color: white;
+    text-align: center;
+    font-size: 28px;
+}
+#ClientPortalModalToggle  .sm_button img {
+    width: 25px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+#ClientPortalModalToggle #signInHeaderText {
+    font-size: 18pt;
+    color: white;
+    margin: 30px 0px 30px 0px;
+    text-align: center;
+}
+#signInChooseOptionText, #signInContinuChooseOptionText {
+    color: white;
+    text-align: center;
+    margin-bottom: 15px;
+}
+#ClientPortalModalToggle .modal-title{
+  font-size: 1.3rem;
+  color: #000;
+}
+</style>
+  <!-- Login Modal -->
+  <div class="modal fade" id="ClientPortalModalToggle" aria-hidden="true" aria-labelledby="ClientPortalModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered  modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ClientPortalModalToggleLabel">Sign In</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="mainContentScreenSignIn" class="mainContentDesktop SignIn">
+            <div id="signInPage" class="pageContentCon">
+        
+                <div id="signInPageContent">
+                    <div id="signInHeaderTitle">Welcome to REALTOR.ca</div>
+                    <div id="signInAlmostThereTitle" style="display: none;">
+                        You're Almost Done!
+                    </div>
+                    <div id="signInHeaderText">Canada's most popular and most trusted real estate search platform.</div>
+        
+                    <div id="signInAlmostThereHiddenListingsText" style="display: none;">
+                        Sign in to hide listings from your search results.
+                    </div>
+                    <div id="signInAlmostThereText" style="display: none;">
+                        Get notifications for new listings that match your saved searches. Sign in now!
+                    </div>
+                    <div id="signInAlmostThereFavouritesAction" style="display: none;">
+                        Sign in to save and stay updated on your favourite listings.
+                    </div>
+                    <div id="signInAlmostThereFavourites" style="display: none;">
+                        
+                    </div>
+                    <div id="signInTabCon">
+                        <div id="signInPrevious" style="display: none;">
+                            <div id="signInContinuChooseOptionText">Sign In to REALTOR.ca</div>
+                            <div id="signIncontinuTabConSocialIconsCon" class="signInTabConSocialIconsCon">
+                                <div id="signInContinuSocialIconsConInit">
+                                    <div id="sm_google_login_previous" class="clickable sm_button_con" style="display: none;" tabindex="0" data-media="3">
+                                        <div class="sm_button">
+                                            <div class="sm_inner_button">
+                                                <img src="https://www.realtor.ca/images/common/icons/svg/google-plus-icon.svg" alt="">
+                                                <p>Continue with Google</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="sm_apple_login_previous" class="clickable sm_button_con" style="display: none;" tabindex="0" data-media="5">
+                                        <div class="sm_button">
+                                            <div class="sm_inner_button">
+                                                <img src="https://www.realtor.ca/images/common/icons/svg/sm_apple.svg" alt="">
+                                                <p>Continue with Apple</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="sm_linkedin_login_previous" class="clickable sm_button_con" style="display: none;" tabindex="0" data-media="2">
+                                        <div class="sm_button">
+                                            <div class="sm_inner_button">
+                                                <img src="/images/common/icons/svg/linkedin.svg" alt="">
+                                                <p>Continue with LinkedIn</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="sm_twitter_login_previous" class="clickable sm_button_con" style="display: none" tabindex="0" data-media="4">
+                                        <div class="sm_button">
+                                            <div class="sm_inner_button">
+                                                <img src="/images/common/icons/svg/twitter.svg" alt="">
+                                                <p>Continue with Twitter</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="read-more">
+                                <a href="#" class="readMoreLink">
+                                    <span class="fa fa-plus-circle"></span>More Options
+                                </a>
+                            </p>
+        
+                            <label class="genericLabelErrorInitialScreen" for="genericSignInErrorPrev"></label>
+                            <input id="genericSignInErrorPrev" type="hidden">
+        
+                            <div class="signInTabHRHeading">or</div>
+                            <div id="signInContinuWithEmail" class="clickable" tabindex="0">
+                                <i class="fa fa-envelope" style=""></i>
+                                <div id="signInContinuWithEmailText">Sign in with your email</div>
+                            </div>
+                            <div id="RealtorContinuLogin">
+                                <div style="text-align: center;">
+                                    <span class="g_subtitle">Are you a REALTOR®?
+                                        <a href="#" class="linkRealtorBlue" id="lnkRealtorContinuLoginPrev">Sign In</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="signUpLegalText" style="color: white;">
+                                By creating an account you agree to the REALTOR.ca <a id="TOU_FromSignIn" href="/terms-of-use">Terms of Use</a> and <a id="Privacy_FromSignIn" href="/privacy-policy">Privacy Policy</a>.
+                            </div>
+                        </div>
+                        <div id="signInAll" style="">
+                            <p id="signInChooseOptionText">Choose an option to sign in or create your REALTOR.ca account.</p>
+                            <div id="signInTabConSocialIconsCon" class="signInTabConSocialIconsCon">
+                                <div id="signInSocialIconsConInitShow">
+                       
+                                        <div id="sm_google_login" class="clickable sm_button" tabindex="0">
+                                            <div class="sm_inner_button">
+                                                <img src="https://www.realtor.ca/images/common/icons/svg/google-plus-icon.svg" alt="">
+                                                <p>Sign in with Google</p>
+                                            </div>
+                                        </div>
+                                   
+                                    
+                            
+                                        <div id="sm_apple_login" class="clickable sm_button" tabindex="0">
+                                            <div class="sm_inner_button">
+                                                <img src="https://www.realtor.ca/images/common/icons/svg/sm_apple.svg" alt="">
+                                                <p>Sign in with Apple</p>
+                                            </div>
+                                        </div>
+                                
+                                </div>
+                                <div id="signInSocialIconsConInitHidden" style="display: none;">
+                              
+                                        <div id="sm_linkedin_login" class="clickable sm_button" tabindex="0">
+                                            <div class="sm_inner_button">
+                                                <img src="/images/common/icons/svg/linkedin.svg" alt="">
+                                                <p>Sign in with LinkedIn</p>
+                                            </div>
+                                        </div>
+                            
+                               
+                                        <div id="sm_twitter_login" class="clickable sm_button" tabindex="0">
+                                            <div class="sm_inner_button">
+                                                <img src="/images/common/icons/svg/twitter.svg" alt="">
+                                                <p>Sign in with Twitter</p>
+                                            </div>
+                                        </div>
+                                   
+                                </div>
+                            </div>
+                            <p class="read-more">
+                                <a href="#" class="readMoreLink">
+                                    <span class="fa fa-plus-circle"></span>More Options
+                                </a>
+                            </p>
+        
+                            <label for="genericSignInError"></label>
+                            <input id="genericSignInError" type="hidden">
+        
+                            <div class="signInTabHRHeading">or</div>
+                            <div id="signInWithEmail" class="clickable" tabindex="0">
+                                <i class="fa fa-envelope" style=""></i>
+                                <div id="signInWithEmailText">Sign in with your email</div>
+                            </div>
+                            <div id="Realtorlogin">
+                                <div style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
+                                    <span class="g_subtitle">Are you a REALTOR®?
+                                        <a href="#" class="linkRealtorBlue" id="lnkRealtorLoginPrev">Sign In</a>
+                                    </span>
+                                </div>
+                            </div>                   
+                            <div class="signUpLegalText" style="color: white;">
+                                By creating an account you agree to the REALTOR.ca <a id="TOU_FromSignIn" href="/terms-of-use">Terms of Use</a> and <a id="Privacy_FromSignIn" href="/privacy-policy">Privacy Policy</a>.
+                            </div>
+                        </div>
+                        <div id="signInReactivate" style="display: none;">
+                            <div id="signInReactivateStatus" class="signInTabHeading"></div>
+                            <div class="signInReactivateBody">Do you wish to activate your account and proceed with login?</div>
+                            <div id="signInReactivateButtonCon">
+                                <div id="btnReactivate" class="btn greenRoundedBtn">Activate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+            </div>
+        
+            <div id="signUpPage" class="pageContentCon" style="display: none;">
+        
+                <div id="signUpPageContent">
+                    <div id="signUpHeaderCon">
+                    </div>
+                    <div id="signUpTabCon">
+                        <h1 id="signUpHeaderTitle">Sign up for REALTOR.ca</h1>
+                        <div class="whiteScreenContentBox">
+        
+                            <div class="signUpRow">
+                                <div class="signInInputCon">
+                                    <label for="signInSignUpFirstNameTxt">First Name</label>
+                                    <input id="signInSignUpFirstNameTxt" type="text" maxlength="50" data-validation="required,firstlast_name" tabindex="1">
+                                </div>
+                                <div class="signInInputCon">
+                                    <label for="signInSignUpPasswordTxt">Password</label>
+                                    <input id="signInSignUpPasswordTxt" type="password" maxlength="200" placeholder="8 characters, 1 number, 1 symbol" data-validation="required,blockchars(<>),consumer_password" tabindex="4">
+                                </div>
+                            </div>
+                            <div class="signUpRow">
+                                <div class="signInInputCon">
+                                    <label for="signInSignUpLastNameTxt">Last Name</label>
+                                    <input id="signInSignUpLastNameTxt" type="text" maxlength="50" data-validation="required,firstlast_name" tabindex="2">
+                                </div>
+                                <div class="signInInputCon">
+                                    <label for="signInSignUpReEnterPasswordTxt">Re-enter Password</label>
+                                    <input id="signInSignUpReEnterPasswordTxt" type="password" maxlength="200" data-validation="required,blockchars(<>),consumer_password,consumer_password_reenter(signInSignUpPasswordTxt)" tabindex="5">
+                                </div>
+                            </div>
+                            <div class="signUpRow">
+                                <div class="signInInputCon">
+                                    <label for="signInSignUpEmailTxt">Email</label>
+                                    <input id="signInSignUpEmailTxt" type="email" maxlength="200" placeholder="example@email.com" data-validation="required,blockchars(<>),email,email_valid_consumer" tabindex="3">
+                                </div>
+                            </div>
+        
+                            <label for="genericSignUpError"></label>
+                            <input id="genericSignUpError" type="hidden">
+        
+                            <div style="clear: both;"></div>
+        
+                            <div class="signInCapCon">
+                                <div data-validation="captcha(signUpCaptchaCon)" class="inputSignUpCon" id="captchaSignUpCon">
+                                    <div id="signUpCaptchaCon" class="captchaCon" data-captcha-widget-id="0"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-o194itp6tl2d" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LddNdgSAAAAAMNY-C4N26ef-6tfQ6_e8AbQ5Lq7&amp;co=aHR0cHM6Ly93d3cucmVhbHRvci5jYTo0NDM.&amp;hl=en&amp;v=V6_85qpc2Xf2sbe3xTnRte7m&amp;size=normal&amp;cb=rze3wgj6c35s" data-gtm-yt-inspected-7122254_375="true" data-gtm-yt-inspected-32="true"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe data-gtm-yt-inspected-7122254_375="true" data-gtm-yt-inspected-32="true" style="display: none;"></iframe></div>
+                                </div>
+                            </div>
+        
+                            <div id="signUpButtonCon">
+                                
+                                <div id="btnSignUp" class="btn greenRoundedBtn" tabindex="7">Sign Up</div>
+                            </div>
+        
+                            <div class="signUpLegalText">
+                                By creating an account you agree to the REALTOR.ca <a id="TOU_FromSignIn" href="/terms-of-use">Terms of Use</a> and <a id="Privacy_FromSignIn" href="/privacy-policy">Privacy Policy</a>.
+                            </div>
+        
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div id="signInAccount" class="pageContentCon" style="display: none;">
+                <div id="signInEmailPageContent">
+                    <div id="signInHeaderCon">
+                    </div>
+                    
+                    <h1 id="signInEmailHeaderTitle">Sign in with your REALTOR.ca Account</h1>
+                    <div id="signInInputsCon">
+                        <div class="signInInputCon">
+                            <label for="signInEmailTxt">Email</label>
+                            <input id="signInEmailTxt" type="email" maxlength="200" placeholder="example@email.com" data-validation="required,blockchars(<>)" tabindex="1">
+                        </div>
+                        <div class="signInInputCon signInPassword">
+                            <label for="signInPasswordTxt">Password</label>
+                            <input id="signInPasswordTxt" type="password" maxlength="200" data-validation="required,blockchars(<>)" tabindex="2">
+                        </div>
+                        <a href="#" id="signInForgotPasswordLnk" class="linkRealtorBlue" tabindex="3">Forgot your password?</a>
+        
+                        <label for="genericSignInAccountError"></label>
+                        <input id="genericSignInAccountError" type="hidden">
+                    </div>
+                    <div id="signInButtonCon">
+                        <div id="btnSignIn" class="btn greenRoundedBtn" tabindex="4">Sign In</div>
+                    </div>
+                    <p id="signInCreateAccount" class="linkRealtorBlue" style="text-align: center;">Create an Account</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="ClientPortalModalToggle2" aria-hidden="true" aria-labelledby="ClientPortalModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ClientPortalModalToggleLabel2">Modal 2</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Hide this modal and show the first with the button below.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#ClientPortalModalToggle" data-bs-toggle="modal">Back to first</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--  -->
