@@ -117,27 +117,33 @@
                  </div>
               </div>
               <div class="dropdown col-3 px-1 drp-dwn">
-                <select id="min-price" class="form-select"
-                  onchange="updateMaxPriceOptions(); applyFilter('min_list_price', this.value);">
-                  <option selected="" disabled="">Min Price</option>
-                  <option value="25000">$25k</option>
-                  <option value="35000">$35k</option>
+                <select id="min-price" class="form-select" [(ngModel)]="minPriceFilter"
+                  onchange="updateMaxPriceOptions(); applyFilter('min_list_price', this.value);"
+                  (change)="filterPropertyValues()">
+                  <option value="0">Min Price</option>
+                  <option data-tokens="Apartments" value="5000000">$5M</option>
+                      <option data-tokens="Bungalow" value="15000000">$15M</option>
+                      <option data-tokens="Houses" value="20000000">$20M</option>
+                      <option data-tokens="Loft" value="25000000">$25M</option>
                 </select>
               </div>
 
               <div class="dropdown col-3 px-1 drp-dwn">
-                <select id="max-price" class="form-select"
-                  onchange="updateMinPriceOptions(); applyFilter('max_list_price', this.value);">
-                  <option selected="" disabled="">Max Price</option>
-                  <option value="25000">$25k</option>
-                  <option value="35000">$35k</option>
+                <select id="max-price" class="form-select" [(ngModel)]="maxPriceFilter"
+                  onchange="updateMinPriceOptions(); applyFilter('max_list_price', this.value);"
+                  (change)="filterPropertyValues()">
+                  <option value="0">Max Price</option>
+                  <option data-tokens="Apartments" value="5000000">$5M</option>
+                  <option data-tokens="Bungalow" value="15000000">$15M</option>
+                  <option data-tokens="Houses" value="20000000">$20M</option>
+                  <option data-tokens="Loft" value="25000000">$25M</option>
                 </select>
               </div>
 
               <div class="dropdown col-3 px-1 drp-dwn">
-                <select class="form-select" onchange="applyFilter('min_bedrooms', this.value);">
-                  <option selected="" disabled="">Beds</option>
-                  <option value="">Beds</option>
+                <select class="form-select" onchange="applyFilter('min_bedrooms', this.value);" 
+                (change)="filterPropertyValues()" [(ngModel)]="min_bedrooms">
+                  <option value="0">Beds</option>
                   <option value="1">1 +</option>
                   <option value="2">2 +</option>
                   <option value="3">3 +</option>
@@ -147,9 +153,9 @@
               </div>
 
               <div class="dropdown col-3 px-1 drp-dwn">
-                <select class="form-select" onchange="applyFilter('min_bathrooms', this.value);">
-                  <option selected="" disabled="">Baths</option>
-                  <option value="">Baths</option>
+                <select class="form-select" onchange="applyFilter('min_bathrooms', this.value);"
+                [(ngModel)]="min_bathrooms" (change)="filterPropertyValues()">
+                  <option value="0">Baths</option>
                   <option value="1">1 +</option>
                   <option value="2">2 +</option>
                   <option value="3">3 +</option>
@@ -167,8 +173,9 @@
               </div>
 
               <div class="dropdown col-3 px-1 mt-2 drp-dwn">
-                <select class="form-select" onchange="applyFilter('property_type', this.value);">
-                  <option selected="" disabled="">Property Type</option>
+                <select class="form-select" onchange="applyFilter('property_type', this.value);"
+                [(ngModel)]="property_type" (change)="filterPropertyValues()">
+                  <option value="">Property Type</option>
                   <option value="Residential">Residential</option>
                   <option value="Land">Land</option>
                   <option value="Commercial">Commercial</option>

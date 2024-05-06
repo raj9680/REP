@@ -19,6 +19,7 @@ export class PropertySearchComponent implements OnInit {
   lng: number = -114.1395738;
   
   propertiesFound: any[] = [];
+  allPropertiesFound: any[] = [];
   page: number = 1;
   itemsPerPage = 10;
   totalItems : any; 
@@ -61,6 +62,7 @@ export class PropertySearchComponent implements OnInit {
   SearchPropertyByAdvance(){
     this._propertySearchService.getPropertyByAdvanceSearch(this.advanceSearchForm.value).subscribe((data:any) =>{
       this.propertiesFound = [];
+      this.allPropertiesFound = data;
       this.propertiesFound = data;
     })
   }
@@ -106,6 +108,7 @@ export class PropertySearchComponent implements OnInit {
   getPropertyAdvanceSearch(){
     this.propertiesFound = [];
     this._propertySearchService.getPropertySearch(this.searchQueryText ? this.searchQueryText : '').subscribe((data: any) => {
+      this.allPropertiesFound = data;
       this.propertiesFound = data;
     })
   }
@@ -113,11 +116,7 @@ export class PropertySearchComponent implements OnInit {
   gty(page: any){
     this.getPropertyAdvanceSearch();
   }
-  markerClicked(event:any){
-    debugger;
-  }
-
-  
+   
   clusterStyles: ClusterStyle[] =  [
     {
         textColor: "white",
@@ -139,7 +138,54 @@ markerIcon = {
   url: '../../../assets/images/advanced-marker.png', // Blue marker icon
   scaledSize: new google.maps.Size(40, 40) // Adjust marker size if needed
 };
+// propertyFilterFields: any[] = [];
+// AddfilterPropertyData(fieldName: string, _value: string){
+//   let index = this.propertyFilterFields.indexOf((i: any) => i.fieldName == fieldName);
+//   if(index != -1){
+//     this.propertyFilterFields[index].value = _value;
+//   }
+//   else{
+//     this.propertyFilterFields.push({fieldName: fieldName, value: _value})
+//   }
+// }
+minPriceFilter:number = 0;
+maxPriceFilter:number = 0;
+min_bedrooms: number = 0;
+min_bathrooms: number = 0;
+property_type: string = '';
+filterPropertyValues(){
+  let data = this.allPropertiesFound;
+  if(this.minPriceFilter !=0){
+    data = data.filter(f => f.listPrice && (Number(f.listPrice) >= this.minPriceFilter) )
+  }
+  else{
+    data = data;
+  }
+  if(this.maxPriceFilter !=0){
+    data = data.filter(f => f.listPrice && (Number(f.listPrice) <= this.maxPriceFilter) )
+  }
+  else{
+    data = data;
+  }
+  if(this.min_bedrooms !=0){
+    data = data.filter(f => f.bedroomsTotal && (Number(f.bedroomsTotal) >= this.min_bedrooms) )
+  }
+  else{
+    data = data;
+  }
 
-
-
+  if(this.min_bathrooms !=0){
+    data = data.filter(f => f.bathroomsFull && (Number(f.bathroomsFull) >= this.min_bathrooms) )
+  }
+  else{
+    data = data;
+  }
+  if(this.property_type != ''){
+    data = data.filter(f => f.propertyType && (f.propertyType == this.property_type) )
+  }
+  else{
+    data = data;
+  }
+  this.propertiesFound = data;
+}
 }
