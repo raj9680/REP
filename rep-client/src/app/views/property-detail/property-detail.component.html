@@ -6,9 +6,9 @@
         <div class="single-property-content mb30-md">
           <h1 class="sp-lg-title">{{PropertyDetail?.fullAddress}}</h1>
           <div class="buttons">
-            <button class="features me-2" style="background-color: rgb(16, 87, 159);">{{PropertyDetail.isDiamondType ?
+            <button class="features me-2" style="background-color: rgb(16, 87, 159);">{{PropertyDetail?.isDiamondType?
               'Diamond' : 'Feature'}}</button>
-            <button class="propertytype">{{PropertyDetail.propertyType}}</button>
+            <button class="propertytype">{{PropertyDetail?.propertyType}}</button>
             <div class="d-flex gap-2 mt-3 addres">
               <svg class="mt-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 viewBox="0 0 16 16">
@@ -18,7 +18,7 @@
                 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"></path>
               </svg>
               <p class="addresses">
-                {{PropertyDetail.propertyType}} For Sale in {{PropertyDetail.city}}, {{PropertyDetail.stateOrProvince}}
+                {{PropertyDetail?.propertyType}} For Sale in {{PropertyDetail?.city}}, {{PropertyDetail?.stateOrProvince}}
               </p>
             </div>
           </div>
@@ -27,14 +27,14 @@
       <div class="col-lg-4">
         <div class="single-property-content">
           <div class="property-action text-lg-end">
-            <div class="d-flex mb20 mb10-md align-items-center justify-content-lg-end">
+            <!-- <div class="d-flex mb20 mb10-md align-items-center justify-content-lg-end">
               <a class="icon mr10" href="#"><span class="flaticon-like"></span></a>
               <a class="icon mr10" href="#"><span class="flaticon-new-tab"></span></a>
               <a class="icon mr10" href="#"><span class="flaticon-share-1"></span></a>
               <a class="icon" href="#"><span class="flaticon-printer"></span></a>
-            </div>
-            <h4 class="price mb-0">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2' }}</h4>
-            <p class="text space fz15">{{ PropertyDetail.listPriceSquareFoot | number | currency: 'CAD' :
+            </div> -->
+            <h4 class="price mb-0">{{ PropertyDetail?.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2' }}</h4>
+            <p class="text space fz15">{{ PropertyDetail?.listPriceSquareFoot | number | currency: 'CAD' :
               'symbol-narrow' : '4.0-2' }}/sq ft</p>
           </div>
         </div>
@@ -64,7 +64,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <div class="d-flex align-items-center justify-content-between w-100 px-3">
-                    <img class="logo" src="http://127.0.0.1:8000/images/logo.svg" alt="">
+                    <img class="logo" src="../../../assets/images/logo.svg" alt="">
                     <div class="d-flex gap-2 justify-content-between" style="align-items: baseline;">
 
                       <p class="mb-0 fa fa-heart-o cursor-pointer">
@@ -144,7 +144,7 @@
                 <span class="icon flaticon-bed"></span>
                 <div class="ml15">
                   <h6 class="mb-0">Bedroom</h6>
-                  <p class="text mb-0 fz15">3</p>
+                  <p class="text mb-0 fz15">{{PropertyDetail?.bedrooms}}</p>
                 </div>
               </div>
             </div>
@@ -153,7 +153,7 @@
                 <span class="icon flaticon-shower"></span>
                 <div class="ml15">
                   <h6 class="mb-0">Bath</h6>
-                  <p class="text mb-0 fz15">2</p>
+                  <p class="text mb-0 fz15">{{PropertyDetail?.bathrooms}}</p>
                 </div>
               </div>
             </div>
@@ -162,7 +162,7 @@
                 <span class="icon flaticon-event"></span>
                 <div class="ml15">
                   <h6 class="mb-0">Year Built</h6>
-                  <p class="text mb-0 fz15">2022</p>
+                  <p class="text mb-0 fz15">{{PropertyDetail?.yearBuilt}}</p>
                 </div>
               </div>
             </div>
@@ -171,7 +171,7 @@
                 <span class="icon flaticon-garage"></span>
                 <div class="ml15">
                   <h6 class="mb-0">Garage</h6>
-                  <p class="text mb-0 fz15">2</p>
+                  <p class="text mb-0 fz15">{{PropertyDetail.garage}}</p>
                 </div>
               </div>
             </div>
@@ -180,7 +180,7 @@
                 <span class="icon flaticon-expand"></span>
                 <div class="ml15">
                   <h6 class="mb-0">Sqft</h6>
-                  <p class="text mb-0 fz15">1200</p>
+                  <p class="text mb-0 fz15">{{PropertyDetail.livingAreaSF}}</p>
                 </div>
               </div>
             </div>
@@ -189,7 +189,7 @@
                 <span class="icon flaticon-home-1"></span>
                 <div class="ml15">
                   <h6 class="mb-0">Property Type</h6>
-                  <p class="text mb-0 fz15">Apartment</p>
+                  <p class="text mb-0 fz15">{{PropertyDetail?.propertyType}}</p>
                 </div>
               </div>
             </div>
@@ -199,14 +199,14 @@
           <h4 class="my-3">Description</h4>
           <hr class="mb-3">
           <p>
-            {{PropertyDetail.publicRemarks}}
+            {{PropertyDetail?.publicRemarks}}
           </p>
         </div>
         <div class="address ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30  overflow-hidden position-relative">
           <div class="d-flex align-items-center justify-content-between my-3">
             <h4>Address</h4>
             <button class="ud-btn btn-primary border-0"
-              (click)="openGoogleMap(PropertyDetail.latitude,PropertyDetail.longitude)">Open on Google Maps</button>
+              (click)="openGoogleMap(PropertyDetail?.latitude,PropertyDetail?.longitude)">Open on Google Maps</button>
           </div>
           <hr>
           <div class="row">
@@ -255,7 +255,7 @@
               <h4>Details</h4>
               <div class="d-flex align-items-center gap-2">
                 <i class="fa-light fa-calendar-days"></i>
-                <p class="updatedate mb-0">Updated on {{PropertyDetail.modified_Date | date : 'MM/d/y H:mm:ss'}}</p>
+                <p class="updatedate mb-0">Updated on {{PropertyDetail?.modified_Date | date : 'MM/d/y H:mm:ss'}}</p>
               </div>
             </div>
             <hr>
@@ -264,36 +264,36 @@
                 <div class="col-12 col-sm">
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>MLS Number :</strong></span>
-                    <p class="mb-2 listingid">{{PropertyDetail.listingId}}</p>
+                    <p class="mb-2 listingid">{{PropertyDetail?.listingId}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Price :</strong></span>
-                    <p class="mb-2 listprice">{{ PropertyDetail.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2'
+                    <p class="mb-2 listprice">{{ PropertyDetail?.listPrice | currency: 'CAD' : 'symbol-narrow' : '4.0-2'
                       }}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Property Size :</strong></span>
-                    <p class="mb-2 propertysize">{{ PropertyDetail.listPriceSquareFoot | number | currency: 'CAD' :
+                    <p class="mb-2 propertysize">{{ PropertyDetail?.listPriceSquareFoot | number | currency: 'CAD' :
                       'symbol-narrow' : '4.0-2' }} Sq ft</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Bedrooms :</strong></span>
-                    <p class="mb-2 bedroom">{{PropertyDetail.bedrooms}}</p>
+                    <p class="mb-2 bedroom">{{PropertyDetail?.bedrooms}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Bathroom :</strong></span>
-                    <p class="mb-2 bathroom">{{PropertyDetail.bathrooms}}</p>
+                    <p class="mb-2 bathroom">{{PropertyDetail?.bathrooms}}</p>
                   </div>
                   <hr>
                 </div>
                 <div class="col-12 col-sm">
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Garage :</strong></span>
-                    <p class="mb-2 garage">{{PropertyDetail.isGarage == 1 ? PropertyDetail.garage : 0}}</p>
+                    <p class="mb-2 garage">{{PropertyDetail?.isGarage == 1 ? PropertyDetail?.garage : 0}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
@@ -303,17 +303,17 @@
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Year Built :</strong></span>
-                    <p class="mb-2 years">{{PropertyDetail.yearBuilt}}</p>
+                    <p class="mb-2 years">{{PropertyDetail?.yearBuilt}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Property Type :</strong></span>
-                    <p class="mb-2 propertytype">{{PropertyDetail.propertyType}}</p>
+                    <p class="mb-2 propertytype">{{PropertyDetail?.propertyType}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span><strong>Property Status :</strong></span>
-                    <p class="mb-2 buildingtype">{{PropertyDetail.transactionType}}</p>
+                    <p class="mb-2 buildingtype">{{PropertyDetail?.transactionType}}</p>
                   </div>
                   <hr>
                 </div>
@@ -328,17 +328,17 @@
                 <div class="col-12 col-sm">
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="depo"><strong>Fencing :</strong></span>
-                    <p class="mb-2 deposit">{{PropertyDetail.fencing ? PropertyDetail.fencing : 'N/A'}}</p>
+                    <p class="mb-2 deposit">{{PropertyDetail?.fencing ? PropertyDetail?.fencing : 'N/A'}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="pool"><strong>Sewer :</strong></span>
-                    <p class="mb-2 poolsize">{{PropertyDetail.sewer ? PropertyDetail.sewer: 'N/A'}}</p>
+                    <p class="mb-2 poolsize">{{PropertyDetail?.sewer ? PropertyDetail?.sewer: 'N/A'}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="remodel"><strong>Water Front :</strong></span>
-                    <p class="mb-2 parking">{{PropertyDetail.waterfrontFeatures ? PropertyDetail.waterfrontFeatures:
+                    <p class="mb-2 parking">{{PropertyDetail?.waterfrontFeatures ? PropertyDetail?.waterfrontFeatures:
                       'N/A'}}</p>
                   </div>
                   <hr>
@@ -346,17 +346,17 @@
                 <div class="col-12 col-sm">
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="amenitites"><strong>Lot Features :</strong></span>
-                    <p class="mb-2 clubhouse">{{PropertyDetail.lotFeatures ? PropertyDetail.lotFeatures: 'N/A'}}</p>
+                    <p class="mb-2 clubhouse">{{PropertyDetail?.lotFeatures ? PropertyDetail?.lotFeatures: 'N/A'}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="additional"><strong>Zoning :</strong></span>
-                    <p class="mb-2 additionalroom">{{PropertyDetail.zoning ? PropertyDetail.zoning: 'N/A'}}</p>
+                    <p class="mb-2 additionalroom">{{PropertyDetail?.zoning ? PropertyDetail?.zoning: 'N/A'}}</p>
                   </div>
                   <hr>
                   <div class="d-flex align-items-center justify-content-between">
                     <span class="equip"><strong>Frontage :</strong></span>
-                    <p class="mb-2 equipment">{{PropertyDetail.frontageLength ? PropertyDetail.frontageLength: 'N/A'}}
+                    <p class="mb-2 equipment">{{PropertyDetail?.frontageLength ? PropertyDetail?.frontageLength: 'N/A'}}
                     </p>
                   </div>
                   <hr>
@@ -365,7 +365,7 @@
             </div>
           </div>
         </div>
-        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
+        <!-- <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
           <h4 class="title fz17 mb30">Floor Plans</h4>
           <div class="row">
             <div class="col-md-12">
@@ -441,8 +441,8 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
+        </div> -->
+        <!-- <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
           <div class="Walk-Score my-5" id="section8">
             <h4>Walk Score</h4>
             <hr class="mt-4 mb-3">
@@ -454,7 +454,7 @@
                 src="https://www.walkscore.com/serve-walkscore-tile.php?wsid=&amp;s=328-Silver-Crest-Drive-Calgary-Alberta-T3B2Y2&amp;o=h&amp;c=f&amp;h=620&amp;fh=0&amp;w=620"></iframe>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
           <div class="mortgage-calc my-5" id="section13">
             <h4>Mortgage Calculator</h4>
@@ -509,7 +509,7 @@
                 <h6>Total Amount</h6>
                 <div class="inp">
                   <div class="icons">$</div>
-                  <input type="text" [disabled]="true" value="{{PropertyDetail.listPrice}}">
+                  <input type="text" [disabled]="true" value="{{PropertyDetail?.listPrice}}">
                 </div>
               </div>
               <div class="col-6 col-sm-4">
@@ -572,7 +572,7 @@
         </div>
         <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
           <h4 class="title fz17 mb30">Get More Information</h4>
-          <div class="agent-single d-sm-flex align-items-center bdrb1 mb30 pb25">
+          <!-- <div class="agent-single d-sm-flex align-items-center bdrb1 mb30 pb25">
             <div class="single-img mb30-sm">
               <img class="w90" src="images/team/agent-3.png" alt="">
             </div>
@@ -590,7 +590,7 @@
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="row">
             <div class="col-md-12">
               <form class="form-style1 row">
@@ -612,7 +612,7 @@
                     <input type="email" class="form-control" placeholder="creativelayers088">
                   </div>
                 </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                   <div class="widget-wrapper sideborder-dropdown psp-review mb20">
                     <label class="heading-color ff-heading fw600 mb10">I'm a</label>
                     <div class="form-style2 input-group">
@@ -626,7 +626,7 @@
                       </select>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-md-12">
                   <div class="mb10">
                     <label class="heading-color ff-heading fw600 mb10">Message</label>
@@ -822,22 +822,22 @@
                     <hr class="mt-4 mb-3">
                     <div class=" sm-align-items-start gap-3 d-flex flex-column flex-sm-row">
                       <div class="profile">
-                        <img src="{{PropertyDetail.memberImageName}}" alt="Description of the image" class="agent-img">
+                        <img src="{{PropertyDetail?.memberImageName}}" alt="Description of the image" class="agent-img">
                       </div>
                       <div class="pro-info">
                         <div class="d-flex align-items-center gap-2">
                           <i class="fa fa-user-o" aria-hidden="true"></i>
-                          <p class="agentname">{{PropertyDetail.memberFullName}}</p>
+                          <p class="agentname">{{PropertyDetail?.memberFullName}}</p>
                         </div>
                         <div class="d-flex flex-column mt-2 ">
                           <div class="d-flex align-items-center gap-2"><i class="fa fa-phone" aria-hidden="true"></i>
                             <span><a class="phoneno"
-                                href="tel:{{PropertyDetail.memberDirectPhone}}">{{PropertyDetail.memberDirectPhone}}</a></span>
+                                href="tel:{{PropertyDetail?.memberDirectPhone}}">{{PropertyDetail?.memberDirectPhone}}</a></span>
                           </div>
-                          <div class="d-flex align-items-center gap-2" *ngIf="PropertyDetail.memberFax"><i
+                          <div class="d-flex align-items-center gap-2" *ngIf="PropertyDetail?.memberFax"><i
                               class="fa fa-mobile" aria-hidden="true"></i>
                             <span><a class="contactno"
-                                href="tel:{{PropertyDetail.memberFax}}">{{PropertyDetail.memberFax}}</a></span>
+                                href="tel:{{PropertyDetail?.memberFax}}">{{PropertyDetail?.memberFax}}</a></span>
                           </div>
                           <div class="d-flex align-items-center gap-2"><i class="fa fa-whatsapp" aria-hidden="true"></i>
                             <span>WhatsApp</span>
@@ -900,7 +900,7 @@
         </div>
       </div>
     </div>
-    <div class="row mt30 wow fadeInUp" data-wow-delay="700ms">
+    <!-- <div class="row mt30 wow fadeInUp" data-wow-delay="700ms">
       <div class="col-lg-8">
         <div class="main-title2">
           <h2 class="title">Nearby Similar Homes</h2>
@@ -1063,6 +1063,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>

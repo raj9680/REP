@@ -44,7 +44,7 @@ import { ChartModule } from 'primeng/chart';
     ViewsRoutingModule,
     NgxPaginationModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDnJEAQfHhQPYxgAVdMjLbLL5r1hQ7PpoQ'
+      apiKey: 'AIzaSyD4BkHYhOwZ8xIEsqj_eR0vnsY2kGwCJrc'
     }),
     ChartModule,
     AgmJsMarkerClustererModule,    

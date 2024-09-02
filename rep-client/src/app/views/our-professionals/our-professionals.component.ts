@@ -13,6 +13,7 @@ export class OurProfessionalsComponent implements OnInit {
   page: number = 1;
   itemsPerPage = 8;
   totalItems : any; 
+  agentName: string = "";
 
   constructor(private _agentService: OurProfessionalsService, public _sharedService: SharedService) { }
 
@@ -21,7 +22,7 @@ export class OurProfessionalsComponent implements OnInit {
   }
 
   getAgents() {
-    this._agentService.getAgentLists().subscribe(data => {
+    this._agentService.getAgentLists(this.agentName).subscribe(data => {
       this.agents = data;
       this.page = 0;
       this.totalItems = data.length;
@@ -29,7 +30,7 @@ export class OurProfessionalsComponent implements OnInit {
   }
 
   gty(page: any){
-    this._agentService.getAgentLists().subscribe((data: any) => {
+    this._agentService.getAgentLists(this.agentName).subscribe((data: any) => {
       this.agents = data;
       this.totalItems = data.lenght;
     })

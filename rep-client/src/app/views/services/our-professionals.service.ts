@@ -12,8 +12,13 @@ export class OurProfessionalsService {
     this.httpURL = environment.apiEndpoint;
    }
 
-  getAgentLists(): Observable<any[]> {
-    return  this._httpClient.get<any[]>(this.httpURL + `api/Member/GetOurProfessionals?skip=0&take=10`);
+  getAgentLists(agentName: string): Observable<any[]> {
+    if(agentName){
+      return  this._httpClient.get<any[]>(this.httpURL + `api/Member/GetOurProfessionalsByName?skip=0&take=10&name=` + agentName);
+    }
+    else{
+      return  this._httpClient.get<any[]>(this.httpURL + `api/Member/GetOurProfessionals?skip=0&take=10`);
+    }
   }
   getAgentDetailByKey(key: string): Observable<any[]> {
     return  this._httpClient.get<any[]>(this.httpURL + `api/Member/GetOurProfessionalsDetails?key=` + key);

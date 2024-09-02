@@ -11,7 +11,7 @@
                   <div class="col-12 col-sm-12 px-1 mb-3 m-res">
                      <div class="name-input email-input position-relative row res-h">
                         <div class="px-0 col-12 col-sm-9">
-                           <input type="" placeholder="Realtors®️ Name - Search by first, last or full name"
+                           <input type="" [(ngModel)]="agentName" placeholder="Realtors®️ Name - Search by first, last or full name"
                               id="searchInput" name="search" class="search">
                            <ul id="suggestionsList"></ul>
                         </div>
@@ -19,7 +19,7 @@
                            <i class="ri-refresh-line"></i>
                         </div>
                         <div class="search-btn col-9 col-sm-2 px-0 text-end">
-                           <button class=" ud-btn  blue-btn" onclick="searchAgents()" id="searchInputss">Search Realtors
+                           <button class=" ud-btn  blue-btn" (click)="getAgents()" id="searchInputss">Search Realtors
                               <img width="10" height="10"
                                  src="https://img.icons8.com/metro/26/000000/registered-trademark.png"
                                  alt="registered-trademark" /></button>
@@ -27,7 +27,7 @@
                      </div>
                   </div>
                </div>
-               <div class="row mt-2">
+               <!-- <div class="row mt-2">
                   <div class="col-sm-2"></div>
                   <div class="col-6 col-sm mt-2 mt-sm-0 px-1">
                      <div class="name-input elemm">
@@ -58,7 +58,7 @@
                      </div>
                   </div>
                   <div class="col-sm-2"></div>
-               </div>
+               </div> -->
             </div>
          </div>
       </div>
